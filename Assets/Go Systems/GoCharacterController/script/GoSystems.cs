@@ -1,8 +1,8 @@
-
+using System;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
-using System;
+
 using GoSystem.Control;
 namespace GoSystem
 {

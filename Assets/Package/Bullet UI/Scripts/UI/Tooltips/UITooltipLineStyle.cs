@@ -1,6 +1,8 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System;
+
+using UnityEngine.UI;
+
 
 namespace DuloGames.UI
 {

@@ -562,7 +562,7 @@ namespace DuloGames.UI
 		}
 		
 		/// <summary>
-		/// Creates new line object.
+		/// Creates new line UnityEngine.Object.
 		/// </summary>
 		/// <returns>The attribute row.</returns>
 		private GameObject CreateLine(RectOffset padding)
@@ -582,7 +582,7 @@ namespace DuloGames.UI
 		}
 
         /// <summary>
-        /// Creates new line column object.
+        /// Creates new line column UnityEngine.Object.
         /// </summary>
         /// <param name="parent">Parent.</param>
         /// <param name="content">Content.</param>

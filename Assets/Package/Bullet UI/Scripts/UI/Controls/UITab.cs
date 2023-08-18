@@ -1,7 +1,9 @@
 using UnityEngine;
+using System;
+
 using UnityEngine.UI;
 using DuloGames.UI.Tweens;
-using System;
+
 
 namespace DuloGames.UI
 {

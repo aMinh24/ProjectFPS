@@ -219,7 +219,7 @@ namespace DuloGames.UI
         /// <summary>
         /// Adds a chat message to the specified tab.
         /// </summary>
-        /// <param name="msg">The chat message object.</param>
+        /// <param name="msg">The chat message UnityEngine.Object.</param>
         public void ReceiveChatMessage(Message msg)
         {
             // Make sure we have message container

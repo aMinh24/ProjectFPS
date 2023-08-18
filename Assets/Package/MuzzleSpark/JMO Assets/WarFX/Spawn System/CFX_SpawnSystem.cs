@@ -11,10 +11,10 @@ using System.Collections.Generic;
 public class CFX_SpawnSystem : MonoBehaviour
 {
 	/// <summary>
-	/// Get the next available preloaded Object.
+	/// Get the next available preloaded UnityEngine.Object.
 	/// </summary>
 	/// <returns>
-	/// The next available preloaded Object.
+	/// The next available preloaded UnityEngine.Object.
 	/// </returns>
 	/// <param name='sourceObj'>
 	/// The source Object from which to get a preloaded copy.
@@ -81,7 +81,7 @@ public class CFX_SpawnSystem : MonoBehaviour
 	/// Preloads an object a number of times in the pool.
 	/// </summary>
 	/// <param name='sourceObj'>
-	/// The source Object.
+	/// The source UnityEngine.Object.
 	/// </param>
 	/// <param name='poolSize'>
 	/// The number of times it will be instantiated in the pool (i.e. the max number of same object that would appear simultaneously in your Scene).
@@ -92,10 +92,10 @@ public class CFX_SpawnSystem : MonoBehaviour
 	}
 	
 	/// <summary>
-	/// Unloads all the preloaded objects from a source Object.
+	/// Unloads all the preloaded objects from a source UnityEngine.Object.
 	/// </summary>
 	/// <param name='sourceObj'>
-	/// Source object.
+	/// Source UnityEngine.Object.
 	/// </param>
 	static public void UnloadObjects(GameObject sourceObj)
 	{

@@ -1,4 +1,5 @@
 using System;
+
 using UnityEngine.Serialization;
 using System.Collections.Generic;
 using UnityEngine;
@@ -1193,7 +1194,7 @@ namespace DuloGames.UI
 		/// Creates a separator.
 		/// </summary>
 		/// <param name="index">Index.</param>
-        /// <returns>The separator game object.</returns>
+        /// <returns>The separator game UnityEngine.Object.</returns>
 		protected GameObject CreateSeparator(int index)
 		{
 			if (this.m_ListContentObject == null || this.listSeparatorSprite == null)
