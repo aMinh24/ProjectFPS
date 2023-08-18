@@ -13,7 +13,6 @@ public class RaycastWeapon : MonoBehaviour
     public float bulletDrop = 0f;
     public ParticleSystem[] muzzleFlash;
     public ParticleSystem hitEffect;
-    public TrailRenderer tracerEffect;
     public Transform raycastOrigin;
     public Transform raycastDestination;
     public WeaponRecoil weaponRecoil;
@@ -42,7 +41,7 @@ public class RaycastWeapon : MonoBehaviour
         {
             accumulatedTime = 0.0f;
         }
-        weaponRecoil.Reset();
+        weaponRecoil?.Reset();
     }
 
     public void StopFiring()
@@ -145,7 +144,7 @@ public class RaycastWeapon : MonoBehaviour
         var bullet = ObjectPool.Instance.GetPooledObject();
         bullet.Active(raycastOrigin.position, velocity);
 
-        weaponRecoil.GenerateRecoil(weaponName);
+        weaponRecoil?.GenerateRecoil(weaponName);
     }
 
     private Vector3 GetPosition(Bullet bullet)
@@ -163,9 +162,9 @@ public class RaycastWeapon : MonoBehaviour
         ray.direction = direction;
         if(Physics.Raycast(ray, out hitInfo, distance, layerMask))
         {
-            hitEffect.transform.position = hitInfo.point;
-            hitEffect.transform.forward = hitInfo.normal;
-            hitEffect.Emit(1);
+            //hitEffect.transform.position = hitInfo.point;
+            //hitEffect.transform.forward = hitInfo.normal;
+            //hitEffect.Emit(1);
 
             bullet.transform.position = hitInfo.point;
             bullet.time = maxLifetime;

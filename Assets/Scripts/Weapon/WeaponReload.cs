@@ -15,24 +15,24 @@ public class WeaponReload : MonoBehaviour
 
     void Start()
     {
-        animationEvents.WeaponAnimEvent.AddListener(OnAnimationEvent);
-        if (DataManager.HasInstance())
-        {
-            timeDestroyDroppedMagazine = DataManager.Instance.GlobalConfig.timeDestroyDroppedMagazine;
-        }
+        //animationEvents.WeaponAnimEvent.AddListener(OnAnimationEvent);
+        //if (DataManager.HasInstance())
+        //{
+        //    timeDestroyDroppedMagazine = DataManager.Instance.GlobalConfig.timeDestroyDroppedMagazine;
+        //}
     }
 
     void Update()
     {
-        RaycastWeapon weapon = activeWeapon.GetActiveWeapon();
-        if (weapon)
-        {
-            if (Input.GetKeyDown(KeyCode.R) || weapon.CanReload())
-            {
-                isReloading = true;
-                rigController.SetTrigger("reload_weapon");
-            }
-        }
+        //RaycastWeapon weapon = activeWeapon.GetActiveWeapon();
+        //if (weapon)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.R) || weapon.CanReload())
+        //    {
+        //        isReloading = true;
+        //        rigController.SetTrigger("reload_weapon");
+        //    }
+        //}
         
     }
 
