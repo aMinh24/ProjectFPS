@@ -18,7 +18,6 @@ public class RaycastWeapon : MonoBehaviour
     public Transform raycastDestination;
     public WeaponRecoil weaponRecoil;
     public GameObject magazine;
-    public RuntimeAnimatorController animator;
     public LayerMask layerMask;
 
     public int ammoCount;
@@ -57,8 +56,12 @@ public class RaycastWeapon : MonoBehaviour
         {
             UpdateFiring(deltaTime, target);
         }
+        else
+        {
+            accumulatedTime += deltaTime;
 
-        accumulatedTime += deltaTime;
+        }
+
 
         UpdateBullets(deltaTime);
     }

@@ -85,14 +85,14 @@ public class ActiveWeapon : MonoBehaviour
         raycastWeapon = newWeapon;
         raycastWeapon.raycastDestination = crosshairTarget;
         //raycastWeapon.weaponRecoil.characterAiming = characterAiming;
-        raycastWeapon.weaponRecoil.rigController = rigController;
+        //raycastWeapon.weaponRecoil.rigController = rigController;
         raycastWeapon.transform.SetParent(weaponSlots[weaponSlotIndex],false);
         equippedWeapons[weaponSlotIndex] = raycastWeapon;
         SetActiveWeapon(newWeapon.weaponSlot);
-        if (ListenerManager.HasInstance())
-        {
-            ListenerManager.Instance.BroadCast(ListenType.UPDATE_AMMO, raycastWeapon);
-        }
+        //if (ListenerManager.HasInstance())
+        //{
+        //    ListenerManager.Instance.BroadCast(ListenType.UPDATE_AMMO, raycastWeapon);
+        //}
     }
 
     public RaycastWeapon GetActiveWeapon()
