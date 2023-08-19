@@ -21,7 +21,7 @@ MonoBehaviour:
   maxSight: 5
   timeDestroyAI: 3
   shootingRange: 15
-  jumpHeight: 3
+  jumpHeight: 1.2
   gravity: 20
   stepDown: 0.1
   airControl: 2.5

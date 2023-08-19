@@ -121,9 +121,14 @@ public class CharacterLocomotion : MonoBehaviour
 		{
 			this.isCrouching = false;
 		}
-		this.rigController.SetBool(this.isSprintingParam, flag);
-		this.animator.SetBool(this.isSprintingParam, flag);
-	}
+		if (!activeWeapon.isHolstered)
+		{
+            this.rigController.SetBool(this.isSprintingParam, flag);
+            this.animator.SetBool(this.isSprintingParam, flag);
+        }
+        else this.animator.SetBool(isSprintingUnarmParam, flag);
+
+    }
 
 	// Token: 0x06000164 RID: 356 RVA: 0x00008FC0 File Offset: 0x000071C0
 	private void UpdateOnGround()
@@ -256,9 +261,10 @@ public class CharacterLocomotion : MonoBehaviour
 
 	// Token: 0x04000198 RID: 408
 	private int isSprintingParam = Animator.StringToHash("IsSprinting");
+    private int isSprintingUnarmParam = Animator.StringToHash("IsSprintingUnarm");
 
-	// Token: 0x04000199 RID: 409
-	private int isCrouchingParam = Animator.StringToHash("IsCrouching");
+    // Token: 0x04000199 RID: 409
+    private int isCrouchingParam = Animator.StringToHash("IsCrouching");
 
 	// Token: 0x0400019A RID: 410
 	private int isJumpingParam = Animator.StringToHash("IsJumping");

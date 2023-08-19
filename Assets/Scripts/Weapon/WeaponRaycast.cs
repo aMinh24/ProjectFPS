@@ -181,9 +181,13 @@ public class WeaponRaycast : MonoBehaviour
 		this.ray.direction = direction;
 		if (Physics.Raycast(this.ray, out this.hitInfo, magnitude, this.hitLayer))
 		{
-			this.hitEffect.transform.position = this.hitInfo.point;
-			this.hitEffect.transform.forward = this.hitInfo.normal;
-			this.hitEffect.Emit(1);
+			foreach (var effect in hitEffect)
+			{
+                effect.transform.position = this.hitInfo.point;
+                effect.transform.forward = this.hitInfo.normal;
+                effect.Emit(effect.maxParticles);
+            }
+			
 			bullet.transform.position = this.hitInfo.point;
 			bullet.time = this.maxLifetime;
 			end = this.hitInfo.point;
@@ -220,7 +224,7 @@ public class WeaponRaycast : MonoBehaviour
 	public ParticleSystem[] muzzleFlash;
 
 	// Token: 0x040001FA RID: 506
-	public ParticleSystem hitEffect;
+	public ParticleSystem[] hitEffect;
 
 	// Token: 0x040001FB RID: 507
 	public Transform raycastOrigin;
