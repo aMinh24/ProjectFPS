@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 
 // Token: 0x02000040 RID: 64
@@ -29,6 +30,7 @@ public class AiStateMachine
 	public void Update()
 	{
 		AIState state = this.GetState(this.currentState);
+		
 		if (state == null)
 		{
 			return;

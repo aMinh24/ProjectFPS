@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalEnemy: 20
   maxTime: 1
-  maxDistance: 1
+  maxDistance: 50
   maxHealth: 100
   blinkDuration: 0.1
   dieForce: 10
-  maxSight: 5
+  maxSight: 50
   timeDestroyAI: 3
-  shootingRange: 15
+  shootingRange: 30
   jumpHeight: 1.2
   gravity: 20
   stepDown: 0.1

@@ -25,25 +25,15 @@ public class AiWeaponIK : MonoBehaviour
 		base.transform.rotation = rotation;
 	}
 
-	// Token: 0x0400011B RID: 283
-	public Transform aimOrigin;
 
-	// Token: 0x0400011C RID: 284
 
-	// Token: 0x0400011D RID: 285
-	public Vector3 targetOffset;
 
-	// Token: 0x0400011E RID: 286
-	public float angleLimit;
 
-	// Token: 0x0400011F RID: 287
-	public float distanceLimit;
+
 
 	// Token: 0x04000120 RID: 288
 	private Animator animator;
 
-	// Token: 0x04000121 RID: 289
-	public Transform[] boneTransform;
 
 	// Token: 0x04000122 RID: 290
 	public float rotationSpeed = 10f;

@@ -47,15 +47,21 @@ public class AIStateIdle : AIState
 		Vector3 forward = agent.transform.forward;
 		float magnitude = this.playerDirection.magnitude;
 		Ray ray = new Ray(position, this.playerDirection);
+		Debug.DrawRay(position, playerDirection, Color.red);
 		this.playerDirection.Normalize();
 		float num = Vector3.Dot(this.playerDirection, forward);
 		RaycastHit raycastHit;
-		if (Physics.Raycast(ray, out raycastHit, magnitude) && num >= 0f && raycastHit.collider.gameObject.tag.Equals("Player"))
-		{
-			agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
+		
+		if (Physics.Raycast(ray, out raycastHit, magnitude) && num >= 0f && (raycastHit.collider.gameObject.tag.Equals("Player")))
+        {
+            agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
 			Debug.Log("ChangeToAttack");
 		}
-	}
+        if (Physics.Raycast(ray, out raycastHit, magnitude) && num >= 0f)
+        {
+            Debug.Log(raycastHit.collider.gameObject.tag);
+        }
+    }
 
 	// Token: 0x04000111 RID: 273
 	private Vector3 playerDirection;

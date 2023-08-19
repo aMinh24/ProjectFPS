@@ -36,6 +36,7 @@ public class AiAgent : MonoBehaviour
 	// Token: 0x060000A1 RID: 161 RVA: 0x000055F0 File Offset: 0x000037F0
 	private void Update()
 	{
+		Debug.Log(stateMachine.currentState);
 		this.stateMachine.Update();
 	}
 
