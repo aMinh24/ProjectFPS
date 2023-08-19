@@ -12,7 +12,7 @@ public class DataManager : BaseManager<DataManager>
 		this.dataFilePath = Application.dataPath + "/playerdata.json";
 		this.missionFilePath = Application.dataPath + "/mission.json";
 		this.achivementFilePath = Application.dataPath + "/achive.json";
-		this.LoadPlayerData();
+		//this.LoadPlayerData();
 	}
 
 	// Token: 0x06000110 RID: 272 RVA: 0x00006DDE File Offset: 0x00004FDE

@@ -139,7 +139,6 @@ public class ActiveWeapon : MonoBehaviour
 			BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_TOTAL_AMMO, newWeapon);
 			return;
 		}
-		Debug.Log("lis: " + BaseManager<ListenerManager>.HasInstance().ToString());
 	}
 
 	// Token: 0x0600014E RID: 334 RVA: 0x0000878F File Offset: 0x0000698F

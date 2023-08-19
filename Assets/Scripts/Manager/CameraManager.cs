@@ -8,7 +8,7 @@ public class CameraManager : BaseManager<CameraManager>
 	// Token: 0x06000108 RID: 264 RVA: 0x00006C80 File Offset: 0x00004E80
 	private void Start()
 	{
-		this.ChangeCam(virCam.Main);
+		//this.ChangeCam(virCam.Main);
 		if (BaseManager<ListenerManager>.HasInstance())
 		{
 			BaseManager<ListenerManager>.Instance.Register(ListenType.ON_PLAYER_DEATH, new Action<object>(this.DeathCamera));

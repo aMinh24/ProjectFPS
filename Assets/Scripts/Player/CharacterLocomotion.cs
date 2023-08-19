@@ -11,7 +11,6 @@ public class CharacterLocomotion : MonoBehaviour
 		this.characterController = base.GetComponent<CharacterController>();
 		this.activeWeapon = base.GetComponent<ActiveWeapon>();
 		this.reloadWeapon = base.GetComponent<WeaponReload>();
-		this.characterAiming = base.GetComponent<CharacterAiming>();
 		this.jumpHeight = BaseManager<DataManager>.Instance.GlobalConfig.jumpHeight;
 		this.gravity = BaseManager<DataManager>.Instance.GlobalConfig.gravity;
 		this.stepDown = BaseManager<DataManager>.Instance.GlobalConfig.stepDown;
@@ -236,8 +235,6 @@ public class CharacterLocomotion : MonoBehaviour
 	// Token: 0x04000190 RID: 400
 	private WeaponReload reloadWeapon;
 
-	// Token: 0x04000191 RID: 401
-	private CharacterAiming characterAiming;
 
 	// Token: 0x04000192 RID: 402
 	private Vector2 userInput;
@@ -266,14 +263,6 @@ public class CharacterLocomotion : MonoBehaviour
 	// Token: 0x0400019A RID: 410
 	private int isJumpingParam = Animator.StringToHash("IsJumping");
 
-	// Token: 0x0400019B RID: 411
-	public Transform[] camLookAt = new Transform[2];
-
-	// Token: 0x0400019C RID: 412
-	public GameObject camLookCur;
-
-	// Token: 0x0400019D RID: 413
-	public GameObject mesh;
 
 	// Token: 0x0400019E RID: 414
 	public float maxEnergy;

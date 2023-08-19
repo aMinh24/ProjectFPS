@@ -27,6 +27,7 @@ public class WeaponRecoil : MonoBehaviour
 		}
 		this.horizontalRecoil = this.recoilPattern[this.index].x;
 		this.verticleRecoil = this.recoilPattern[this.index].y;
+		Debug.Log(index);
 		this.index = this.NextIndex(this.index);
 	}
 
