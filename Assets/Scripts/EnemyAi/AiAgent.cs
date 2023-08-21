@@ -6,8 +6,51 @@ using UnityEngine.AI;
 // Token: 0x02000034 RID: 52
 public class AiAgent : MonoBehaviour
 {
-	// Token: 0x0600009F RID: 159 RVA: 0x00005500 File Offset: 0x00003700
-	private void Awake()
+	public GameObject sp;
+
+	// Token: 0x040000F5 RID: 245
+	public AIStateID initState;
+
+
+
+    // Token: 0x040000F6 RID: 246
+    [HideInInspector]
+    public AiStateMachine stateMachine;
+
+    // Token: 0x040000F7 RID: 247
+    [HideInInspector]
+    public NavMeshAgent navMeshAgent;
+
+    // Token: 0x040000F8 RID: 248
+    public Transform spinePlayerTransform;
+
+    // Token: 0x040000F9 RID: 249
+    public Transform playerTransform;
+
+    // Token: 0x040000FA RID: 250
+    [HideInInspector]
+    public AiWeaponIK weaponIK;
+
+    // Token: 0x040000FB RID: 251
+    [HideInInspector]
+    public Animator animator;
+
+    // Token: 0x040000FC RID: 252
+    [HideInInspector]
+    public AiWeapon weapon;
+
+    // Token: 0x040000FD RID: 253
+    [HideInInspector]
+    public Ragdoll ragdoll;
+
+    // Token: 0x040000FE RID: 254
+    [HideInInspector]
+    public AiHealth health;
+
+    // Token: 0x040000FF RID: 255
+    public GameObject markUI;
+    // Token: 0x0600009F RID: 159 RVA: 0x00005500 File Offset: 0x00003700
+    private void Awake()
 	{
 		this.weaponIK = base.GetComponent<AiWeaponIK>();
 		this.animator = base.GetComponent<Animator>();
@@ -36,6 +79,7 @@ public class AiAgent : MonoBehaviour
 	// Token: 0x060000A1 RID: 161 RVA: 0x000055F0 File Offset: 0x000037F0
 	private void Update()
 	{
+		sp.transform.position = navMeshAgent.destination;
 		Debug.Log(stateMachine.currentState);
 		this.stateMachine.Update();
 	}
@@ -79,43 +123,5 @@ public class AiAgent : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x040000F5 RID: 245
-	public AIStateID initState;
-
-	// Token: 0x040000F6 RID: 246
-	[HideInInspector]
-	public AiStateMachine stateMachine;
-
-	// Token: 0x040000F7 RID: 247
-	[HideInInspector]
-	public NavMeshAgent navMeshAgent;
-
-	// Token: 0x040000F8 RID: 248
-	public Transform spinePlayerTransform;
-
-	// Token: 0x040000F9 RID: 249
-	public Transform playerTransform;
-
-	// Token: 0x040000FA RID: 250
-	[HideInInspector]
-	public AiWeaponIK weaponIK;
-
-	// Token: 0x040000FB RID: 251
-	[HideInInspector]
-	public Animator animator;
-
-	// Token: 0x040000FC RID: 252
-	[HideInInspector]
-	public AiWeapon weapon;
-
-	// Token: 0x040000FD RID: 253
-	[HideInInspector]
-	public Ragdoll ragdoll;
-
-	// Token: 0x040000FE RID: 254
-	[HideInInspector]
-	public AiHealth health;
-
-	// Token: 0x040000FF RID: 255
-	public GameObject markUI;
+	
 }

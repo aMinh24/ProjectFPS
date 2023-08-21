@@ -225,6 +225,7 @@ public class UIManager : BaseManager<UIManager>
 			{
 				UnityEngine.Object.Destroy(this.popups[v].gameObject);
 				this.popups.Remove(v);
+				rmPopups.RemoveAt(i);
 				Resources.UnloadUnusedAssets();
 				GC.Collect();
 			}
@@ -256,6 +257,7 @@ public class UIManager : BaseManager<UIManager>
 			}
 			else
 			{
+				rmPopups.Add(name2);
 				this.RemovePopup(name2);
 			}
 		}
@@ -355,6 +357,7 @@ public class UIManager : BaseManager<UIManager>
 			{
 				UnityEngine.Object.Destroy(this.notifies[v].gameObject);
 				this.notifies.Remove(v);
+				rmNotifies.RemoveAt(i);
 				Resources.UnloadUnusedAssets();
 				GC.Collect();
 			}
@@ -386,6 +389,7 @@ public class UIManager : BaseManager<UIManager>
 			}
 			else
 			{
+				rmNotifies.Add(name2);
 				this.RemoveNotify(name2);
 			}
 		}
@@ -451,6 +455,7 @@ public class UIManager : BaseManager<UIManager>
 			{
 				UnityEngine.Object.Destroy(this.overlaps[v]);
 				this.overlaps.Remove(v);
+				rmOverlaps.RemoveAt(i);
 				Resources.UnloadUnusedAssets();
 				GC.Collect();
 			}
@@ -482,6 +487,7 @@ public class UIManager : BaseManager<UIManager>
 			}
 			else
 			{
+				rmOverlaps.Add(name2);
 				this.RemoveOverLap(name2);
 			}
 		}

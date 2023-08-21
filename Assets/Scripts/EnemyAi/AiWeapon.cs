@@ -23,7 +23,7 @@ public class AiWeapon : MonoBehaviour
 		this.inAccurancy = magnitude / 30f;
 		Vector3 vector = targetTransform + Random.insideUnitSphere * this.inAccurancy;
 		this.timer -= Time.deltaTime;
-		Debug.DrawLine(this.weapon.raycastOrigin.position, vector, Color.blue);
+		//Debug.DrawLine(this.weapon.raycastOrigin.position, vector, Color.blue);
 		if (this.weapon.ammoCount <= 0)
 		{
 			this.weapon.StopFiring();

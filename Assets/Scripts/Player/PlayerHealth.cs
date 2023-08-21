@@ -8,6 +8,7 @@ public class PlayerHealth : Health
 	// Token: 0x06000179 RID: 377 RVA: 0x00009582 File Offset: 0x00007782
 	protected override void OnDamage(Vector3 direction, Rigidbody rigidbody)
 	{
+		
 		if (BaseManager<ListenerManager>.HasInstance())
 		{
 			BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_HEALTH, this);
@@ -61,7 +62,7 @@ public class PlayerHealth : Health
 	{
 		if (BaseManager<DataManager>.HasInstance())
 		{
-			this.maxHealth = BaseManager<DataManager>.Instance.GlobalConfig.maxHealth;
+			this.maxHealth = BaseManager<DataManager>.Instance.GlobalConfig.maxHealth*100;
 			this.currentHealth = this.maxHealth;
 		}
 		if (BaseManager<ListenerManager>.HasInstance())

@@ -14,6 +14,7 @@ public class AiWeaponIK : MonoBehaviour
 	public void AimTarget(Vector3 targetTransform)
 	{
 		Vector3 vector = targetTransform - (base.transform.position + new Vector3(0f, 2.2f, 0f));
+		//Debug.DrawLine((base.transform.position + new Vector3(0f, 1.3f, 0f)), targetTransform,Color.red);
 		float num = Vector3.Angle(base.transform.forward, vector);
 		if (vector.y < 0f)
 		{
@@ -38,6 +39,4 @@ public class AiWeaponIK : MonoBehaviour
 	// Token: 0x04000122 RID: 290
 	public float rotationSpeed = 10f;
 
-	// Token: 0x04000123 RID: 291
-	public float Angle;
 }

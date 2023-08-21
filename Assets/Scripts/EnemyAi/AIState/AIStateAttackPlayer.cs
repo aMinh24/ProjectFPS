@@ -16,7 +16,6 @@ public class AIStateAttackPlayer : AIState
 		}
 		agent.navMeshAgent.speed = 6f;
 		agent.navMeshAgent.destination = agent.transform.position;
-		Debug.Log("Enter");
 	}
 
 	// Token: 0x060000B0 RID: 176 RVA: 0x0000592A File Offset: 0x00003B2A

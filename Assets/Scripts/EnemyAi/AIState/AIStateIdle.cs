@@ -56,11 +56,7 @@ public class AIStateIdle : AIState
         {
             agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
 			Debug.Log("ChangeToAttack");
-		}
-        if (Physics.Raycast(ray, out raycastHit, magnitude) && num >= 0f)
-        {
-            Debug.Log(raycastHit.collider.gameObject.tag);
-        }
+		}	
     }
 
 	// Token: 0x04000111 RID: 273
