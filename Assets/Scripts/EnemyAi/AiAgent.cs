@@ -6,7 +6,6 @@ using UnityEngine.AI;
 // Token: 0x02000034 RID: 52
 public class AiAgent : MonoBehaviour
 {
-	public GameObject sp;
 
 	// Token: 0x040000F5 RID: 245
 	public AIStateID initState;
@@ -79,7 +78,6 @@ public class AiAgent : MonoBehaviour
 	// Token: 0x060000A1 RID: 161 RVA: 0x000055F0 File Offset: 0x000037F0
 	private void Update()
 	{
-		sp.transform.position = navMeshAgent.destination;
 		Debug.Log(stateMachine.currentState);
 		this.stateMachine.Update();
 	}

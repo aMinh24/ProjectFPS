@@ -62,7 +62,7 @@ public class PlayerHealth : Health
 	{
 		if (BaseManager<DataManager>.HasInstance())
 		{
-			this.maxHealth = BaseManager<DataManager>.Instance.GlobalConfig.maxHealth*100;
+			this.maxHealth = BaseManager<DataManager>.Instance.GlobalConfig.maxHealth;
 			this.currentHealth = this.maxHealth;
 		}
 		if (BaseManager<ListenerManager>.HasInstance())

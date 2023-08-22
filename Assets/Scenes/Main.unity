@@ -264,6 +264,55 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!1 &466864786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466864788}
+  - component: {fileID: 466864787}
+  m_Layer: 0
+  m_Name: MissionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &466864787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466864786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b8e94a5a852be4b9a2ac20835f3819, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionList: []
+  achivementTimeList: []
+  achivementKillsList: []
+  totalKill: 0
+  timeOnline: 0
+--- !u!4 &466864788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466864786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 97.25977, y: 1.6787766, z: 89.198296}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &644392610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,9 +1365,9 @@ MonoBehaviour:
   PistolInfo: {fileID: 0}
   TommyInfo: {fileID: 11400000, guid: 7cd23e21b464fd44a9ba6ddaad168718, type: 2}
   GlobalConfig: {fileID: 11400000, guid: 7437b480b357ed34dbdd0e88ff9334c0, type: 2}
-  PlayerData: {fileID: 0}
-  MissionList: {fileID: 0}
-  AchivementList: {fileID: 0}
+  PlayerData: {fileID: 11400000, guid: 891fd311a58de0f40b5a1bf939cef9f7, type: 2}
+  MissionList: {fileID: 11400000, guid: 7410b93d34d2c4b4b84ec4b39e3ec3df, type: 2}
+  AchivementList: {fileID: 11400000, guid: ea9424fecd82f984c811774f5e357380, type: 2}
 --- !u!1 &2101126198
 GameObject:
   m_ObjectHideFlags: 0
