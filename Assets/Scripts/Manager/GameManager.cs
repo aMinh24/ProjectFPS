@@ -17,7 +17,7 @@ public class GameManager : BaseManager<GameManager>
 		Debug.Log("StartGame");
 		if (BaseManager<UIManager>.HasInstance())
 		{
-			BaseManager<UIManager>.Instance.ShowScreen<MainMenu>(null, true);
+			BaseManager<UIManager>.Instance.ShowScreen<LoginPanel>(null, true);
 		}
 	}
 

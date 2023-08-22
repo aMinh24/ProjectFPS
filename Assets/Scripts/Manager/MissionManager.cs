@@ -20,7 +20,6 @@ public class MissionManager : BaseManager<MissionManager>
 			this.achivementTimeList = achivementList.TimeList;
 			this.totalKill = BaseManager<DataManager>.Instance.PlayerData.totalKill;
 			this.timeOnline = BaseManager<DataManager>.Instance.PlayerData.totalTime * 60f;
-			Debug.Log("total time: " + this.timeOnline.ToString());
 		}
 		if (BaseManager<ListenerManager>.HasInstance())
 		{
