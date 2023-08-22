@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1872790543505535520}
-  - component: {fileID: 1979168382429044530}
   - component: {fileID: 1870216212608774816}
   - component: {fileID: 1979152778326296796}
   m_Layer: 5
@@ -42,35 +41,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 164}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1979168382429044530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937322481523226630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99530436f04921f49a75e939dc2cb027, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 1872387416141057076}
-  m_Horizontal: 1
-  m_Vertical: 1
-  m_Inertia: 1
-  m_DampeningRate: 30
-  m_ConstrainWithinCanvas: 0
-  m_ConstrainDrag: 1
-  m_ConstrainInertia: 1
-  onBeginDrag:
-    m_PersistentCalls:
-      m_Calls: []
-  onEndDrag:
-    m_PersistentCalls:
-      m_Calls: []
-  onDrag:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!222 &1870216212608774816
 CanvasRenderer:
   m_ObjectHideFlags: 0

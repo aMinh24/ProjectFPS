@@ -13,7 +13,7 @@ public class MissionManager : BaseManager<MissionManager>
 	{
 		if (BaseManager<DataManager>.HasInstance())
 		{
-			BaseManager<DataManager>.Instance.LoadPlayerData();
+			//BaseManager<DataManager>.Instance.LoadPlayerData();
 			this.missionList = BaseManager<DataManager>.Instance.GetMissions();
 			AchivementList achivementList = BaseManager<DataManager>.Instance.GetAchivementList();
 			this.achivementKillsList = achivementList.KillList;

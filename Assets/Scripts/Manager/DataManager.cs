@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.IO;
 using UnityEngine;
 
@@ -9,10 +10,11 @@ public class DataManager : BaseManager<DataManager>
 	// Token: 0x0600010F RID: 271 RVA: 0x00006D8C File Offset: 0x00004F8C
 	private void Start()
 	{
-		this.dataFilePath = Application.dataPath + "/playerdata.json";
-		this.missionFilePath = Application.dataPath + "/mission.json";
-		this.achivementFilePath = Application.dataPath + "/achive.json";
-		//this.LoadPlayerData();
+		this.dataFilePath = Application.persistentDataPath + "/playerdata.json";
+		this.missionFilePath = Application.persistentDataPath + "/mission.json";
+		this.achivementFilePath = Application.persistentDataPath + "/achive.json";
+		Debug.Log(achivementFilePath);
+		this.LoadPlayerData();
 	}
 
 	// Token: 0x06000110 RID: 272 RVA: 0x00006DDE File Offset: 0x00004FDE
@@ -61,33 +63,32 @@ public class DataManager : BaseManager<DataManager>
 		return dictionary;
 	}
 
-	// Token: 0x06000113 RID: 275 RVA: 0x00006F22 File Offset: 0x00005122
 	private string ReadDataSO(string path)
 	{
 		if (File.Exists(path))
 		{
+
 			return File.ReadAllText(path);
+
 		}
 		return null;
 	}
 
-	// Token: 0x06000114 RID: 276 RVA: 0x00006F34 File Offset: 0x00005134
 	private void WriteDataSO(object data, string path)
 	{
 		string contents = JsonUtility.ToJson(data);
 		if (!File.Exists(path))
 		{
-			File.Create(path);
+			FileStream f = File.Create(path);
+			f.Close();
 		}
+
 		File.WriteAllText(path, contents);
 	}
 
 	// Token: 0x06000115 RID: 277 RVA: 0x00006F60 File Offset: 0x00005160
 	public void LoadPlayerData()
 	{
-		this.dataFilePath = Application.dataPath + "/playerdata.json";
-		this.missionFilePath = Application.dataPath + "/mission.json";
-		this.achivementFilePath = Application.dataPath + "/achive.json";
 		string text = this.ReadDataSO(this.dataFilePath);
 		string text2 = this.ReadDataSO(this.missionFilePath);
 		string text3 = this.ReadDataSO(this.achivementFilePath);
