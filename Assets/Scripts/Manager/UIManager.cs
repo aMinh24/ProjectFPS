@@ -257,7 +257,7 @@ public class UIManager : BaseManager<UIManager>
 			}
 			else
 			{
-				rmPopups.Add(name2);
+				//rmPopups.Add(name2);
 				this.RemovePopup(name2);
 			}
 		}
@@ -487,13 +487,13 @@ public class UIManager : BaseManager<UIManager>
 			}
 			else
 			{
-				rmOverlaps.Add(name2);
+				//rmOverlaps.Add(name2);
 				this.RemoveOverLap(name2);
 			}
 		}
 		if (baseOverlap == null)
 		{
-			if (!this.notifies.ContainsKey(name))
+			if (!this.overlaps.ContainsKey(name))
 			{
 				BaseOverlap newOverLap = this.GetNewOverLap<T>();
 				if (newOverLap != null)

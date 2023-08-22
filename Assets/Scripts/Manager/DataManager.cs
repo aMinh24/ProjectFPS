@@ -7,12 +7,17 @@ using UnityEngine;
 // Token: 0x0200004D RID: 77
 public class DataManager : BaseManager<DataManager>
 {
-	// Token: 0x0600010F RID: 271 RVA: 0x00006D8C File Offset: 0x00004F8C
-	private void Start()
+    // Token: 0x0600010F RID: 271 RVA: 0x00006D8C File Offset: 0x00004F8C
+    protected override void Awake()
+    {
+        base.Awake();
+        this.dataFilePath = Application.persistentDataPath + "/playerdata.json";
+        this.missionFilePath = Application.persistentDataPath + "/mission.json";
+        this.achivementFilePath = Application.persistentDataPath + "/achive.json";
+
+    }
+    private void Start()
 	{
-		this.dataFilePath = Application.persistentDataPath + "/playerdata.json";
-		this.missionFilePath = Application.persistentDataPath + "/mission.json";
-		this.achivementFilePath = Application.persistentDataPath + "/achive.json";
 		Debug.Log(achivementFilePath);
 		this.LoadPlayerData();
 	}

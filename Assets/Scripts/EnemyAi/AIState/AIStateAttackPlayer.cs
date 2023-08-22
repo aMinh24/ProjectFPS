@@ -14,8 +14,12 @@ public class AIStateAttackPlayer : AIState
 			this.shootingRange = BaseManager<DataManager>.Instance.GlobalConfig.shootingRange;
 			this.playerHealth = UnityEngine.Object.FindObjectOfType<PlayerHealth>();
 		}
-		agent.navMeshAgent.speed = 6f;
-		agent.navMeshAgent.destination = agent.transform.position;
+		if (agent.navMeshAgent!= null)
+		{
+            agent.navMeshAgent.speed = 6f;
+            agent.navMeshAgent.destination = agent.transform.position;
+        }
+		
 	}
 
 	// Token: 0x060000B0 RID: 176 RVA: 0x0000592A File Offset: 0x00003B2A

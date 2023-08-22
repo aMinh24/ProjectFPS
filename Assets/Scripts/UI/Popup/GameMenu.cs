@@ -60,7 +60,7 @@ public class GameMenu : BasePopup
 	{
 		if (BaseManager<UIManager>.HasInstance())
 		{
-			BaseManager<UIManager>.Instance.ShowOverlap<ConfirmBox>(null, false);
+			BaseManager<UIManager>.Instance.ShowOverlap<ConfirmBox>(null, true);
 		}
 	}
 

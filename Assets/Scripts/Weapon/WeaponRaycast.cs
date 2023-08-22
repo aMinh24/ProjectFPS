@@ -76,6 +76,7 @@ public class WeaponRaycast : MonoBehaviour
 	// Token: 0x06000207 RID: 519 RVA: 0x0000B1BC File Offset: 0x000093BC
 	public void UpdateBullets(float deltaTime)
 	{
+		if (!ObjectPool.HasInstance()) return;
 		if (this.equipBy == EquipBy.Player)
 		{
 			BaseManager<ObjectPool>.Instance.poolObjects.ForEach(delegate(Bullet bullet)
@@ -144,14 +145,18 @@ public class WeaponRaycast : MonoBehaviour
 			particleSystem.Emit(particleSystem.maxParticles);
 		}
 		Vector3 velocity = (target - this.raycastOrigin.position).normalized * (float)this.gunInfo[KeyInfo.bulletSpeed];
-		if (this.equipBy == EquipBy.Player)
+		if (ObjectPool.HasInstance())
 		{
-			BaseManager<ObjectPool>.Instance.GetPooledObject().Active(this.raycastOrigin.position, velocity);
-		}
-		else
-		{
-			BaseManager<ObjectPool>.Instance.GetPooledAiObject().Active(this.raycastOrigin.position, velocity);
-		}
+            if (this.equipBy == EquipBy.Player)
+            {
+                BaseManager<ObjectPool>.Instance.GetPooledObject().Active(this.raycastOrigin.position, velocity);
+            }
+            else
+            {
+                BaseManager<ObjectPool>.Instance.GetPooledAiObject().Active(this.raycastOrigin.position, velocity);
+            }
+        }
+		
 		WeaponRecoil weaponRecoil = this.weaponRecoil;
 		if (weaponRecoil != null)
 		{
