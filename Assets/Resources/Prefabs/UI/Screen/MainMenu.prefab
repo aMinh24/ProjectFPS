@@ -6958,9 +6958,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: Open
+      - m_Target: {fileID: 8925530063519761331}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: OnMultiplayerButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8082,8 +8082,8 @@ RectTransform:
   m_Father: {fileID: 8925530063830319859}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 262, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
@@ -8290,6 +8290,7 @@ GameObject:
   - component: {fileID: 8925530063519761330}
   - component: {fileID: 8925530063519761331}
   - component: {fileID: 7253919349638146519}
+  - component: {fileID: 6178264006320503891}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -8330,6 +8331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8825f1474ae3546468fa62717f229ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: {fileID: 8925530064342239053}
 --- !u!114 &7253919349638146519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8340,6 +8342,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9cb0be5178989b478ac8e12e4ed10b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6178264006320503891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925530063519761329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81456300917b86b43889c5a268b75588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8925530063607441559

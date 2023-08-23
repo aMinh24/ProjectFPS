@@ -411,7 +411,7 @@ Transform:
   - {fileID: 358574655}
   - {fileID: 1685898141}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &820061815
 GameObject:
@@ -585,7 +585,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1076977880
 GameObject:
@@ -829,7 +829,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685898140
 GameObject:
@@ -1347,7 +1347,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2024944428
 MonoBehaviour:
@@ -1361,6 +1361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce30c3a23d925c4798b6776b0999493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ColorUI: {fileID: 11400000, guid: a1e9dc33f691c164aaffaad22f516664, type: 2}
   ScarInfo: {fileID: 11400000, guid: d3545824bdf640045b73cc202edb1857, type: 2}
   PistolInfo: {fileID: 0}
   TommyInfo: {fileID: 11400000, guid: 7cd23e21b464fd44a9ba6ddaad168718, type: 2}

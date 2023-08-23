@@ -7,6 +7,7 @@ using UnityEngine;
 // Token: 0x0200004D RID: 77
 public class DataManager : BaseManager<DataManager>
 {
+	public ColorUI ColorUI;
     // Token: 0x0600010F RID: 271 RVA: 0x00006D8C File Offset: 0x00004F8C
     protected override void Awake()
     {
