@@ -2,12 +2,19 @@ using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ListRoomPanel : BaseScreen
 {
     public TabMission All;
     public GameObject prefabRoom;
+    public GameObject curSelectedRoomObject;
+    public Text curSelectedRoomName;
+    public Text curSelectedRoomMode;
+    public Text curSelectedRoomMap;
 
     public override void Hide()
     {
@@ -17,11 +24,41 @@ public class ListRoomPanel : BaseScreen
     public override void Init()
     {
         base.Init();
+        
     }
 
     public override void Show(object data)
     {
         base.Show(data);
+        All.TurnOn();
+        OnDeselectRoom(null);
+        if (ListenerManager.HasInstance())
+        {
+            ListenerManager.Instance.Register(ListenType.ON_SELECTED_ROOM, OnSelectRoom);
+            ListenerManager.Instance.Register(ListenType.ON_DESELECTED_ROOM, OnDeselectRoom);
+        }
+    }
+    public void OnDeselectRoom(object? data)
+    {
+        if (curSelectedRoomObject.active)
+        {
+            curSelectedRoomObject.SetActive(false);
+        }
+    }
+    public void OnSelectRoom(object data)
+    {
+        if (data is RoomRow roomRow)
+        {
+            curSelectedRoomObject.SetActive(true);
+            curSelectedRoomName.text = roomRow.nameText.text;
+            curSelectedRoomMode.text = roomRow.modeText.text;
+            curSelectedRoomMap.text = roomRow.mapText.text;
+        }
+        
+    }
+    public void OnJoinRoomButton()
+    {
+        PhotonNetwork.JoinRoom(curSelectedRoomName.text);
     }
     public void OnCreateRoomButton()
     {

@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -47,9 +48,12 @@ public class RoomRow : MonoBehaviour
             InactiveRow();
         }
     }
-    
     private void ActiveRow()
     {
+        if (ListenerManager.HasInstance())
+        {
+            ListenerManager.Instance.BroadCast(ListenType.ON_SELECTED_ROOM, this);
+        }
         ID.color = nameActiveText;
         nameText.color = nameActiveText;
         mapText.color = mapActiveText;
@@ -60,6 +64,10 @@ public class RoomRow : MonoBehaviour
     }
     private void InactiveRow()
     {
+        if (ListenerManager.HasInstance())
+        {
+            ListenerManager.Instance.BroadCast(ListenType.ON_DESELECTED_ROOM, null);
+        }
         ID.color = nameNormalText;
         nameText.color = nameNormalText;
         mapText.color = mapNormalText;
