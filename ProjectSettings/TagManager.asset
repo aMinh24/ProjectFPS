@@ -9,6 +9,8 @@ TagManager:
   - ZipLine
   - wall
   - Head
+  - Bullet
+  - Camera
   layers:
   - Default
   - TransparentFX

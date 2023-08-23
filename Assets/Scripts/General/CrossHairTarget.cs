@@ -7,7 +7,7 @@ public class CrossHairTarget : MonoBehaviour
 	// Token: 0x060001F5 RID: 501 RVA: 0x0000AD4D File Offset: 0x00008F4D
 	private void Awake()
 	{
-		this.mainCamera = Camera.main;
+		transform.SetParent(mainCamera.transform);
 	}
 
 	// Token: 0x060001F6 RID: 502 RVA: 0x0000AD5C File Offset: 0x00008F5C

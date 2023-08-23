@@ -34,7 +34,7 @@ public class LoadingGame : BaseNotify
 		{
 			return;
 		}
-		base.StartCoroutine(this.LoadScene("Campaign"));
+		base.StartCoroutine(this.LoadScene("CampaignOffline"));
 	}
 
 	// Token: 0x060001A7 RID: 423 RVA: 0x00009CBF File Offset: 0x00007EBF
@@ -54,8 +54,10 @@ public class LoadingGame : BaseNotify
 				{
 					BaseManager<UIManager>.Instance.ShowOverlap<OverlapFade>(scene, true);
 				}
+				
 				yield return new WaitForSeconds(1f);
-				asyncOperation.allowSceneActivation = true;
+                Debug.Log("fadeoff");
+                asyncOperation.allowSceneActivation = true;
 				this.Hide();
 			}
 			yield return null;

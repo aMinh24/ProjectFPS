@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using Photon;
+using Photon.Pun;
 // Token: 0x0200006E RID: 110
 public class ObjectPool : BaseManager<ObjectPool>
 {
@@ -28,11 +29,20 @@ public class ObjectPool : BaseManager<ObjectPool>
 			bullet.Deactive();
 			this.poolAiObjects.Add(bullet);
 		}
-		for (int k = 0; k < this.totalEnemy; k++)
+		if (PhotonNetwork.CurrentRoom != null)
 		{
-			GameObject item = UnityEngine.Object.Instantiate<GameObject>(this.aiToPool, this.spawnPos[k].transform.position, Quaternion.identity);
-			this.aiPool.Add(item);
-		}
+            PhotonNetwork.Instantiate("Player", new Vector3(98, 0, 89), Quaternion.identity);
+        }
+		else
+		{
+            for (int k = 0; k < this.totalEnemy; k++)
+            {
+                GameObject item = UnityEngine.Object.Instantiate<GameObject>(this.aiToPool, this.spawnPos[k].transform.position, Quaternion.identity);
+                this.aiPool.Add(item);
+            }
+        }
+
+		
 	}
 
 	// Token: 0x060001F9 RID: 505 RVA: 0x0000AEF2 File Offset: 0x000090F2

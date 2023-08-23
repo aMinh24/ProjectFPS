@@ -1,9 +1,11 @@
 ﻿
+using Photon.Pun;
 using UnityEngine;
 
 // Token: 0x02000054 RID: 84
 public class CharacterLocomotion : MonoBehaviour
 {
+	public PhotonView photonView;
 	// Token: 0x0600015E RID: 350 RVA: 0x00008BC4 File Offset: 0x00006DC4
 	private void Start()
 	{
@@ -19,6 +21,7 @@ public class CharacterLocomotion : MonoBehaviour
 		this.groundSpeed = BaseManager<DataManager>.Instance.GlobalConfig.groundSpeed;
 		this.pushPower = BaseManager<DataManager>.Instance.GlobalConfig.pushPower;
 		this.maxEnergy = BaseManager<DataManager>.Instance.GlobalConfig.maxEnergy;
+		photonView = GetComponent<PhotonView>();
 		this.energy = this.maxEnergy;
 		this.isCrouching = false;
 		this.checkTheChange = false;
@@ -27,6 +30,7 @@ public class CharacterLocomotion : MonoBehaviour
 	// Token: 0x0600015F RID: 351 RVA: 0x00008CD0 File Offset: 0x00006ED0
 	private void Update()
 	{
+		if (!photonView.AmOwner&& PhotonNetwork.CurrentRoom != null) { return; }
 		this.userInput.x = Input.GetAxis("Horizontal");
 		this.userInput.y = Input.GetAxis("Vertical");
 		this.animator.SetFloat("InputX", this.userInput.x);
@@ -49,7 +53,8 @@ public class CharacterLocomotion : MonoBehaviour
 	// Token: 0x06000160 RID: 352 RVA: 0x00008D99 File Offset: 0x00006F99
 	private void FixedUpdate()
 	{
-		if (this.isJumping)
+        if (!photonView.AmOwner&& PhotonNetwork.CurrentRoom!=null) { return; }
+        if (this.isJumping)
 		{
 			this.UpdateInAir();
 			return;

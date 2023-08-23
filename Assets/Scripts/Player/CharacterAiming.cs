@@ -9,7 +9,7 @@ public class CharacterAiming : MonoBehaviour
 	// Token: 0x06000157 RID: 343 RVA: 0x000088E2 File Offset: 0x00006AE2
 	private void Awake()
 	{
-		this.mainCamera = Camera.main;
+		this.mainCamera.transform.SetParent(null, false);
 	}
 
 	// Token: 0x06000158 RID: 344 RVA: 0x000088EF File Offset: 0x00006AEF
@@ -113,7 +113,7 @@ public class CharacterAiming : MonoBehaviour
 	public float turnSpeed = 15f;
 
 	// Token: 0x0400017E RID: 382
-	private Camera mainCamera;
+	public Camera mainCamera;
 
 	// Token: 0x0400017F RID: 383
 	public AxisState xAxist;

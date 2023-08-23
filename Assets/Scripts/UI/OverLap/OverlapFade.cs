@@ -30,7 +30,7 @@ public class OverlapFade : BaseOverlap
 				this.FadeShowMenu(1f);
 				return;
 			}
-			if (!(text == "Campaign"))
+			if (!(text == "CampaignOffline"))
 			{
 				return;
 			}
@@ -73,7 +73,9 @@ public class OverlapFade : BaseOverlap
 		}
 		this.SetAlpha(0f);
 		Sequence sequence = DOTween.Sequence();
+		Debug.Log("fade start");
 		sequence.Append(this.imgFade.DOFade(1f, fadeTime));
+		Debug.Log("Gameui");
 		if (BaseManager<UIManager>.HasInstance())
 		{
 			BaseManager<UIManager>.Instance.ShowScreen<GameUI>(null, true);
