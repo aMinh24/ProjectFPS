@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhotonCallback : MonoBehaviourPunCallbacks
+public class LoginCallbaks : MonoBehaviourPunCallbacks
 {
     private void Start()
     {
@@ -19,6 +19,10 @@ public class PhotonCallback : MonoBehaviourPunCallbacks
         if (UIManager.HasInstance())
         {
             UIManager.Instance.ShowScreen<MainMenu>(null, true);
+        }
+        if (GameManager.HasInstance())
+        {
+            GameManager.Instance.login = true;
         }
     }
 }

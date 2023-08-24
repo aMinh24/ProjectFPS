@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
 using Cinemachine;
+using Unity.VisualScripting;
 
 // Token: 0x0200004C RID: 76
 public class CameraManager : BaseManager<CameraManager>

@@ -8,7 +8,11 @@ public class WeaponReload : MonoBehaviour
 	// Token: 0x06000213 RID: 531 RVA: 0x0000B748 File Offset: 0x00009948
 	private void Start()
 	{
-		this.animationEvent.WeaponAnimEvent.AddListener(new UnityAction<string>(this.OnAnimationEvent));
+		if (animationEvent != null)
+		{
+            this.animationEvent.WeaponAnimEvent.AddListener(new UnityAction<string>(this.OnAnimationEvent));
+        }
+		
 	}
 
 	// Token: 0x06000214 RID: 532 RVA: 0x0000B768 File Offset: 0x00009968
@@ -22,7 +26,11 @@ public class WeaponReload : MonoBehaviour
 		if (weaponRaycast && (Input.GetKeyUp(KeyCode.R) || weaponRaycast.ammoCount <= 0) && weaponRaycast.totalAmmo > 0 && weaponRaycast.ammoCount < weaponRaycast.gunInfo[KeyInfo.maxAmmo] - 5)
 		{
 			this.isReloading = true;
-			this.rigController.SetTrigger("reload_weapon");
+			if (rigController != null)
+			{
+                this.rigController.SetTrigger("reload_weapon");
+            }
+			
 		}
 	}
 
@@ -67,6 +75,10 @@ public class WeaponReload : MonoBehaviour
 		if (BaseManager<CameraManager>.HasInstance())
 		{
 			BaseManager<CameraManager>.Instance.TurnOffScope();
+		}
+		else
+		{
+			activeWeapon.camManager.TurnOffScope();
 		}
 		if (BaseManager<AudioManager>.HasInstance())
 		{

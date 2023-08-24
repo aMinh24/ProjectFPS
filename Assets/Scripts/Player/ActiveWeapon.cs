@@ -5,6 +5,7 @@ using UnityEngine;
 // Token: 0x02000052 RID: 82
 public class ActiveWeapon : MonoBehaviour
 {
+	public CamMultiplayer camManager;
 	// Token: 0x06000149 RID: 329 RVA: 0x00008300 File Offset: 0x00006500
 	private void Awake()
 	{
@@ -13,6 +14,7 @@ public class ActiveWeapon : MonoBehaviour
 		this.animator = base.GetComponent<Animator>();
 		this.weaponEvent = base.GetComponent<WeaponEvent>();
 		this.characterLocomotion = base.GetComponent<CharacterLocomotion>();
+		camManager = GetComponent<CamMultiplayer>();
 		this.isHolstered = true;
 	}
 
@@ -49,6 +51,10 @@ public class ActiveWeapon : MonoBehaviour
 		if (BaseManager<CameraManager>.HasInstance())
 		{
 			flag = BaseManager<CameraManager>.Instance.isAiming;
+		}
+		else
+		{
+			flag = camManager.isAiming;
 		}
 		if (!this.isChangingWeapon && !this.reload.isReloading && !this.IsFiring() && !this.characterLocomotion.IsSprinting() && !flag)
 		{

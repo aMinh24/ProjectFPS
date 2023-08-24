@@ -8,7 +8,11 @@ public class WeaponEvent : MonoBehaviour
 	// Token: 0x060001FD RID: 509 RVA: 0x0000AFAE File Offset: 0x000091AE
 	private void Awake()
 	{
-		this.weaponEvent.WeaponAnimEvent.AddListener(new UnityAction<string>(this.OnHolsterEvent));
+		if (weaponEvent != null)
+		{
+            this.weaponEvent.WeaponAnimEvent.AddListener(new UnityAction<string>(this.OnHolsterEvent));
+        }
+		
 	}
 
 	// Token: 0x060001FE RID: 510 RVA: 0x0000AFCC File Offset: 0x000091CC

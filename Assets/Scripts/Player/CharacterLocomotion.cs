@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterLocomotion : MonoBehaviour
 {
 	public PhotonView photonView;
+	public CamMultiplayer camManager;
 	// Token: 0x0600015E RID: 350 RVA: 0x00008BC4 File Offset: 0x00006DC4
 	private void Start()
 	{
@@ -22,6 +23,7 @@ public class CharacterLocomotion : MonoBehaviour
 		this.pushPower = BaseManager<DataManager>.Instance.GlobalConfig.pushPower;
 		this.maxEnergy = BaseManager<DataManager>.Instance.GlobalConfig.maxEnergy;
 		photonView = GetComponent<PhotonView>();
+		camManager = GetComponent<CamMultiplayer>();
 		this.energy = this.maxEnergy;
 		this.isCrouching = false;
 		this.checkTheChange = false;
@@ -87,6 +89,10 @@ public class CharacterLocomotion : MonoBehaviour
 		{
 			flag2 = BaseManager<CameraManager>.Instance.isAiming;
 		}
+		else
+		{
+			flag2 = camManager.isAiming;
+		}
 		return key && !flag && !isReloading && !isChangingWeapon && this.userInput.y > 0.9f && !flag2 && this.energy > 0f && !this.recover;
 	}
 
@@ -142,7 +148,11 @@ public class CharacterLocomotion : MonoBehaviour
 		Vector3 b = Vector3.down * this.stepDown;
 		this.characterController.Move(a + b);
 		this.rootMotion = Vector3.zero;
-		this.rigController.SetBool(this.isJumpingParam, false);
+		if (rigController != null)
+		{
+            this.rigController.SetBool(this.isJumpingParam, false);
+        }
+		
 		if (!this.characterController.isGrounded)
 		{
 			this.SetInAir(0f);
@@ -184,7 +194,11 @@ public class CharacterLocomotion : MonoBehaviour
 		this.velocity = this.animator.velocity * this.jumpDamp * this.groundSpeed;
 		this.velocity.y = jumpVelocity;
 		this.animator.SetBool(this.isJumpingParam, true);
-		this.rigController.SetBool(this.isJumpingParam, true);
+		if(rigController != null )
+		{
+            this.rigController.SetBool(this.isJumpingParam, true);
+        }
+		
 	}
 
 	// Token: 0x06000169 RID: 361 RVA: 0x00009184 File Offset: 0x00007384

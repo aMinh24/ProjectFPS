@@ -6,9 +6,11 @@ using UnityEngine;
 // Token: 0x02000053 RID: 83
 public class CharacterAiming : MonoBehaviour
 {
+	public CamMultiplayer camManager;
 	// Token: 0x06000157 RID: 343 RVA: 0x000088E2 File Offset: 0x00006AE2
 	private void Awake()
 	{
+		mainCamera.gameObject.SetActive(true);
 		this.mainCamera.transform.SetParent(null, false);
 	}
 
@@ -18,6 +20,7 @@ public class CharacterAiming : MonoBehaviour
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		this.activeWeapon = base.GetComponent<ActiveWeapon>();
+		camManager = GetComponent<CamMultiplayer>();
 		if (BaseManager<ListenerManager>.HasInstance())
 		{
 			BaseManager<ListenerManager>.Instance.Register(ListenType.CHANGE_SCOPE, new Action<object>(this.ChangeCamInfo));
@@ -27,10 +30,21 @@ public class CharacterAiming : MonoBehaviour
 	// Token: 0x06000159 RID: 345 RVA: 0x00008928 File Offset: 0x00006B28
 	private void Update()
 	{
-		if (this.activeWeapon.GetActiveWeapon().weaponSlot == ActiveWeapon.WeaponSlot.Primary && Input.GetKeyDown(KeyCode.Mouse1) && BaseManager<CameraManager>.HasInstance())
+		if(activeWeapon.GetActiveWeapon() != null)
 		{
-			BaseManager<CameraManager>.Instance.ChangeScope();
-		}
+            if (this.activeWeapon.GetActiveWeapon().weaponSlot == ActiveWeapon.WeaponSlot.Primary && Input.GetKeyDown(KeyCode.Mouse1))
+            {
+				if(CameraManager.HasInstance())
+				{
+                    BaseManager<CameraManager>.Instance.ChangeScope();
+                }
+				else
+				{
+					camManager.ChangeScope();
+				}
+            }
+        }
+		
 		if (Input.GetKeyDown(KeyCode.Escape) && !this.isEcs)
 		{
 			Cursor.visible = true;
@@ -89,11 +103,17 @@ public class CharacterAiming : MonoBehaviour
 			this.yAxist.m_AccelTime = 0.02f;
 			return;
 		}
-		if (!BaseManager<CameraManager>.HasInstance())
+		bool isAiming;
+		if (BaseManager<CameraManager>.HasInstance())
 		{
-			return;
+			isAiming = BaseManager<CameraManager>.Instance.isAiming;
+
+        }
+		else
+		{
+			isAiming = camManager.isAiming;
 		}
-		if (BaseManager<CameraManager>.Instance.isAiming)
+		if (isAiming)
 		{
 			this.curLookAt = 0;
 			this.xAxist.m_MaxSpeed = 300f;

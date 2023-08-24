@@ -19,7 +19,7 @@ public class PlayerHealth : Health
 	protected override void OnDeath(Vector3 direction, Rigidbody rigidbody)
 	{
 		this.ragdoll.ActiveRagdoll();
-		this.characterAiming.enabled = false;
+		
 		this.characterController.enabled = false;
 		this.characterLocomotion.enabled = false;
 		this.ragdoll.ApplyForce(direction, rigidbody);
@@ -27,7 +27,13 @@ public class PlayerHealth : Health
 		{
 			BaseManager<CameraManager>.Instance.TurnOffScope();
 		}
-		this.activeWeapon.DropWeapon();
+		else
+		{
+			characterAiming.camManager.TurnOffScope();
+		}
+        this.characterAiming.enabled = false;
+
+        this.activeWeapon.DropWeapon();
 		if (BaseManager<ListenerManager>.HasInstance())
 		{
 			string[] value = new string[]
