@@ -15898,7 +15898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387198589}
   m_LocalRotation: {x: 1, y: -0.000000036878493, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.0000009536743, z: 9.220489}
+  m_LocalPosition: {x: 0, y: -0.0000009536743, z: 9.220569}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16425,7 +16425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcd0109c82e2f04587d2fcf71637a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonView: {fileID: 0}
   rigController: {fileID: 501789404}
   checkTheChange: 0
   maxEnergy: 0
@@ -66727,8 +66726,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790906660}
-  m_LocalRotation: {x: 0.7071068, y: -0.000000026077034, z: 0.000000026077034, w: 0.7071068}
-  m_LocalPosition: {x: 98, y: 9.220488, z: 88.9}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 98.5, y: -0.53199995, z: 88.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

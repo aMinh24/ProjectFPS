@@ -76,10 +76,6 @@ public class WeaponReload : MonoBehaviour
 		{
 			BaseManager<CameraManager>.Instance.TurnOffScope();
 		}
-		else
-		{
-			activeWeapon.camManager.TurnOffScope();
-		}
 		if (BaseManager<AudioManager>.HasInstance())
 		{
 			BaseManager<AudioManager>.Instance.PlaySE("PistolDetachMag", 0f);

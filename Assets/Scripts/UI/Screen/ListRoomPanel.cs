@@ -26,7 +26,21 @@ public class ListRoomPanel : BaseScreen
         base.Init();
         
     }
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnBackButton();
+        }
+    }
+    private void OnDestroy()
+    {
+        if (ListenerManager.HasInstance())
+        {
+            ListenerManager.Instance.Unregister(ListenType.ON_SELECTED_ROOM, OnSelectRoom);
+            ListenerManager.Instance.Unregister(ListenType.ON_DESELECTED_ROOM, OnDeselectRoom);
+        }
+    }
     public override void Show(object data)
     {
         base.Show(data);
@@ -40,10 +54,14 @@ public class ListRoomPanel : BaseScreen
     }
     public void OnDeselectRoom(object? data)
     {
-        if (curSelectedRoomObject.active)
+        if (curSelectedRoomObject != null)
         {
-            curSelectedRoomObject.SetActive(false);
+            if (curSelectedRoomObject.active)
+            {
+                curSelectedRoomObject.SetActive(false);
+            }
         }
+        
     }
     public void OnSelectRoom(object data)
     {
@@ -77,5 +95,13 @@ public class ListRoomPanel : BaseScreen
     {
         if (PhotonNetwork.CurrentRoom == null) { return; }
         PhotonNetwork.LeaveRoom();
+    }
+    public void OnBackButton()
+    {
+        if (UIManager.HasInstance())
+        {
+            UIManager.Instance.ShowScreen<MainMenu>(null,true);
+        }
+        PhotonNetwork.LeaveLobby();
     }
 }

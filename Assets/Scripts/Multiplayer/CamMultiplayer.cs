@@ -1,11 +1,21 @@
 using Cinemachine;
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamMultiplayer : MonoBehaviour
+public class CamMultiplayer : MonoBehaviourPun
 {
+    private void Awake()
+    {
+        if (!photonView.IsMine) { return; }
+        if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+        brain = FindObjectOfType<CinemachineBrain>();
+    }
     private void Start()
     {
         //this.ChangeCam(virCam.Main);
@@ -71,7 +81,6 @@ public class CamMultiplayer : MonoBehaviour
     }
 
     // Token: 0x04000144 RID: 324
-    public CrossHairTarget crossHairTarget;
 
     // Token: 0x04000145 RID: 325
     public CinemachineVirtualCamera[] virtualCameras;

@@ -11,6 +11,7 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
     public ListRoomPanel listRoomPanel;
     public List <GameObject> roomObject;
     public bool isConnected = false;
+
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         Debug.Log("ncc");

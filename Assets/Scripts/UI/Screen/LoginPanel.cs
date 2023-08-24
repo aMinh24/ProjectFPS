@@ -12,6 +12,10 @@ public class LoginPanel : BaseScreen
     private void Update()
     {
         textMeshProUGUI.SetText("network: "+ PhotonNetwork.NetworkClientState.ToString());
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            OnLoginButton();
+        }
     }
     public void OnLoginButton()
     {

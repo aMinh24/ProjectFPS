@@ -27,10 +27,6 @@ public class PlayerHealth : Health
 		{
 			BaseManager<CameraManager>.Instance.TurnOffScope();
 		}
-		else
-		{
-			characterAiming.camManager.TurnOffScope();
-		}
         this.characterAiming.enabled = false;
 
         this.activeWeapon.DropWeapon();

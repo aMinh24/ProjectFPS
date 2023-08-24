@@ -6,13 +6,7 @@ using UnityEngine;
 // Token: 0x02000053 RID: 83
 public class CharacterAiming : MonoBehaviour
 {
-	public CamMultiplayer camManager;
 	// Token: 0x06000157 RID: 343 RVA: 0x000088E2 File Offset: 0x00006AE2
-	private void Awake()
-	{
-		mainCamera.gameObject.SetActive(true);
-		this.mainCamera.transform.SetParent(null, false);
-	}
 
 	// Token: 0x06000158 RID: 344 RVA: 0x000088EF File Offset: 0x00006AEF
 	private void Start()
@@ -20,7 +14,6 @@ public class CharacterAiming : MonoBehaviour
 		Cursor.visible = false;
 		Cursor.lockState = CursorLockMode.Locked;
 		this.activeWeapon = base.GetComponent<ActiveWeapon>();
-		camManager = GetComponent<CamMultiplayer>();
 		if (BaseManager<ListenerManager>.HasInstance())
 		{
 			BaseManager<ListenerManager>.Instance.Register(ListenType.CHANGE_SCOPE, new Action<object>(this.ChangeCamInfo));
@@ -38,10 +31,6 @@ public class CharacterAiming : MonoBehaviour
 				{
                     BaseManager<CameraManager>.Instance.ChangeScope();
                 }
-				else
-				{
-					camManager.ChangeScope();
-				}
             }
         }
 		
@@ -103,16 +92,12 @@ public class CharacterAiming : MonoBehaviour
 			this.yAxist.m_AccelTime = 0.02f;
 			return;
 		}
-		bool isAiming;
+		bool isAiming = false;
 		if (BaseManager<CameraManager>.HasInstance())
 		{
 			isAiming = BaseManager<CameraManager>.Instance.isAiming;
 
         }
-		else
-		{
-			isAiming = camManager.isAiming;
-		}
 		if (isAiming)
 		{
 			this.curLookAt = 0;

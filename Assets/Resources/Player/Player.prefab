@@ -1216,7 +1216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3084232319349810774
 Transform:
   m_ObjectHideFlags: 0
@@ -4963,11 +4963,6 @@ GameObject:
   - component: {fileID: 3084232320868852306}
   - component: {fileID: 3084232320868852309}
   - component: {fileID: 3084232320868852310}
-  - component: {fileID: 3084232320868852300}
-  - component: {fileID: 3084232320868852301}
-  - component: {fileID: 3084232320868852302}
-  - component: {fileID: 3084232320868852303}
-  - component: {fileID: 3084232320868852304}
   - component: {fileID: 3084232320868852299}
   - component: {fileID: 3084232320868852298}
   - component: {fileID: 3084232320868852297}
@@ -4976,6 +4971,11 @@ GameObject:
   - component: {fileID: 3084232320868852295}
   - component: {fileID: 3084232320868852296}
   - component: {fileID: 398075251079493280}
+  - component: {fileID: 3903837809376196336}
+  - component: {fileID: 3593285301230216797}
+  - component: {fileID: 7128366127876457272}
+  - component: {fileID: 2223178326382031974}
+  - component: {fileID: 4052058950372623550}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -5061,146 +5061,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 0}
     m_Active: 1
   m_Effectors: []
---- !u!114 &3084232320868852300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3084232320868852313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 740c9a313dec06f46b56d84cf5866b25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camManager: {fileID: 0}
-  turnSpeed: 15
-  mainCamera: {fileID: 3084232320126946039}
-  xAxist:
-    Value: 50
-    m_SpeedMode: 0
-    m_MaxSpeed: 300
-    m_AccelTime: 0.02
-    m_DecelTime: 0.02
-    m_InputAxisName: Mouse X
-    m_InputAxisValue: 0
-    m_InvertInput: 0
-    m_MinValue: -180
-    m_MaxValue: 180
-    m_Wrap: 1
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 0
-      m_RecenteringTime: 0
-      m_LegacyHeadingDefinition: 0
-      m_LegacyVelocityFilterStrength: 0
-  yAxist:
-    Value: 50
-    m_SpeedMode: 0
-    m_MaxSpeed: 300
-    m_AccelTime: 0.02
-    m_DecelTime: 0.02
-    m_InputAxisName: Mouse Y
-    m_InputAxisValue: 0
-    m_InvertInput: 1
-    m_MinValue: -40
-    m_MaxValue: 40
-    m_Wrap: 0
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 0
-      m_RecenteringTime: 0
-      m_LegacyHeadingDefinition: 0
-      m_LegacyVelocityFilterStrength: 0
-  cameraLookAt:
-  - {fileID: 3084232319189541507}
-  - {fileID: 3084232319189541507}
-  activeWeapon: {fileID: 3084232320868852302}
-  isEcs: 0
-  curLookAt: 0
---- !u!114 &3084232320868852301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3084232320868852313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dcd0109c82e2f04587d2fcf71637a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  photonView: {fileID: 0}
-  camManager: {fileID: 0}
-  rigController: {fileID: 0}
-  checkTheChange: 0
-  maxEnergy: 0
-  energy: 0
---- !u!114 &3084232320868852302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3084232320868852313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86204a0ecc8fc046bb68630b6068749, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camManager: {fileID: 0}
-  equippedWeapons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  rigController: {fileID: 0}
-  weaponSlots:
-  - {fileID: 0}
-  crossHairTarget: {fileID: 3084232319091981326}
-  isChangingWeapon: 0
-  isHolstered: 0
-  characterAiming: {fileID: 3084232320868852300}
-  reload: {fileID: 3084232320868852304}
-  existWeapon: []
---- !u!114 &3084232320868852303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3084232320868852313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76670062d1f10304e959dbf614574099, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHealth: 0
-  shooter: 
-  isDead: 0
-  ragdoll: {fileID: 3084232320868852299}
-  activeWeapon: {fileID: 3084232320868852302}
-  characterAiming: {fileID: 3084232320868852300}
-  characterLocomotion: {fileID: 3084232320868852301}
-  characterController: {fileID: 3084232320868852309}
-  spine: {fileID: 3084232320521137003}
---- !u!114 &3084232320868852304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3084232320868852313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd33617958cb7b64eb5fea7357d30c79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigController: {fileID: 0}
-  animationEvent: {fileID: 0}
-  leftHand: {fileID: 3084232319189085047}
-  activeWeapon: {fileID: 3084232320868852302}
-  isReloading: 0
 --- !u!114 &3084232320868852299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5225,7 +5085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e460a0d397077654299f694fb1c6fb3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeWeapon: {fileID: 3084232320868852302}
+  activeWeapon: {fileID: 0}
   weaponEvent: {fileID: 0}
   magMesh:
   - {fileID: 3084232320797948271}
@@ -5352,6 +5212,146 @@ MonoBehaviour:
   - {fileID: 3084232321063347104}
   brain: {fileID: 3084232320126946041}
   isAiming: 0
+--- !u!114 &3903837809376196336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3084232320868852313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d04f674a6a139154cb00be0ea489f211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camManager: {fileID: 398075251079493280}
+  photonView: {fileID: 3084232320868852293}
+  camGroup: {fileID: 3084232319349810775}
+  turnSpeed: 15
+  mainCamera: {fileID: 3084232320126946039}
+  xAxist:
+    Value: 50
+    m_SpeedMode: 0
+    m_MaxSpeed: 300
+    m_AccelTime: 0.02
+    m_DecelTime: 0.02
+    m_InputAxisName: Mouse X
+    m_InputAxisValue: 0
+    m_InvertInput: 0
+    m_MinValue: -180
+    m_MaxValue: 180
+    m_Wrap: 1
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 0
+      m_RecenteringTime: 0
+      m_LegacyHeadingDefinition: 0
+      m_LegacyVelocityFilterStrength: 0
+  yAxist:
+    Value: 50
+    m_SpeedMode: 0
+    m_MaxSpeed: 300
+    m_AccelTime: 0.02
+    m_DecelTime: 0.02
+    m_InputAxisName: Mouse Y
+    m_InputAxisValue: 0
+    m_InvertInput: 1
+    m_MinValue: -40
+    m_MaxValue: 40
+    m_Wrap: 0
+    m_Recentering:
+      m_enabled: 0
+      m_WaitTime: 0
+      m_RecenteringTime: 0
+      m_LegacyHeadingDefinition: 0
+      m_LegacyVelocityFilterStrength: 0
+  cameraLookAt:
+  - {fileID: 3084232319189541507}
+  - {fileID: 3084232319189541507}
+  activeWeapon: {fileID: 0}
+  isEcs: 0
+  curLookAt: 0
+--- !u!114 &3593285301230216797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3084232320868852313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03dc657d14bcc240b375cc1dd8a8cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camManager: {fileID: 398075251079493280}
+  rigController: {fileID: 0}
+  checkTheChange: 0
+  maxEnergy: 10
+  energy: 10
+--- !u!114 &7128366127876457272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3084232320868852313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7305b89f5d93a7a4990b0bd9a1980d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camManager: {fileID: 0}
+  equippedWeapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rigController: {fileID: 0}
+  weaponSlots: []
+  crossHairTarget: {fileID: 0}
+  isChangingWeapon: 0
+  isHolstered: 0
+  characterAiming: {fileID: 0}
+  reload: {fileID: 0}
+  existWeapon: []
+--- !u!114 &2223178326382031974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3084232320868852313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b8093add0d6df64fb96b67bf95f5f3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 0
+  shooter: 
+  isDead: 0
+  ragdoll: {fileID: 0}
+  activeWeapon: {fileID: 0}
+  characterAiming: {fileID: 0}
+  characterLocomotion: {fileID: 0}
+  characterController: {fileID: 0}
+  spine: {fileID: 0}
+--- !u!114 &4052058950372623550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3084232320868852313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e008aca790789df4badece85f304be83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigController: {fileID: 0}
+  animationEvent: {fileID: 0}
+  leftHand: {fileID: 0}
+  activeWeapon: {fileID: 0}
+  isReloading: 0
 --- !u!1 &3084232320918694036
 GameObject:
   m_ObjectHideFlags: 0

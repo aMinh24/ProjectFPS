@@ -6,9 +6,8 @@ using UnityEngine;
 
 public class GameCallbacks : MonoBehaviourPunCallbacks
 {
-    public override void OnCreatedRoom()
+    private void Awake()
     {
-        base.OnCreatedRoom();
         Debug.Log("create room");
         if (PhotonNetwork.CurrentRoom != null)
         {
@@ -16,13 +15,13 @@ public class GameCallbacks : MonoBehaviourPunCallbacks
         }
     }
 
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        base.OnPlayerEnteredRoom(newPlayer);
-        Debug.Log("joinedroom");
-        if (PhotonNetwork.CurrentRoom != null)
-        {
-            PhotonNetwork.Instantiate("Player", new Vector3(98, 2f, 89), Quaternion.identity);
-        }
-    }
+    //public override void OnPlayerEnteredRoom(Player newPlayer)
+    //{
+    //    base.OnPlayerEnteredRoom(newPlayer);
+    //    Debug.Log("joinedroom");
+    //    if (PhotonNetwork.CurrentRoom != null)
+    //    {
+    //        PhotonNetwork.Instantiate("Player", new Vector3(98, 2f, 89), Quaternion.identity);
+    //    }
+    //}
 }
