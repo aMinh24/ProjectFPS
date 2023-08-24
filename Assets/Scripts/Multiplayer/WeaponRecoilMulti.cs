@@ -10,9 +10,13 @@ public class WeaponRecoilMulti : MonoBehaviour
 	{
 		this.cameraShake = base.GetComponent<CinemachineImpulseSource>();
 	}
+    private void Start()
+    {
+		cam = characterAiming.mainCamera;
+    }
 
-	// Token: 0x0600020E RID: 526 RVA: 0x0000B5D4 File Offset: 0x000097D4
-	public void GenerateRecoil(string weaponName)
+    // Token: 0x0600020E RID: 526 RVA: 0x0000B5D4 File Offset: 0x000097D4
+    public void GenerateRecoil(string weaponName)
 	{
 		this.time = this.duration;
 		if (this.cam.enabled)
@@ -47,9 +51,9 @@ public class WeaponRecoilMulti : MonoBehaviour
 	{
 		if (this.time > 0f)
 		{
-			CharacterAiming characterAiming = this.characterAiming;
+			CharacterAimingMultiplayer characterAiming = this.characterAiming;
 			characterAiming.yAxist.Value = characterAiming.yAxist.Value - this.verticleRecoil / 10f * Time.deltaTime / this.duration * this.recoilModifier;
-			CharacterAiming characterAiming2 = this.characterAiming;
+			CharacterAimingMultiplayer characterAiming2 = this.characterAiming;
 			characterAiming2.xAxist.Value = characterAiming2.xAxist.Value - this.horizontalRecoil / 10f * Time.deltaTime / this.duration * this.recoilModifier;
 			this.time -= Time.deltaTime;
 		}
@@ -57,7 +61,7 @@ public class WeaponRecoilMulti : MonoBehaviour
 
 	// Token: 0x0400020D RID: 525
 	[HideInInspector]
-	public CharacterAiming characterAiming;
+	public CharacterAimingMultiplayer characterAiming;
 
 	// Token: 0x0400020E RID: 526
 	[HideInInspector]

@@ -28,7 +28,7 @@ public class WeaponEventMulti : MonoBehaviour
 	private void holster_weapon()
 	{
 		bool @bool = this.activeWeapon.rigController.GetBool("holster_weapon");
-		WeaponRaycast weaponRaycast = this.activeWeapon.GetActiveWeapon();
+		WeaponRaycastMulti weaponRaycast = this.activeWeapon.GetActiveWeapon();
 		MeshRenderer component = weaponRaycast.gameObject.GetComponent<MeshRenderer>();
 		int weaponSlot = (int)weaponRaycast.weaponSlot;
 		if (@bool)
@@ -50,10 +50,10 @@ public class WeaponEventMulti : MonoBehaviour
 	}
 
 	// Token: 0x040001F1 RID: 497
-	public ActiveWeapon activeWeapon;
+	public ActiveWeaponMultiplayer activeWeapon;
 
 	// Token: 0x040001F2 RID: 498
-	public WeaponAnimationEvent weaponEvent;
+	public WeaponAnimationEventMulti weaponEvent;
 
 	// Token: 0x040001F3 RID: 499
 	public GameObject[] magMesh;

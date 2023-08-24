@@ -33,7 +33,7 @@ public class WeaponRaycastMulti : MonoBehaviour
 		{
 			this.accumulatedTime = 0f;
 		}
-		WeaponRecoil weaponRecoil = this.weaponRecoil;
+		WeaponRecoilMulti weaponRecoil = this.weaponRecoil;
 		if (weaponRecoil == null)
 		{
 			return;
@@ -157,7 +157,7 @@ public class WeaponRaycastMulti : MonoBehaviour
             }
         }
 		
-		WeaponRecoil weaponRecoil = this.weaponRecoil;
+		WeaponRecoilMulti weaponRecoil = this.weaponRecoil;
 		if (weaponRecoil != null)
 		{
 			weaponRecoil.GenerateRecoil(this.weaponName);
@@ -263,7 +263,7 @@ public class WeaponRaycastMulti : MonoBehaviour
 	public GameObject meshWeapon;
 
 	// Token: 0x04000205 RID: 517
-	public WeaponRecoil weaponRecoil;
+	public WeaponRecoilMulti weaponRecoil;
 
 	// Token: 0x04000206 RID: 518
 	public Dictionary<KeyInfo, int> gunInfo;

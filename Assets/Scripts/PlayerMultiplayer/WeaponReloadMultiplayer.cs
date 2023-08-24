@@ -22,7 +22,7 @@ public class WeaponReloadMultiplayer : MonoBehaviour
 		{
 			return;
 		}
-		WeaponRaycast weaponRaycast = this.activeWeapon.GetActiveWeapon();
+		WeaponRaycastMulti weaponRaycast = this.activeWeapon.GetActiveWeapon();
 		if (weaponRaycast && (Input.GetKeyUp(KeyCode.R) || weaponRaycast.ammoCount <= 0) && weaponRaycast.totalAmmo > 0 && weaponRaycast.ammoCount < weaponRaycast.gunInfo[KeyInfo.maxAmmo] - 5)
 		{
 			this.isReloading = true;
@@ -84,7 +84,7 @@ public class WeaponReloadMultiplayer : MonoBehaviour
 		{
 			BaseManager<AudioManager>.Instance.PlaySE("PistolDetachMag", 0f);
 		}
-		WeaponRaycast weaponRaycast = this.activeWeapon.GetActiveWeapon();
+		WeaponRaycastMulti weaponRaycast = this.activeWeapon.GetActiveWeapon();
 		Transform component;
 		if (!weaponRaycast.weaponName.Equals("pistol"))
 		{
@@ -129,7 +129,7 @@ public class WeaponReloadMultiplayer : MonoBehaviour
 	// Token: 0x0600021A RID: 538 RVA: 0x0000B9B0 File Offset: 0x00009BB0
 	private void LoadBullet()
 	{
-		WeaponRaycast weaponRaycast = this.activeWeapon.GetActiveWeapon();
+		WeaponRaycastMulti weaponRaycast = this.activeWeapon.GetActiveWeapon();
 		weaponRaycast.ammoCount = weaponRaycast.gunInfo[KeyInfo.maxAmmo];
 		weaponRaycast.totalAmmo -= weaponRaycast.gunInfo[KeyInfo.maxAmmo];
 		this.rigController.ResetTrigger("reload_weapon");
@@ -150,7 +150,7 @@ public class WeaponReloadMultiplayer : MonoBehaviour
 	public Animator rigController;
 
 	// Token: 0x04000219 RID: 537
-	public WeaponAnimationEvent animationEvent;
+	public WeaponAnimationEventMulti animationEvent;
 
 	// Token: 0x0400021A RID: 538
 	public Transform leftHand;

@@ -53,7 +53,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 		{
 			return;
 		}
-		WeaponRaycast weapon = this.GetWeapon(this.activeWeaponIndex);
+		WeaponRaycastMulti weapon = this.GetWeapon(this.activeWeaponIndex);
 		bool flag = false;
 		if (BaseManager<CameraManager>.HasInstance())
 		{
@@ -67,11 +67,11 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 		{
 			if (Input.GetKeyDown(KeyCode.Alpha1))
 			{
-				this.SetActiveWeapon(ActiveWeapon.WeaponSlot.Primary);
+				this.SetActiveWeapon(ActiveWeaponMultiplayer.WeaponSlot.Primary);
 			}
 			if (Input.GetKeyDown(KeyCode.Alpha2))
 			{
-				this.SetActiveWeapon(ActiveWeapon.WeaponSlot.Secondary);
+				this.SetActiveWeapon(ActiveWeaponMultiplayer.WeaponSlot.Secondary);
 			}
 			if (Input.GetKeyDown(KeyCode.X))
 			{
@@ -124,15 +124,15 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 	// Token: 0x0600014C RID: 332 RVA: 0x0000866C File Offset: 0x0000686C
 	public bool IsFiring()
 	{
-		WeaponRaycast activeWeapon = this.GetActiveWeapon();
+		WeaponRaycastMulti activeWeapon = this.GetActiveWeapon();
 		return activeWeapon && activeWeapon.isFiring;
 	}
 
 	// Token: 0x0600014D RID: 333 RVA: 0x00008690 File Offset: 0x00006890
-	public void Equip(WeaponRaycast newWeapon)
+	public void Equip(WeaponRaycastMulti newWeapon)
 	{
 		int weaponSlot = (int)newWeapon.weaponSlot;
-		WeaponRaycast weapon = this.GetWeapon(weaponSlot);
+		WeaponRaycastMulti weapon = this.GetWeapon(weaponSlot);
 		if (weapon)
 		{
 			UnityEngine.Object.Destroy(weapon.gameObject);
@@ -155,7 +155,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 	}
 
 	// Token: 0x0600014E RID: 334 RVA: 0x0000878F File Offset: 0x0000698F
-	private WeaponRaycast GetWeapon(int index)
+	private WeaponRaycastMulti GetWeapon(int index)
 	{
 		if (index < 0 || index >= this.equippedWeapons.Length)
 		{
@@ -165,13 +165,13 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 	}
 
 	// Token: 0x0600014F RID: 335 RVA: 0x000087AA File Offset: 0x000069AA
-	public WeaponRaycast GetActiveWeapon()
+	public WeaponRaycastMulti GetActiveWeapon()
 	{
 		return this.GetWeapon(this.activeWeaponIndex);
 	}
 
 	// Token: 0x06000150 RID: 336 RVA: 0x000087B8 File Offset: 0x000069B8
-	private void SetActiveWeapon(ActiveWeapon.WeaponSlot weaponSlot)
+	private void SetActiveWeapon(ActiveWeaponMultiplayer.WeaponSlot weaponSlot)
 	{
 		int num = this.activeWeaponIndex;
 		if (num == (int)weaponSlot)
@@ -230,7 +230,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 	private IEnumerator ActivateWeapon(int index)
 	{
 		this.isChangingWeapon = true;
-		WeaponRaycast weapon = this.GetWeapon(index);
+		WeaponRaycastMulti weapon = this.GetWeapon(index);
 		if (weapon)
 		{
 			this.activeWeaponIndex = index;
@@ -265,7 +265,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 	// Token: 0x06000155 RID: 341 RVA: 0x00008868 File Offset: 0x00006A68
 	public void DropWeapon()
 	{
-		WeaponRaycast activeWeapon = this.GetActiveWeapon();
+		WeaponRaycastMulti activeWeapon = this.GetActiveWeapon();
 		if (activeWeapon)
 		{
 			activeWeapon.transform.SetParent(null);
@@ -280,7 +280,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 	}
 
 	// Token: 0x0400016F RID: 367
-	public WeaponRaycast[] equippedWeapons = new WeaponRaycast[4];
+	public WeaponRaycastMulti[] equippedWeapons = new WeaponRaycastMulti[4];
 
 	// Token: 0x04000170 RID: 368
 	private int activeWeaponIndex;

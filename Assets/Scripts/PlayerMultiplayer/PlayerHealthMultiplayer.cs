@@ -98,13 +98,13 @@ public class PlayerHealthMultiplayer : Health
 	public Ragdoll ragdoll;
 
 	// Token: 0x040001AF RID: 431
-	public ActiveWeapon activeWeapon;
+	public ActiveWeaponMultiplayer activeWeapon;
 
 	// Token: 0x040001B0 RID: 432
 	public CharacterAimingMultiplayer characterAiming;
 
 	// Token: 0x040001B1 RID: 433
-	public CharacterLocomotion characterLocomotion;
+	public CharacterLocomotionMultiplayer characterLocomotion;
 
 	// Token: 0x040001B2 RID: 434
 	public CharacterController characterController;
