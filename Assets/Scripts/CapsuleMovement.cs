@@ -1,4 +1,5 @@
 using Cinemachine;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class CapsuleMovement : MonoBehaviour
     CharacterController controller;
     float inputX;
     float inputY;
+    public PhotonView photon;
     public AxisState xAxist;
     public AxisState yAxist;
     public Camera mainCamera;
@@ -15,12 +17,22 @@ public class CapsuleMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!photon.IsMine)
+        {
+            mainCamera.gameObject.SetActive(false);
+        }
         controller = GetComponent<CharacterController>();
+        photon = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!photon.IsMine) return;
+        if (this.photon.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
         inputX = Input.GetAxisRaw("Horizontal");
         inputY = Input.GetAxisRaw("Vertical");
         controller.Move((new Vector3(inputX,0,inputY))*0.1f);  

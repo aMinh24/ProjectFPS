@@ -32,7 +32,7 @@ public class CharacterLocomotion : MonoBehaviour
 	// Token: 0x0600015F RID: 351 RVA: 0x00008CD0 File Offset: 0x00006ED0
 	private void Update()
 	{
-		if (!photonView.AmOwner&& PhotonNetwork.CurrentRoom != null) { return; }
+		if (!photonView.IsMine&& PhotonNetwork.CurrentRoom != null) { return; }
 		this.userInput.x = Input.GetAxis("Horizontal");
 		this.userInput.y = Input.GetAxis("Vertical");
 		this.animator.SetFloat("InputX", this.userInput.x);
@@ -55,7 +55,7 @@ public class CharacterLocomotion : MonoBehaviour
 	// Token: 0x06000160 RID: 352 RVA: 0x00008D99 File Offset: 0x00006F99
 	private void FixedUpdate()
 	{
-        if (!photonView.AmOwner&& PhotonNetwork.CurrentRoom!=null) { return; }
+        if (!photonView.IsMine&& PhotonNetwork.CurrentRoom!=null) { return; }
         if (this.isJumping)
 		{
 			this.UpdateInAir();

@@ -46,7 +46,6 @@ namespace Photon.Pun.Demo.Asteroids
         public void Awake()
         {
             photonView = GetComponent<PhotonView>();
-
             rigidbody = GetComponent<Rigidbody>();
             collider = GetComponent<Collider>();
             renderer = GetComponent<Renderer>();
@@ -66,8 +65,7 @@ namespace Photon.Pun.Demo.Asteroids
             {
                 return;
             }
-
-            // we don't want the master client to apply input to remote ships while the remote player is inactive
+            //we don't want the master client to apply input to remote ships while the remote player is inactive
             if (this.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
             {
                 return;
