@@ -85,7 +85,7 @@ public class WeaponRaycastMulti : MonoBehaviourPun
 
 		if (this.equipBy == EquipBy.Player)
 		{
-			pool.poolObjects.ForEach(delegate(Bullet bullet)
+			pool.poolObjects.ForEach(delegate(BulletMulti bullet)
 			{
 				Vector3 position = this.GetPosition(bullet);
 				bullet.time += deltaTime;
@@ -104,14 +104,14 @@ public class WeaponRaycastMulti : MonoBehaviourPun
 	{
 		if (this.equipBy == EquipBy.Player)
 		{
-			using (List<Bullet>.Enumerator enumerator = pool.poolObjects.GetEnumerator())
+			using (List<BulletMulti>.Enumerator enumerator = pool.poolObjects.GetEnumerator())
 			{
 				while (enumerator.MoveNext())
 				{
-					Bullet bullet = enumerator.Current;
+					BulletMulti bullet = enumerator.Current;
 					if (bullet.time > this.maxLifetime)
 					{
-						bullet.Deactive();
+						bullet.Deactive(raycastOrigin.position);
 					}
 				}
 				return;
@@ -153,7 +153,7 @@ public class WeaponRaycastMulti : MonoBehaviourPun
 	}
 
 	// Token: 0x0600020A RID: 522 RVA: 0x0000B414 File Offset: 0x00009614
-	private Vector3 GetPosition(Bullet bullet)
+	private Vector3 GetPosition(BulletMulti bullet)
 	{
 		Vector3 a = Vector3.down * this.bulletDrop;
 		return bullet.initialPosition + bullet.initialVelocity * bullet.time + 0.5f * a * bullet.time * bullet.time;
@@ -161,7 +161,7 @@ public class WeaponRaycastMulti : MonoBehaviourPun
 
 	// Token: 0x0600020B RID: 523 RVA: 0x0000B474 File Offset: 0x00009674
 	
-	private void RaycastSegment(Vector3 start, Vector3 end, Bullet bullet)
+	private void RaycastSegment(Vector3 start, Vector3 end, BulletMulti bullet)
 	{
 		Vector3 direction = end - start;
 		float magnitude = direction.magnitude;

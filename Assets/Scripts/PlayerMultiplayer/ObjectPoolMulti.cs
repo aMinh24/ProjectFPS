@@ -7,13 +7,13 @@ using System.Linq;
 public class ObjectPoolMulti : MonoBehaviourPun
 {
     [HideInInspector]
-    public List<Bullet> poolObjects;
-    public Bullet objectToPool;
+    public List<BulletMulti> poolObjects;
+    public BulletMulti objectToPool;
     private int amountToPool =50;
     // Start is called before the first frame update
     void Start()
     {
-        poolObjects = GetComponentsInChildren<Bullet>().ToList<Bullet>();
+        poolObjects = GetComponentsInChildren<BulletMulti>().ToList<BulletMulti>();
         //this.transform.SetParent(null, false);
         //for (int i = 0; i < this.amountToPool; i++)
         //{
@@ -22,7 +22,7 @@ public class ObjectPoolMulti : MonoBehaviourPun
         //    this.poolObjects.Add(bullet);
         //}
     }
-    public Bullet GetPooledObject()
+    public BulletMulti GetPooledObject()
     {
         for (int i = 0; i < this.amountToPool; i++)
         {
