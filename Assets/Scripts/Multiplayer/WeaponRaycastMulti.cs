@@ -1,10 +1,13 @@
 ﻿
+using JetBrains.Annotations;
+using Photon.Pun;
 using System.Collections.Generic;
 using UnityEngine;
 
 // Token: 0x02000070 RID: 112
-public class WeaponRaycastMulti : MonoBehaviour
+public class WeaponRaycastMulti : MonoBehaviourPun
 {
+	public ObjectPoolMulti pool;
 	// Token: 0x06000201 RID: 513 RVA: 0x0000B084 File Offset: 0x00009284
 	private void Start()
 	{
@@ -25,6 +28,8 @@ public class WeaponRaycastMulti : MonoBehaviour
 	}
 
 	// Token: 0x06000203 RID: 515 RVA: 0x0000B0FC File Offset: 0x000092FC
+
+	
 	public void StartFiring()
 	{
 		this.fireRate = this.initFireRate;
@@ -63,6 +68,7 @@ public class WeaponRaycastMulti : MonoBehaviour
 		while (this.accumulatedTime >= 0f)
 		{
 			this.FireBullet(target);
+			//photonView.RPC("FireBullet", RpcTarget.All, target);
 			this.accumulatedTime -= num;
 		}
 	}
@@ -76,36 +82,29 @@ public class WeaponRaycastMulti : MonoBehaviour
 	// Token: 0x06000207 RID: 519 RVA: 0x0000B1BC File Offset: 0x000093BC
 	public void UpdateBullets(float deltaTime)
 	{
-		if (!ObjectPool.HasInstance()) return;
+
 		if (this.equipBy == EquipBy.Player)
 		{
-			BaseManager<ObjectPool>.Instance.poolObjects.ForEach(delegate(Bullet bullet)
+			pool.poolObjects.ForEach(delegate(Bullet bullet)
 			{
 				Vector3 position = this.GetPosition(bullet);
 				bullet.time += deltaTime;
 				Vector3 position2 = this.GetPosition(bullet);
+				//photonView.RPC("RaycastSegment", RpcTarget.All, position, position2, bullet);
 				this.RaycastSegment(position, position2, bullet);
 			});
 		}
-		else
-		{
-			BaseManager<ObjectPool>.Instance.poolAiObjects.ForEach(delegate(Bullet bullet)
-			{
-				Vector3 position = this.GetPosition(bullet);
-				bullet.time += deltaTime;
-				Vector3 position2 = this.GetPosition(bullet);
-				this.RaycastSegment(position, position2, bullet);
-			});
-		}
+		//photonView.RPC("DestroyBullets", RpcTarget.All);
 		this.DestroyBullets();
 	}
 
 	// Token: 0x06000208 RID: 520 RVA: 0x0000B224 File Offset: 0x00009424
+	
 	private void DestroyBullets()
 	{
 		if (this.equipBy == EquipBy.Player)
 		{
-			using (List<Bullet>.Enumerator enumerator = BaseManager<ObjectPool>.Instance.poolObjects.GetEnumerator())
+			using (List<Bullet>.Enumerator enumerator = pool.poolObjects.GetEnumerator())
 			{
 				while (enumerator.MoveNext())
 				{
@@ -118,16 +117,10 @@ public class WeaponRaycastMulti : MonoBehaviour
 				return;
 			}
 		}
-		foreach (Bullet bullet2 in BaseManager<ObjectPool>.Instance.poolAiObjects)
-		{
-			if (bullet2.time > this.maxLifetime)
-			{
-				bullet2.Deactive();
-			}
-		}
 	}
 
 	// Token: 0x06000209 RID: 521 RVA: 0x0000B2E4 File Offset: 0x000094E4
+	//[PunRPC]
 	private void FireBullet(Vector3 target)
 	{
 		if (this.ammoCount <= 0)
@@ -145,15 +138,10 @@ public class WeaponRaycastMulti : MonoBehaviour
 			particleSystem.Emit(particleSystem.maxParticles);
 		}
 		Vector3 velocity = (target - this.raycastOrigin.position).normalized * (float)this.gunInfo[KeyInfo.bulletSpeed];
-		if (ObjectPool.HasInstance())
 		{
             if (this.equipBy == EquipBy.Player)
             {
-                BaseManager<ObjectPool>.Instance.GetPooledObject().Active(this.raycastOrigin.position, velocity);
-            }
-            else
-            {
-                BaseManager<ObjectPool>.Instance.GetPooledAiObject().Active(this.raycastOrigin.position, velocity);
+                pool.GetPooledObject().Active(this.raycastOrigin.position, velocity);
             }
         }
 		
@@ -161,12 +149,6 @@ public class WeaponRaycastMulti : MonoBehaviour
 		if (weaponRecoil != null)
 		{
 			weaponRecoil.GenerateRecoil(this.weaponName);
-		}
-		if (this.equipBy == EquipBy.AI && BaseManager<AudioManager>.HasInstance())
-		{
-			this.audio.Stop();
-			this.audio.clip = BaseManager<AudioManager>.Instance.GetAudioClip("TommyShoot");
-			this.audio.PlayOneShot(this.audio.clip);
 		}
 	}
 
@@ -178,6 +160,7 @@ public class WeaponRaycastMulti : MonoBehaviour
 	}
 
 	// Token: 0x0600020B RID: 523 RVA: 0x0000B474 File Offset: 0x00009674
+	
 	private void RaycastSegment(Vector3 start, Vector3 end, Bullet bullet)
 	{
 		Vector3 direction = end - start;

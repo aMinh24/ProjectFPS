@@ -1,9 +1,9 @@
 ﻿
 using UnityEngine;
 using UnityEngine.Events;
-
+using Photon.Pun;
 // Token: 0x02000072 RID: 114
-public class WeaponReloadMultiplayer : MonoBehaviour
+public class WeaponReloadMultiplayer : MonoBehaviourPun
 {
 	// Token: 0x06000213 RID: 531 RVA: 0x0000B748 File Offset: 0x00009948
 	private void Start()
@@ -18,7 +18,12 @@ public class WeaponReloadMultiplayer : MonoBehaviour
 	// Token: 0x06000214 RID: 532 RVA: 0x0000B768 File Offset: 0x00009968
 	private void Update()
 	{
-		if (this.activeWeapon.characterAiming.isEcs)
+        if (!photonView.IsMine) { return; }
+        if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+        if (this.activeWeapon.characterAiming.isEcs)
 		{
 			return;
 		}

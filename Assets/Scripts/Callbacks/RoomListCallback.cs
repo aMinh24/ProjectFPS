@@ -10,11 +10,9 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
 {
     public ListRoomPanel listRoomPanel;
     public List <GameObject> roomObject;
-    public bool isConnected = false;
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        Debug.Log("ncc");
         ClearRoom();
         foreach (RoomInfo roomInfo in roomList)
         {
@@ -33,7 +31,6 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         base.OnLeftRoom();
-        isConnected = false;
         
     }
     
@@ -70,7 +67,6 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
-        isConnected = true;
         PhotonNetwork.JoinLobby();
     }
 }

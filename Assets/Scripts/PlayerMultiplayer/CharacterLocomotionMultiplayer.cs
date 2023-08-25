@@ -22,7 +22,6 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 		this.groundSpeed = BaseManager<DataManager>.Instance.GlobalConfig.groundSpeed;
 		this.pushPower = BaseManager<DataManager>.Instance.GlobalConfig.pushPower;
 		this.maxEnergy = BaseManager<DataManager>.Instance.GlobalConfig.maxEnergy;
-		//photonView = GetComponent<PhotonView>();
 		camManager = GetComponent<CamMultiplayer>();
 		this.energy = this.maxEnergy;
 		this.isCrouching = false;
@@ -89,9 +88,9 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 	public bool IsSprinting()
 	{
 		bool key = Input.GetKey(KeyCode.LeftShift);
-		//bool flag = this.activeWeapon.IsFiring();
-		//bool isReloading = this.reloadWeapon.isReloading;
-		//bool isChangingWeapon = this.activeWeapon.isChangingWeapon;
+		bool flag = this.activeWeapon.IsFiring();
+		bool isReloading = this.reloadWeapon.isReloading;
+		bool isChangingWeapon = this.activeWeapon.isChangingWeapon;
 		bool flag2 = false;
 		if (BaseManager<CameraManager>.HasInstance())
 		{
@@ -101,7 +100,7 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 		{
 			flag2 = camManager.isAiming;
 		}
-		return key && /*!flag && !isReloading && !isChangingWeapon &&*/ this.userInput.y > 0.9f && !flag2 && this.energy > 0f && !this.recover;
+		return key && !flag && !isReloading && !isChangingWeapon && this.userInput.y > 0.9f && !flag2 && this.energy > 0f && !this.recover;
 	}
 
 	// Token: 0x06000163 RID: 355 RVA: 0x00008EA8 File Offset: 0x000070A8
@@ -140,14 +139,14 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 		{
 			this.isCrouching = false;
 		}
-		//if (!activeWeapon.isHolstered)
-		//{
-  //          this.rigController.SetBool(this.isSprintingParam, flag);
-  //          this.animator.SetBool(this.isSprintingParam, flag);
-  //      }
-  //      else this.animator.SetBool(isSprintingUnarmParam, flag);
+		if (!activeWeapon.isHolstered)
+		{
+			this.rigController.SetBool(this.isSprintingParam, flag);
+			this.animator.SetBool(this.isSprintingParam, flag);
+		}
+		else this.animator.SetBool(isSprintingUnarmParam, flag);
 
-    }
+	}
 
 	// Token: 0x06000164 RID: 356 RVA: 0x00008FC0 File Offset: 0x000071C0
 	private void UpdateOnGround()
@@ -156,11 +155,11 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 		Vector3 b = Vector3.down * this.stepDown;
 		this.characterController.Move(a + b);
 		this.rootMotion = Vector3.zero;
-		//if (rigController != null)
-		//{
-  //          this.rigController.SetBool(this.isJumpingParam, false);
-  //      }
-		
+		if (rigController != null)
+		{
+			this.rigController.SetBool(this.isJumpingParam, false);
+		}
+
 		if (!this.characterController.isGrounded)
 		{
 			this.SetInAir(0f);

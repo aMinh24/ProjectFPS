@@ -7,6 +7,7 @@ using UnityEngine;
 public class ActiveWeaponMultiplayer : MonoBehaviourPun
 {
 	public CamMultiplayer camManager;
+	public ObjectPoolMulti pool;
 	// Token: 0x06000149 RID: 329 RVA: 0x00008300 File Offset: 0x00006500
 	private void Awake()
 	{
@@ -49,7 +50,13 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 	// Token: 0x0600014B RID: 331 RVA: 0x000083D4 File Offset: 0x000065D4
 	private void Update()
 	{
-		if (this.characterAiming.isEcs)
+        //weapon.UpdateWeapon(Time.deltaTime, this.crossHairTarget.position);
+        if (!photonView.IsMine) { return; }
+        if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+        if (this.characterAiming.isEcs)
 		{
 			return;
 		}
@@ -94,33 +101,78 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 			{
 				if (Input.GetButtonDown("Fire1"))
 				{
-					weapon.StartFiring();
+					//weapon.StartFiring();
+					photonView.RPC("PlayerStartFiring", RpcTarget.All);
 				}
 			}
 			else if (Input.GetButtonDown("Fire1") && weapon.mode.Contains(ShootingMode.Single) && this.curShootingMode == ShootingMode.Single)
 			{
-				weapon.SingleShot(this.crossHairTarget.position);
-			}
-			weapon.UpdateWeapon(Time.deltaTime, this.crossHairTarget.position);
-			if (Input.GetButtonUp("Fire1"))
+                //weapon.SingleShot(this.crossHairTarget.position);
+                photonView.RPC("PlayerSingleShot", RpcTarget.All);
+            }
+            weapon.UpdateWeapon(Time.deltaTime, this.crossHairTarget.position);
+            //photonView.RPC("PlayerUpdateWeapon", RpcTarget.All);
+            if (Input.GetButtonUp("Fire1"))
 			{
-				weapon.StopFiring();
-			}
+                //weapon.StopFiring();
+                photonView.RPC("PlayerStopFiring", RpcTarget.All);
+            }
 		}
-		else if (weapon != null && weapon.weaponName.Equals("knife"))
-		{
-			this.animator.SetLayerWeight(2, 1f);
-			if (Input.GetButtonDown("Fire1"))
-			{
-				this.animator.Play("KnifeAttack");
-			}
-		}
-		if (this.isHolstered && Input.GetButtonDown("Fire1"))
-		{
-			this.animator.Play("2HandAttack");
-		}
+		//else if (weapon != null && weapon.weaponName.Equals("knife"))
+		//{
+		//	this.animator.SetLayerWeight(2, 1f);
+		//	if (Input.GetButtonDown("Fire1"))
+		//	{
+		//		this.animator.Play("KnifeAttack");
+		//	}
+		//}
+		//if (this.isHolstered && Input.GetButtonDown("Fire1"))
+		//{
+		//	this.animator.Play("2HandAttack");
+		//}
 	}
+	[PunRPC]
+	public void PlayerSingleShot()
+	{
+        if (!photonView.IsMine) { return; }
+        if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+        GetWeapon(this.activeWeaponIndex).SingleShot(crossHairTarget.gameObject.transform.position);
 
+    }
+	[PunRPC]
+	public void PlayerStopFiring()
+	{
+        if (!photonView.IsMine) { return; }
+        if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+        GetWeapon(this.activeWeaponIndex).StopFiring();
+
+    }
+	[PunRPC]
+	public void PlayerStartFiring()
+	{
+        if (!photonView.IsMine) { return; }
+        if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+        GetWeapon(this.activeWeaponIndex).StartFiring();
+    }
+	//[PunRPC]
+	//public void PlayerUpdateWeapon()
+	//{
+ //       if (!photonView.IsMine) { return; }
+ //       if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+ //       {
+ //           return;
+ //       }
+ //       this.GetWeapon(this.activeWeaponIndex).UpdateWeapon(Time.deltaTime, this.crossHairTarget.gameObject.transform.position);
+ //   }
 	// Token: 0x0600014C RID: 332 RVA: 0x0000866C File Offset: 0x0000686C
 	public bool IsFiring()
 	{
@@ -143,6 +195,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
 		newWeapon.transform.SetParent(this.weaponSlots[weaponSlot], false);
 		this.equippedWeapons[weaponSlot] = newWeapon;
 		newWeapon.weaponRecoil.characterAiming = this.characterAiming;
+		newWeapon.pool = this.pool;
 		if (BaseManager<ListenerManager>.HasInstance())
 		{
 			BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, newWeapon);

@@ -1,4 +1,5 @@
 ﻿
+using Photon.Pun;
 using System.Collections;
 using UnityEngine;
 
@@ -87,7 +88,7 @@ public class PlayerHealthMultiplayer : Health
 			HitBox hitBox = rigidbody.gameObject.AddComponent<HitBox>();
 			hitBox.health = this;
 			hitBox.rb = rigidbody;
-			if (hitBox.gameObject != base.gameObject)
+            if (hitBox.gameObject != base.gameObject)
 			{
 				hitBox.gameObject.layer = LayerMask.NameToLayer("HitboxPlayer");
 			}
