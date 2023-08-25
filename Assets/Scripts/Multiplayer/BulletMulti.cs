@@ -4,6 +4,7 @@ using UnityEngine;
 // Token: 0x0200006C RID: 108
 public class BulletMulti : MonoBehaviour
 {
+	public GameObject sp;
 	// Token: 0x17000011 RID: 17
 	// (get) Token: 0x060001F1 RID: 497 RVA: 0x0000AC9B File Offset: 0x00008E9B
 	public bool IsActive
@@ -13,9 +14,21 @@ public class BulletMulti : MonoBehaviour
 			return this.isActive;
 		}
 	}
-
-	// Token: 0x060001F2 RID: 498 RVA: 0x0000ACA4 File Offset: 0x00008EA4
-	public void Deactive(Vector3 pos)
+    private void Update()
+    {
+        if (initialVelocity == Vector3.zero)
+		{
+            this.tracer.emitting = false;
+			sp.SetActive(false);
+        }
+		else
+		{
+			this.tracer.emitting = true;
+			sp.SetActive(true);
+		}
+    }
+    // Token: 0x060001F2 RID: 498 RVA: 0x0000ACA4 File Offset: 0x00008EA4
+    public void Deactive(Vector3 pos)
 	{
 		this.isActive = false;
 		//base.gameObject.SetActive(false);
