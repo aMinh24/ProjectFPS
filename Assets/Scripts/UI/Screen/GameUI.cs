@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using Unity.Mathematics;
@@ -190,7 +191,21 @@ public class GameUI : BaseScreen
 		{
 			this.ammoText.text = "0";
 		}
-	}
+        WeaponRaycastMulti weaponRaycastMulti = value as WeaponRaycastMulti;
+        if (!weaponRaycastMulti.photonView.IsMine) { return; }
+        if (weaponRaycastMulti.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+        if (weaponRaycastMulti != null && weaponRaycastMulti.equipBy == EquipBy.Player)
+        {
+            this.ammoText.text = weaponRaycastMulti.ammoCount.ToString();
+        }
+        if (value == null)
+        {
+            this.ammoText.text = "0";
+        }
+    }
 
 	// Token: 0x060001DC RID: 476 RVA: 0x0000A9C0 File Offset: 0x00008BC0
 	public void UpdateAmmoTotal(object value)
@@ -202,6 +217,7 @@ public class GameUI : BaseScreen
 			return;
 		}
 		this.ammoTotalText.text = "0";
+
 	}
 
 	// Token: 0x060001DD RID: 477 RVA: 0x0000AA00 File Offset: 0x00008C00

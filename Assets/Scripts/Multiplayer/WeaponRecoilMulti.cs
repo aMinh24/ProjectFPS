@@ -1,9 +1,9 @@
 ﻿
 using Cinemachine;
 using UnityEngine;
-
+using Photon.Pun;
 // Token: 0x02000071 RID: 113
-public class WeaponRecoilMulti : MonoBehaviour
+public class WeaponRecoilMulti : MonoBehaviourPun
 {
 	// Token: 0x0600020D RID: 525 RVA: 0x0000B5C6 File Offset: 0x000097C6
 	private void Awake()
@@ -22,7 +22,8 @@ public class WeaponRecoilMulti : MonoBehaviour
 		if (this.cam.enabled)
 		{
 			this.cameraShake.GenerateImpulse(characterAiming.mainCamera.transform.forward);
-			this.rigController.Play("weapon_recoil_" + weaponName, 1, 0f);
+			//this.rigController.Play("weapon_recoil_" + weaponName, 1, 0f);
+			photonView.RPC("RecoilWeapon", RpcTarget.All, weaponName);
 			this.duration = 0.5f;
 		}
 		else
@@ -33,7 +34,11 @@ public class WeaponRecoilMulti : MonoBehaviour
 		this.verticleRecoil = this.recoilPattern[this.index].y;
 		this.index = this.NextIndex(this.index);
 	}
-
+	//[PunRPC]
+	//public void RecoilWeapon(string name)
+	//{
+	//	rigController.SetTrigger("recoil_" + name);
+	//}
 	// Token: 0x0600020F RID: 527 RVA: 0x0000B692 File Offset: 0x00009892
 	public void Reset()
 	{

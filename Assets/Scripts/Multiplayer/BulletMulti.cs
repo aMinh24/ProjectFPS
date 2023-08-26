@@ -4,7 +4,8 @@ using UnityEngine;
 // Token: 0x0200006C RID: 108
 public class BulletMulti : MonoBehaviour
 {
-	public GameObject sp;
+	//public GameObject sp;
+	//public Vector3 preTF = new Vector3(99,99,99);
 	// Token: 0x17000011 RID: 17
 	// (get) Token: 0x060001F1 RID: 497 RVA: 0x0000AC9B File Offset: 0x00008E9B
 	public bool IsActive
@@ -14,24 +15,33 @@ public class BulletMulti : MonoBehaviour
 			return this.isActive;
 		}
 	}
-    private void Update()
-    {
-        if (initialVelocity == Vector3.zero)
-		{
-            this.tracer.emitting = false;
-			sp.SetActive(false);
-        }
-		else
-		{
-			this.tracer.emitting = true;
-			sp.SetActive(true);
-		}
-    }
+    //private void Update()
+    //{
+		
+    //}
+    //private void Update()
+    //{
+    //      if ( preTF.Equals (new Vector3(99, 99, 99)))
+    //      {
+    //	return;
+    //      }
+    //if (Vector3.Distance(preTF,transform.position)<=0.1f)
+    //{
+    //          this.tracer.emitting = false;
+    //	sp.SetActive(false);
+    //      }
+    //else
+    //{
+    //	this.tracer.emitting = true;
+    //	sp.SetActive(true);
+    //}
+    //preTF = transform.position;
+    //}
     // Token: 0x060001F2 RID: 498 RVA: 0x0000ACA4 File Offset: 0x00008EA4
     public void Deactive(Vector3 pos)
 	{
 		this.isActive = false;
-		//base.gameObject.SetActive(false);
+		base.gameObject.SetActive(false);
 		this.initialPosition = pos;
 		this.initialVelocity = Vector3.zero;
 		this.tracer.emitting = false;
@@ -42,7 +52,7 @@ public class BulletMulti : MonoBehaviour
 	public void Active(Vector3 position, Vector3 velocity)
 	{
 		this.isActive = true;
-		//base.gameObject.SetActive(true);
+		base.gameObject.SetActive(true);
 		this.time = 0f;
 		this.initialPosition = position;
 		this.initialVelocity = velocity;
@@ -63,5 +73,5 @@ public class BulletMulti : MonoBehaviour
 	public TrailRenderer tracer;
 
 	// Token: 0x040001E3 RID: 483
-	private bool isActive;
+	public bool isActive= true;
 }

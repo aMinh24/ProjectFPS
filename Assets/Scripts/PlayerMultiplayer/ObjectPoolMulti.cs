@@ -6,7 +6,7 @@ using System.Linq;
 
 public class ObjectPoolMulti : MonoBehaviourPun
 {
-    [HideInInspector]
+    
     public List<BulletMulti> poolObjects;
     public BulletMulti objectToPool;
     private int amountToPool =50;
@@ -24,7 +24,7 @@ public class ObjectPoolMulti : MonoBehaviourPun
     }
     public BulletMulti GetPooledObject()
     {
-        for (int i = 0; i < this.amountToPool; i++)
+        for (int i = 0; i < poolObjects.Count; i++)
         {
             if (!this.poolObjects[i].IsActive)
             {
@@ -32,5 +32,29 @@ public class ObjectPoolMulti : MonoBehaviourPun
             }
         }
         return null;
+    }
+    public int GetIndexPooledObject()
+    {
+        for (int i = 0; i < poolObjects.Count; i++)
+        {
+            if (!this.poolObjects[i].IsActive)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+    public int GetIndexPooledObjectDeactive()
+    {
+        for (int i = 0; i < poolObjects.Count; i++)
+        {
+
+            if (this.poolObjects[i].IsActive&& poolObjects[i].time >3f)
+            {
+                
+                return i;
+            }
+        }
+        return -1;
     }
 }

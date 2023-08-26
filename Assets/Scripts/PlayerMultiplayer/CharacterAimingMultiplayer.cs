@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using Cinemachine;
 using Photon.Pun;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 // Token: 0x02000053 RID: 83
 public class CharacterAimingMultiplayer : MonoBehaviour
@@ -10,6 +11,7 @@ public class CharacterAimingMultiplayer : MonoBehaviour
     public CamMultiplayer camManager;
     public PhotonView photonView;
     public GameObject camGroup;
+    
     // Token: 0x06000157 RID: 343 RVA: 0x000088E2 File Offset: 0x00006AE2
     private void Awake()
     {
@@ -18,10 +20,9 @@ public class CharacterAimingMultiplayer : MonoBehaviour
         {
             return;
         }
-        mainCamera = Camera.main;
+        mainCamera.enabled = true;
+        this.mainCamera.transform.SetParent(null, false);       
         camGroup.SetActive(true);
-        //mainCamera.gameObject.SetActive(true);
-        //this.mainCamera.transform.SetParent(null, false);
     }
 
     // Token: 0x06000158 RID: 344 RVA: 0x000088EF File Offset: 0x00006AEF

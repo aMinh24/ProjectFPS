@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class CamMultiplayer : MonoBehaviourPun
 {
+    public AudioListener Listener;
     private void Awake()
     {
         if (!photonView.IsMine) { return; }
@@ -14,7 +15,8 @@ public class CamMultiplayer : MonoBehaviourPun
         {
             return;
         }
-        brain = FindObjectOfType<CinemachineBrain>();
+        brain.enabled = true;
+        Listener.enabled = true;
     }
     private void Start()
     {

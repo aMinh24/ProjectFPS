@@ -2,13 +2,13 @@
 using System.Runtime.CompilerServices;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Animations;
 
 // Token: 0x02000053 RID: 83
 public class CharacterAiming : MonoBehaviour
 {
-	// Token: 0x06000157 RID: 343 RVA: 0x000088E2 File Offset: 0x00006AE2
 
-	// Token: 0x06000158 RID: 344 RVA: 0x000088EF File Offset: 0x00006AEF
+
 	private void Start()
 	{
 		Cursor.visible = false;
