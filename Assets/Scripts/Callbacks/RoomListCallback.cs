@@ -41,7 +41,7 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
         Debug.Log("joined room "+PhotonNetwork.CurrentRoom);
         if (UIManager.HasInstance())
         {
-            UIManager.Instance.ShowScreen<GameUI>(null, true);
+            UIManager.Instance.ShowScreen<GameUIMulti>(null, true);
         }
     }
 

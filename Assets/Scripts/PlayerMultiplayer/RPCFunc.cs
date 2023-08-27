@@ -7,11 +7,33 @@ public class RPCFunc : MonoBehaviourPun
 {
     public ActiveWeaponMultiplayer act;
     public ObjectPoolMulti pool;
-//public PhotonView photonView;
-    //private void Awake()
-    //{
-    //    //photonView = GetComponent<PhotonView>();
-    //}
+    public PlayerHealthMultiplayer health;
+    private void Awake()
+    {
+        if (photonView.IsMine && photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            photonView.RPC("ChangeNamePlayer", RpcTarget.AllBuffered, PhotonNetwork.NickName, photonView.ViewID);
+        }
+    }
+    [PunRPC]
+    public void RPCTakeDame(string shooter, float num, Vector3 direction, int idRb, int viewID)
+    {
+        if (viewID == photonView.ViewID)
+        {
+            Debug.Log("RPCtakedame");
+            this.health.shooter = shooter;
+            this.health.TakeDamage(num, direction, idRb);
+        }
+    }
+    [PunRPC]
+    public void ChangeNamePlayer(string name, int id)
+    {
+        PhotonView view = GetComponent<PhotonView>();
+        if (view.ViewID == id)
+        {
+            this.gameObject.name = name;
+        }    
+    }
     public bool CheckIsMine()
     {
         return photonView.IsMine && photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber;

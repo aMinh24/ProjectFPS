@@ -1,4 +1,5 @@
 ﻿
+using Photon.Pun;
 using UnityEngine;
 
 // Token: 0x02000044 RID: 68
@@ -11,9 +12,19 @@ public class Ragdoll : MonoBehaviour
 		this.rigidbodies = base.GetComponentsInChildren<Rigidbody>();
 		this.DeactiveRagdoll();
 	}
-
-	// Token: 0x060000E5 RID: 229 RVA: 0x000064DC File Offset: 0x000046DC
-	public void ActiveRagdoll()
+    private void Update()
+    {
+        PhotonView view = this.gameObject.GetComponent<PhotonView>();
+		if (view.IsMine&& view.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
+		{
+			if (Input.GetKeyDown(KeyCode.K))
+			{
+				ActiveRagdoll();
+			}
+		}
+    }
+    // Token: 0x060000E5 RID: 229 RVA: 0x000064DC File Offset: 0x000046DC
+    public void ActiveRagdoll()
 	{
 		this.animator.enabled = false;
 		Rigidbody[] array = this.rigidbodies;

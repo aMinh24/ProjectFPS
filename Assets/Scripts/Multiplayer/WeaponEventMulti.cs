@@ -5,6 +5,7 @@ using UnityEngine.Events;
 // Token: 0x0200006F RID: 111
 public class WeaponEventMulti : MonoBehaviour
 {
+	
 	// Token: 0x060001FD RID: 509 RVA: 0x0000AFAE File Offset: 0x000091AE
 	private void Awake()
 	{

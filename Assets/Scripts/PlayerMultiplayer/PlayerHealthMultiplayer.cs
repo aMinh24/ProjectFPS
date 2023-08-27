@@ -1,13 +1,15 @@
 ﻿
 using Photon.Pun;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 // Token: 0x02000057 RID: 87
-public class PlayerHealthMultiplayer : Health
+public class PlayerHealthMultiplayer : HealthMultiplayer
 {
+	public Rigidbody[] m_Rigidbodies;
 	// Token: 0x06000179 RID: 377 RVA: 0x00009582 File Offset: 0x00007782
-	protected override void OnDamage(Vector3 direction, Rigidbody rigidbody)
+	protected override void OnDamage(Vector3 direction, int idRb)
 	{
 		
 		if (BaseManager<ListenerManager>.HasInstance())
@@ -17,13 +19,13 @@ public class PlayerHealthMultiplayer : Health
 	}
 
 	// Token: 0x0600017A RID: 378 RVA: 0x00009598 File Offset: 0x00007798
-	protected override void OnDeath(Vector3 direction, Rigidbody rigidbody)
+	protected override void OnDeath(Vector3 direction, int idRb)
 	{
 		this.ragdoll.ActiveRagdoll();
 		
 		this.characterController.enabled = false;
 		this.characterLocomotion.enabled = false;
-		this.ragdoll.ApplyForce(direction, rigidbody);
+		this.ragdoll.ApplyForce(direction, m_Rigidbodies[idRb]);
 		if (BaseManager<CameraManager>.HasInstance())
 		{
 			BaseManager<CameraManager>.Instance.TurnOffScope();
@@ -52,11 +54,11 @@ public class PlayerHealthMultiplayer : Health
 	public IEnumerator OnPlayerDeath()
 	{
 		yield return new WaitForSeconds(2f);
-		if (BaseManager<UIManager>.HasInstance())
-		{
-			BaseManager<UIManager>.Instance.ShowScreen<DefeatPanel>(null, true);
-		}
-		yield break;
+		//if (BaseManager<UIManager>.HasInstance())
+		//{
+		//	BaseManager<UIManager>.Instance.ShowScreen<DefeatPanel>(null, true);
+		//}
+		//yield break;
 	}
 
 	// Token: 0x0600017C RID: 380 RVA: 0x00009650 File Offset: 0x00007850
@@ -82,19 +84,26 @@ public class PlayerHealthMultiplayer : Health
 	// Token: 0x0600017E RID: 382 RVA: 0x000096A4 File Offset: 0x000078A4
 	private void SetUp()
 	{
-		foreach (Rigidbody rigidbody in base.GetComponentsInChildren<Rigidbody>())
+		m_Rigidbodies = GetComponentsInChildren<Rigidbody>();
+		PhotonView photonView = GetComponent<PhotonView>();
+		for (int i = 0; i < m_Rigidbodies.Length; i++)
 		{
-			rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
-			HitBox hitBox = rigidbody.gameObject.AddComponent<HitBox>();
+			m_Rigidbodies[i].collisionDetectionMode = CollisionDetectionMode.Continuous;
+			HitBoxMulti hitBox = m_Rigidbodies[i].gameObject.AddComponent<HitBoxMulti>();
+			hitBox.idRb = i;
+			hitBox.photonView = photonView;
 			hitBox.health = this;
-			hitBox.rb = rigidbody;
+			hitBox.rb = m_Rigidbodies[i];
+			PhotonView view = GetComponent<PhotonView>();
+			string layerHitbox = "HitboxEnemy";
+			if (view.IsMine && view.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber) layerHitbox = "HitboxPlayer";
             if (hitBox.gameObject != base.gameObject)
 			{
-				hitBox.gameObject.layer = LayerMask.NameToLayer("HitboxPlayer");
+				hitBox.gameObject.layer = LayerMask.NameToLayer(layerHitbox);
 			}
 		}
 	}
-
+	
 	// Token: 0x040001AE RID: 430
 	public Ragdoll ragdoll;
 

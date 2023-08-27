@@ -3552,8 +3552,6 @@ GameObject:
   - component: {fileID: 2499900086009298099}
   - component: {fileID: 2499900086009298109}
   - component: {fileID: 2499900086009298110}
-  - component: {fileID: 2499900086009298111}
-  - component: {fileID: 2499900086009298096}
   - component: {fileID: 1007177125994719320}
   - component: {fileID: 4490439416103086088}
   - component: {fileID: 4152847618161146021}
@@ -3681,7 +3679,6 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2499900086009298110}
-  - {fileID: 2499900086009298096}
   - {fileID: 455435254865102530}
   - {fileID: 5360853967016980331}
   - {fileID: 3055453611691156594}
@@ -3754,38 +3751,6 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
---- !u!54 &2499900086009298111
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2499900086009298081}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &2499900086009298096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2499900086009298081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 1
-  m_TeleportEnabled: 0
-  m_TeleportIfDistanceGreaterThan: 3
 --- !u!114 &1007177125994719320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3924,6 +3889,7 @@ MonoBehaviour:
   currentHealth: 0
   shooter: 
   isDead: 0
+  m_Rigidbodies: []
   ragdoll: {fileID: 2499900086009298099}
   activeWeapon: {fileID: 7678921243409980864}
   characterAiming: {fileID: 4490439416103086088}
@@ -3989,6 +3955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   act: {fileID: 7678921243409980864}
   pool: {fileID: 4294253561748788224}
+  health: {fileID: 1632090866099088030}
 --- !u!114 &455435254865102530
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class ObjectPool : BaseManager<ObjectPool>
     // Token: 0x060001F8 RID: 504 RVA: 0x0000ADEC File Offset: 0x00008FEC
     private void Start()
     {
+        if (objectToPool == null) return;
         if (BaseManager<DataManager>.HasInstance())
         {
             this.totalEnemy = BaseManager<DataManager>.Instance.GlobalConfig.totalEnemy;
@@ -45,14 +46,6 @@ public class ObjectPool : BaseManager<ObjectPool>
 
     }
 
-    // Token: 0x060001F9 RID: 505 RVA: 0x0000AEF2 File Offset: 0x000090F2
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            base.StartCoroutine(this.aiTest.GetComponent<AiAgent>().EnableAll());
-        }
-    }
 
     // Token: 0x060001FA RID: 506 RVA: 0x0000AF14 File Offset: 0x00009114
     public Bullet GetPooledObject()

@@ -8,10 +8,9 @@ public class GameCallbacks : MonoBehaviourPunCallbacks
 {
     private void Awake()
     {
-        Debug.Log("create room");
         if (PhotonNetwork.CurrentRoom != null)
         {
-            PhotonNetwork.Instantiate("Player", new Vector3(98, 2f, 89), Quaternion.identity);
+            GameObject player = PhotonNetwork.Instantiate("Player", new Vector3(98, 2f, 89), Quaternion.identity);
         }
     }
 

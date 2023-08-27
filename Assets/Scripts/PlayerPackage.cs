@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-public class PlayerPackage : MonoBehaviour
+using UnityEngine;
+using Photon.Pun;
+public class PlayerPackage : MonoBehaviourPun
 {
     public Transform[] pack;
     private void Awake()
@@ -11,5 +10,6 @@ public class PlayerPackage : MonoBehaviour
         {
             p.SetParent(null);
         }
+        Destroy(this.gameObject);
     }
 }
