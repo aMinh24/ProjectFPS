@@ -3,7 +3,7 @@ using Photon.Pun;
 using UnityEngine;
 
 // Token: 0x02000064 RID: 100
-public class GameMenu : BasePopup
+public class GameMenuMulti : BasePopup
 {
 	// Token: 0x060001BD RID: 445 RVA: 0x00009F79 File Offset: 0x00008179
 	public override void Hide()
@@ -15,8 +15,17 @@ public class GameMenu : BasePopup
 	public override void Init()
 	{
 		base.Init();
-		this.aiming = UnityEngine.Object.FindObjectOfType<CharacterAiming>();
-		
+		CharacterAimingMultiplayer[] characterAimingMultiplayers =  Object.FindObjectsOfType<CharacterAimingMultiplayer>();
+		foreach(CharacterAimingMultiplayer aim in characterAimingMultiplayers)
+		{
+			if (aim.photonView.IsMine && aim.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
+			{
+				characterAimingMultiplayer = aim;
+				photon = characterAimingMultiplayer.photonView; break;
+			}
+
+               
+		}
 		this.Hide();
 	}
 
@@ -43,6 +52,19 @@ public class GameMenu : BasePopup
 		{
 			Object.Destroy(BaseManager<CameraManager>.Instance.gameObject);
 		}
+		if (MultiplayerManager.HasInstance())
+		{
+			Destroy(MultiplayerManager.Instance.gameObject);
+		}
+		if (characterAimingMultiplayer!= null)
+		{
+            if (!photon.IsMine) { return; }
+            if (photon.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                return;
+            }
+			PhotonNetwork.LeaveRoom();
+        }
 	}
 
 	// Token: 0x060001C1 RID: 449 RVA: 0x0000A004 File Offset: 0x00008204
@@ -50,9 +72,9 @@ public class GameMenu : BasePopup
 	{
 		Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.Locked;
-		if (this.aiming != null)
+		if (characterAimingMultiplayer != null)
 		{
-			this.aiming.isEcs = false;
+			characterAimingMultiplayer.isEcs = false;
 		}
 		this.Hide();
 	}
@@ -67,7 +89,6 @@ public class GameMenu : BasePopup
 	}
 
 	// Token: 0x040001C1 RID: 449
-	private CharacterAiming aiming;
-
-
+	private PhotonView photon;
+	private CharacterAimingMultiplayer characterAimingMultiplayer;
 }

@@ -15898,7 +15898,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387198589}
   m_LocalRotation: {x: 1, y: -0.000000036878493, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.0000009536743, z: 9.22058}
+  m_LocalPosition: {x: 0, y: -0.0000009536743, z: 9.220588}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -127040,7 +127040,7 @@ MonoBehaviour:
   - {x: 10, y: 35}
   - {x: 40, y: 5}
   - {x: 35, y: 0}
-  recoilModifier: 0
+  recoilModifier: 1
   cam: {fileID: 790906664}
 --- !u!65 &1282756089
 BoxCollider:

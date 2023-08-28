@@ -24,11 +24,11 @@ public class WeaponRecoilMulti : MonoBehaviourPun
 			this.cameraShake.GenerateImpulse(characterAiming.mainCamera.transform.forward);
 			//this.rigController.Play("weapon_recoil_" + weaponName, 1, 0f);
 			photonView.RPC("RecoilWeapon", RpcTarget.All, weaponName);
-			this.duration = 0.5f;
+			this.duration = 0.3f;
 		}
 		else
 		{
-			this.duration = 0.25f;
+			this.duration = 0.15f;
 		}
 		this.horizontalRecoil = this.recoilPattern[this.index].x;
 		this.verticleRecoil = this.recoilPattern[this.index].y;

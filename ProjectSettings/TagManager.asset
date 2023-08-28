@@ -11,6 +11,8 @@ TagManager:
   - Head
   - Bullet
   - Camera
+  - SpawnA
+  - SpawnB
   layers:
   - Default
   - TransparentFX
@@ -24,8 +26,8 @@ TagManager:
   - Die
   - HitboxEnemy
   - Minimap
-  - 
-  - 
+  - HitboxA
+  - HitboxB
   - 
   - 
   - 

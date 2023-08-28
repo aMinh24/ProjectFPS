@@ -56,7 +56,6 @@ public class WeaponRecoil : MonoBehaviour
 	}
 
 	// Token: 0x0400020D RID: 525
-	[HideInInspector]
 	public CharacterAiming characterAiming;
 
 	// Token: 0x0400020E RID: 526

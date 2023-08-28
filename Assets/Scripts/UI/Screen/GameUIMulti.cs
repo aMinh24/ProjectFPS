@@ -67,7 +67,7 @@ public class GameUIMulti : BaseScreen
 	private void Update()
 	{
 		this.timeRemainingText.text = string.Format("{0}:{1}", math.floor(this.timeRemaining / 60f), math.floor(this.timeRemaining - math.floor(this.timeRemaining / 60f) * 60f));
-		this.timeRemaining -= Time.deltaTime;
+		this.timeRemaining -= Time.deltaTime;		
 	}
 
 	// Token: 0x060001D3 RID: 467 RVA: 0x0000A65E File Offset: 0x0000885E
@@ -109,16 +109,12 @@ public class GameUIMulti : BaseScreen
 			this.curRow = (this.curRow + 1) % this.rowKill.Length;
 		}
 		this.currentEnemyText.text = (int.Parse(this.currentEnemyText.text) + 1).ToString();
-		if (int.Parse(this.currentEnemyText.text) == BaseManager<DataManager>.Instance.GlobalConfig.totalEnemy)
-		{
-			BaseManager<UIManager>.Instance.ShowScreen<VictoryPanel>(null, true);
-		}
 	}
 
 	// Token: 0x060001D6 RID: 470 RVA: 0x0000A80F File Offset: 0x00008A0F
 	private IEnumerator UnactiveRow(int n)
 	{
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(60f);
 		this.rowKill[n].gameObject.SetActive(false);
 		yield break;
 	}

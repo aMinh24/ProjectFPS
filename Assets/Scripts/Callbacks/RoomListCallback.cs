@@ -39,10 +39,7 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
         base.OnJoinedRoom();
         PhotonNetwork.LoadLevel("Campaign");
         Debug.Log("joined room "+PhotonNetwork.CurrentRoom);
-        if (UIManager.HasInstance())
-        {
-            UIManager.Instance.ShowScreen<GameUIMulti>(null, true);
-        }
+        
     }
 
     private void ClearRoom()

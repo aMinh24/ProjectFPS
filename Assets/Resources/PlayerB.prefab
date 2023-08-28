@@ -3298,7 +3298,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2499900085985263075
 Transform:
   m_ObjectHideFlags: 0
@@ -3549,7 +3549,6 @@ GameObject:
   - component: {fileID: 2499900086009298090}
   - component: {fileID: 2499900086009298093}
   - component: {fileID: 2499900086009298094}
-  - component: {fileID: 2499900086009298099}
   - component: {fileID: 2499900086009298109}
   - component: {fileID: 2499900086009298110}
   - component: {fileID: 1007177125994719320}
@@ -3562,6 +3561,7 @@ GameObject:
   - component: {fileID: 3478968262836935239}
   - component: {fileID: 7492627110465962728}
   - component: {fileID: 455435254865102530}
+  - component: {fileID: 1102069231669290340}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -3647,18 +3647,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 5360853966277480668}
     m_Active: 1
   m_Effectors: []
---- !u!114 &2499900086009298099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2499900086009298081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077a7e194f665b44996a359b70f20378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2499900086009298109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3828,6 +3816,7 @@ MonoBehaviour:
   - {fileID: 2499900087287004283}
   activeWeapon: {fileID: 7678921243409980864}
   isEcs: 0
+  isDeath: 0
   curLookAt: 0
 --- !u!114 &4152847618161146021
 MonoBehaviour:
@@ -3890,7 +3879,9 @@ MonoBehaviour:
   shooter: 
   isDead: 0
   m_Rigidbodies: []
-  ragdoll: {fileID: 2499900086009298099}
+  layerHitbox: HitboxB
+  team: 0
+  ragdoll: {fileID: 1102069231669290340}
   activeWeapon: {fileID: 7678921243409980864}
   characterAiming: {fileID: 4490439416103086088}
   characterLocomotion: {fileID: 4152847618161146021}
@@ -3972,6 +3963,18 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!114 &1102069231669290340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2499900086009298081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e92a83f9cb314d48b98ceceb86630a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2499900086079497834
 GameObject:
   m_ObjectHideFlags: 0
@@ -6730,7 +6733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2499900087205628514
 Transform:
   m_ObjectHideFlags: 0
@@ -45376,7 +45379,7 @@ MonoBehaviour:
   curBullet: {fileID: 0}
   hitLayer:
     serializedVersion: 2
-    m_Bits: 1025
+    m_Bits: 5121
   weaponName: scar
   weaponSlot: 0
   isFiring: 0
@@ -45420,12 +45423,16 @@ MonoBehaviour:
   duration: 0.5
   time: 0
   recoilPattern:
+  - {x: 0, y: 15}
   - {x: 20, y: 0}
   - {x: 20, y: 0}
-  - {x: 20, y: 0}
-  - {x: 20, y: 0}
-  - {x: 20, y: 0}
-  recoilModifier: 0
+  - {x: 20, y: 35}
+  - {x: 5, y: 10}
+  - {x: 5, y: 15}
+  - {x: 35, y: 15}
+  - {x: 10, y: 0}
+  - {x: 5, y: 15}
+  recoilModifier: 1
   cam: {fileID: 0}
 --- !u!1 &5360853967979182818
 GameObject:
@@ -58977,7 +58984,7 @@ GameObject:
   - component: {fileID: 7259999951841985555}
   - component: {fileID: 1647926862309385605}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PlayerB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

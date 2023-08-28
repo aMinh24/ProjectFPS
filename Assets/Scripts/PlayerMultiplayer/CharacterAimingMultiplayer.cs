@@ -28,6 +28,11 @@ public class CharacterAimingMultiplayer : MonoBehaviour
     // Token: 0x06000158 RID: 344 RVA: 0x000088EF File Offset: 0x00006AEF
     private void Start()
     {
+        if (!photonView.IsMine) { return; }
+        if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         //this.activeWeapon = base.GetComponent<ActiveWeapon>();
@@ -46,7 +51,7 @@ public class CharacterAimingMultiplayer : MonoBehaviour
         {
             return;
         }
-        if (activeWeapon.GetActiveWeapon() != null)
+        if (activeWeapon.GetActiveWeapon() != null && !isDeath)
         {
             if (this.activeWeapon.GetActiveWeapon().weaponSlot == ActiveWeaponMultiplayer.WeaponSlot.Primary && Input.GetKeyDown(KeyCode.Mouse1))
             {
@@ -61,7 +66,7 @@ public class CharacterAimingMultiplayer : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             if (BaseManager<UIManager>.HasInstance())
             {
-                BaseManager<UIManager>.Instance.ShowPopup<GameMenu>(null, false);
+                BaseManager<UIManager>.Instance.ShowPopup<GameMenuMulti>(null, true);
                 this.isEcs = true;
             }
         }
@@ -86,7 +91,7 @@ public class CharacterAimingMultiplayer : MonoBehaviour
         {
             return;
         }
-        if (!this.isEcs)
+        if (!this.isEcs && !isDeath)
         {
             this.moveAxist();
         }
@@ -155,7 +160,7 @@ public class CharacterAimingMultiplayer : MonoBehaviour
 
     // Token: 0x04000183 RID: 387
     public bool isEcs;
-
+    public bool isDeath = false;
     // Token: 0x04000184 RID: 388
     public int curLookAt;
 }
