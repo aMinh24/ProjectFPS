@@ -69,6 +69,10 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
 	}
 	public IEnumerator OnPlayerDeath()
 	{
+		if (MultiplayerManager.HasInstance())
+		{
+			MultiplayerManager.Instance.updateScore(this);
+		}
 		yield return new WaitForSeconds(5f);
 		isDead = false;
 		if (characterAiming.photonView.IsMine&&characterAiming.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
@@ -91,10 +95,11 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
 			this.maxHealth = BaseManager<DataManager>.Instance.GlobalConfig.maxHealth;
 			this.currentHealth = this.maxHealth;
 		}
-		//if (MultiplayerManager.HasInstance())
-		//{
-		//	MultiplayerManager.Instance.JoinTeam(this.gameObject, team);
-		//}
+
+		if (MultiplayerManager.HasInstance())
+		{
+			MultiplayerManager.Instance.JoinTeam(this);
+		}
 		if (BaseManager<ListenerManager>.HasInstance())
 		{
 			BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_HEALTH, this);

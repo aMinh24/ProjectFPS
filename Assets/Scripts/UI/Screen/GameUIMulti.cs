@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ using UnityEngine.UI;
 // Token: 0x02000067 RID: 103
 public class GameUIMulti : BaseScreen
 {
+	public TextMeshProUGUI allyScore;
+	public TextMeshProUGUI enemyScore;
 	// Token: 0x060001CF RID: 463 RVA: 0x0000A36B File Offset: 0x0000856B
 	public override void Hide()
 	{
@@ -28,7 +31,8 @@ public class GameUIMulti : BaseScreen
 			BaseManager<ListenerManager>.Instance.Unregister(ListenType.UPDATE_SHOOTING_MODE, new Action<object>(this.changeShootingMode));
 			BaseManager<ListenerManager>.Instance.Unregister(ListenType.ON_ENEMY_KILL, new Action<object>(this.UpdateEnemyKill));
 			BaseManager<ListenerManager>.Instance.Unregister(ListenType.ON_ALLY_KILL, new Action<object>(this.UpdateAllyKill));
-			BaseManager<ListenerManager>.Instance.BroadCast(ListenType.ON_END_MISSION, null);
+            ListenerManager.Instance.Unregister(ListenType.ON_UPDATE_KDA, UpdateKDA);
+            BaseManager<ListenerManager>.Instance.BroadCast(ListenType.ON_END_MISSION, null);
 		}
 	}
 
@@ -49,11 +53,12 @@ public class GameUIMulti : BaseScreen
 			BaseManager<ListenerManager>.Instance.Register(ListenType.UPDATE_SHOOTING_MODE, new Action<object>(this.changeShootingMode));
 			BaseManager<ListenerManager>.Instance.Register(ListenType.ON_ENEMY_KILL, new Action<object>(this.UpdateEnemyKill));
 			BaseManager<ListenerManager>.Instance.Register(ListenType.ON_ALLY_KILL, new Action<object>(this.UpdateAllyKill));
+			ListenerManager.Instance.Register(ListenType.ON_UPDATE_KDA, UpdateKDA);
 			BaseManager<ListenerManager>.Instance.BroadCast(ListenType.ON_START_MISSION, null);
 		}
 		if (BaseManager<DataManager>.HasInstance())
 		{
-			this.totalEnemyText.text = "/" + BaseManager<DataManager>.Instance.GlobalConfig.totalEnemy.ToString();
+			this.DeathPoint.text = "/" + BaseManager<DataManager>.Instance.GlobalConfig.totalEnemy.ToString();
 			this.timeRemaining = BaseManager<DataManager>.Instance.GlobalConfig.maxTimePlay * 60f;
 		}
 		for (int i = 0; i < this.rowKill.Length; i++)
@@ -75,7 +80,15 @@ public class GameUIMulti : BaseScreen
 	{
 		base.Show(data);
 	}
-
+	public void UpdateKDA(object data)
+	{
+		if(data is int[] values)
+		{
+            KillPoint.text = values[0].ToString();
+			DeathPoint.text = values[1].ToString();
+        }
+        
+    }
 	// Token: 0x060001D4 RID: 468 RVA: 0x0000A668 File Offset: 0x00008868
 	public void UpdateEnemyKill(object data)
 	{
@@ -91,7 +104,8 @@ public class GameUIMulti : BaseScreen
 			}
 			this.curRow = (this.curRow + 1) % this.rowKill.Length;
 		}
-	}
+        enemyScore.SetText((int.Parse(this.enemyScore.text) + 1).ToString());
+    }
 
 	// Token: 0x060001D5 RID: 469 RVA: 0x0000A714 File Offset: 0x00008914
 	public void UpdateAllyKill(object data)
@@ -108,7 +122,7 @@ public class GameUIMulti : BaseScreen
 			}
 			this.curRow = (this.curRow + 1) % this.rowKill.Length;
 		}
-		this.currentEnemyText.text = (int.Parse(this.currentEnemyText.text) + 1).ToString();
+		allyScore.SetText((int.Parse(this.allyScore.text) + 1).ToString());
 	}
 
 	// Token: 0x060001D6 RID: 470 RVA: 0x0000A80F File Offset: 0x00008A0F
@@ -271,10 +285,10 @@ public class GameUIMulti : BaseScreen
 	public Text modeText;
 
 	// Token: 0x040001D1 RID: 465
-	public Text totalEnemyText;
+	public Text DeathPoint;
 
 	// Token: 0x040001D2 RID: 466
-	public Text currentEnemyText;
+	public Text KillPoint;
 
 	// Token: 0x040001D3 RID: 467
 	public Text timeRemainingText;
