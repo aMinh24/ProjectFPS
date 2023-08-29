@@ -288,7 +288,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
         this.isChangingWeapon = false;
         if (BaseManager<ListenerManager>.HasInstance())
         {
-            BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, null);
+            BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, this);
             BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_WEAPONUI, null);
         }
         yield break;
@@ -343,7 +343,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
         }
         if (BaseManager<ListenerManager>.HasInstance())
         {
-            BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, null);
+            BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, this);
         }
     }
 
