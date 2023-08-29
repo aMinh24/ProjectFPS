@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class MultiplayerManager : BaseManager<MultiplayerManager>
 {
@@ -47,22 +48,15 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
             teamA[health.shooter][0]++;
             AScore++;
         }
-
-        int[] score = new int[2];
-        if (curTeam)
+        if(health.activeWeapon.photonView.IsMine && health.activeWeapon.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
         {
-            score[0] = AScore;
-            score[1] = BScore;
+            
+            if (ListenerManager.HasInstance())
+            {
+                ListenerManager.Instance.BroadCast(ListenType.ON_UPDATE_KDA, health.team ? teamA[health.gameObject.name]: teamB[health.gameObject.name]);
+            }
         }
-        else
-        {
-            score[0] = BScore;
-            score[1] = AScore;
-        }
-        if (ListenerManager.HasInstance())
-        {
-            ListenerManager.Instance.BroadCast(ListenType.ON_UPDATE_KDA, score);
-        }
+        
     }
     public void ChooseTeam(bool team)
     {

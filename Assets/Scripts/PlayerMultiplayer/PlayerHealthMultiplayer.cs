@@ -82,8 +82,8 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
                 MultiplayerManager.Instance.ChooseTeam(team);
             }
         }
-		(characterAiming.mainCamera.gameObject).SetActive(false);
-		this.gameObject.SetActive(false);
+		Destroy(characterAiming.mainCamera.gameObject);
+		Destroy(this.gameObject);
 	}
 	protected override void OnHealth(float amount)
 	{
@@ -120,7 +120,6 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
 			hitBox.photonView = photonView;
 			hitBox.health = this;
 			hitBox.rb = m_Rigidbodies[i];
-			
 			//if (view.IsMine && view.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber) layerHitbox = "HitboxPlayer";
             if (hitBox.gameObject != base.gameObject)
 			{
