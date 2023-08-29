@@ -247,8 +247,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1574649867}
   curTeam: 0
-  teamA: []
-  teamB: []
+  AScore: 0
+  BScore: 0
   posA: []
   posB: []
   curPosA: 0

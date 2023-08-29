@@ -18,6 +18,7 @@ public class GameMenuMulti : BasePopup
 		CharacterAimingMultiplayer[] characterAimingMultiplayers =  Object.FindObjectsOfType<CharacterAimingMultiplayer>();
 		foreach(CharacterAimingMultiplayer aim in characterAimingMultiplayers)
 		{
+			Debug.Log(aim.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber);
 			if (aim.photonView.IsMine && aim.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
 			{
 				characterAimingMultiplayer = aim;
@@ -90,5 +91,5 @@ public class GameMenuMulti : BasePopup
 
 	// Token: 0x040001C1 RID: 449
 	private PhotonView photon;
-	private CharacterAimingMultiplayer characterAimingMultiplayer;
+	public CharacterAimingMultiplayer characterAimingMultiplayer;
 }

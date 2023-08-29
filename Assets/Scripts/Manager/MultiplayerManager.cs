@@ -87,14 +87,16 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
             if (teamA.ContainsKey(player.gameObject.name)) return;
             int[] zero = { 0, 0 };
             teamA.Add(player.gameObject.name,zero);
+            Debug.Log(teamA.Last());
         }
         else
         {
             if (teamB.ContainsKey(player.gameObject.name)) return;
             int[] zero = { 0, 0 };
             teamB.Add(player.gameObject.name, zero);
+            Debug.Log(teamB.Last());
         }
-        Debug.Log(teamA.Last());
-        Debug.Log(teamB.Last());
+        
+        
     }
 }

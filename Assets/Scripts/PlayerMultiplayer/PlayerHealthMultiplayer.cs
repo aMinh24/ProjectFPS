@@ -120,7 +120,6 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
 			hitBox.photonView = photonView;
 			hitBox.health = this;
 			hitBox.rb = m_Rigidbodies[i];
-			PhotonView view = GetComponent<PhotonView>();
 			
 			//if (view.IsMine && view.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber) layerHitbox = "HitboxPlayer";
             if (hitBox.gameObject != base.gameObject)
