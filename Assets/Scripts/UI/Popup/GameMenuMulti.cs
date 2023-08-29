@@ -15,26 +15,27 @@ public class GameMenuMulti : BasePopup
 	public override void Init()
 	{
 		base.Init();
-		CharacterAimingMultiplayer[] characterAimingMultiplayers =  Object.FindObjectsOfType<CharacterAimingMultiplayer>();
-		foreach(CharacterAimingMultiplayer aim in characterAimingMultiplayers)
-		{
-			Debug.Log(aim.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber);
-			if (aim.photonView.IsMine && aim.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
-			{
-				characterAimingMultiplayer = aim;
-				photon = characterAimingMultiplayer.photonView; break;
-			}
-
-               
-		}
-		this.Hide();
+		
+		//this.Hide();
 	}
 
 	// Token: 0x060001BF RID: 447 RVA: 0x00009F9A File Offset: 0x0000819A
 	public override void Show(object data)
 	{
 		base.Show(data);
-	}
+        CharacterAimingMultiplayer[] characterAimingMultiplayers = Object.FindObjectsOfType<CharacterAimingMultiplayer>();
+        foreach (CharacterAimingMultiplayer aim in characterAimingMultiplayers)
+        {
+            Debug.Log(aim.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber);
+            if (aim.photonView.IsMine && aim.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                characterAimingMultiplayer = aim;
+                photon = characterAimingMultiplayer.photonView; break;
+            }
+
+
+        }
+    }
 
 	// Token: 0x060001C0 RID: 448 RVA: 0x00009FA4 File Offset: 0x000081A4
 	public void OnLeaveGameButton()

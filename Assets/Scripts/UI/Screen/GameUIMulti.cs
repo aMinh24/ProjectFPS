@@ -238,24 +238,34 @@ public class GameUIMulti : BaseScreen
     // Token: 0x060001DD RID: 477 RVA: 0x0000AA00 File Offset: 0x00008C00
     public void UpdateActiveWeapon(object? value)
     {
-        WeaponRaycastMulti weaponRaycast = value as WeaponRaycastMulti;
-        if (!weaponRaycast.photonView.IsMine) { return; }
-        if (weaponRaycast.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        if (value is WeaponRaycastMulti weaponRaycast)
         {
-            return;
+            if (!weaponRaycast.photonView.IsMine) { return; }
+            if (weaponRaycast.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                return;
+            }
+            GameObject[] activeWeaponOverlay = this.ActiveWeaponOverlay;
+            for (int i = 0; i < activeWeaponOverlay.Length; i++)
+            {
+                activeWeaponOverlay[i].SetActive(false);
+            }
+            if (weaponRaycast != null)
+            {
+                this.ActiveWeaponOverlay[(int)weaponRaycast.weaponSlot].SetActive(true);
+                this.weaponName.text = weaponRaycast.weaponName.ToString().ToUpper();
+                return;
+            }
         }
-        GameObject[] activeWeaponOverlay = this.ActiveWeaponOverlay;
-        for (int i = 0; i < activeWeaponOverlay.Length; i++)
+        if (value is ActiveWeaponMultiplayer activeWeaponMultiplayer)
         {
-            activeWeaponOverlay[i].SetActive(false);
+            if (!activeWeaponMultiplayer.photonView.IsMine) return;
+            if (activeWeaponMultiplayer.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber) return;
+
+            this.weaponName.text = "FIST";
+
         }
-        if (weaponRaycast != null)
-        {
-            this.ActiveWeaponOverlay[(int)weaponRaycast.weaponSlot].SetActive(true);
-            this.weaponName.text = weaponRaycast.weaponName.ToString().ToUpper();
-            return;
-        }
-        this.weaponName.text = "FIST";
+        
     }
 
     // Token: 0x040001C6 RID: 454
