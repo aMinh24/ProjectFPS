@@ -15,12 +15,12 @@ public class ObjectPoolMulti : MonoBehaviourPun
     {
         poolObjects = GetComponentsInChildren<BulletMulti>().ToList<BulletMulti>();
         //this.transform.SetParent(null, false);
-        //for (int i = 0; i < this.amountToPool; i++)
-        //{
-        //    Bullet bullet = UnityEngine.Object.Instantiate<Bullet>(this.objectToPool, base.transform, true);
-        //    bullet.Deactive();
-        //    this.poolObjects.Add(bullet);
-        //}
+        for (int i = 0; i < this.amountToPool; i++)
+        {
+            BulletMulti bullet = UnityEngine.Object.Instantiate<BulletMulti>(this.objectToPool, base.transform, true);
+            bullet.Deactive(Vector3.zero);
+            this.poolObjects.Add(bullet);
+        }
     }
     public BulletMulti GetPooledObject()
     {

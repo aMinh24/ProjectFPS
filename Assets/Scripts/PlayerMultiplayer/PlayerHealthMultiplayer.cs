@@ -3,13 +3,20 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum MARK
+{
+    PLAYER,
+    TEAMATE,
+    ENEMY
+}
 // Token: 0x02000057 RID: 87
 public class PlayerHealthMultiplayer : HealthMultiplayer
 {
 	public Rigidbody[] m_Rigidbodies;
     public string layerHitbox;
 	public bool team;
+	public GameObject[] mark;
+	
     // Token: 0x06000179 RID: 377 RVA: 0x00009582 File Offset: 0x00007782
     protected override void OnDamage(Vector3 direction, int idRb)
 	{
@@ -39,6 +46,10 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
                 characterAiming.camManager.TurnOffScope();
             }
 			this.characterAiming.isDeath = true;
+			if (UIManager.HasInstance())
+			{
+				UIManager.Instance.HideAllPopups();
+			}
             BaseManager<ListenerManager>.Instance.BroadCast(ListenType.ON_PLAYER_DEATH, null);
         }
 		
@@ -90,6 +101,7 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
 	}
 	protected override void OnStart()
 	{
+		
 		if (BaseManager<DataManager>.HasInstance())
 		{
 			this.maxHealth = BaseManager<DataManager>.Instance.GlobalConfig.maxHealth;
@@ -99,6 +111,7 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
 		if (MultiplayerManager.HasInstance())
 		{
 			MultiplayerManager.Instance.JoinTeam(this);
+			
 		}
 		if (BaseManager<ListenerManager>.HasInstance())
 		{

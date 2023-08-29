@@ -20,7 +20,6 @@ public class RPCFunc : MonoBehaviourPun
     {
         if (viewID == photonView.ViewID)
         {
-            Debug.Log("RPCtakedame");
             this.health.shooter = shooter;
             this.health.TakeDamage(num, direction, idRb);
         }

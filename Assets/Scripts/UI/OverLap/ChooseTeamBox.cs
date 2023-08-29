@@ -20,6 +20,11 @@ public class ChooseTeamBox : BaseOverlap
     }
     public void OnButtonChoose(bool team)
     {
+        if (BaseManager<AudioManager>.HasInstance())
+        {
+            BaseManager<AudioManager>.Instance.AttachBGMSource.Stop();
+            BaseManager<AudioManager>.Instance.PlayGT();
+        }
         if (MultiplayerManager.HasInstance())
         {
             MultiplayerManager.Instance.ChooseTeam(team);

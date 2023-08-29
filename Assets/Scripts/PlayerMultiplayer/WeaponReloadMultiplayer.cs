@@ -87,8 +87,9 @@ public class WeaponReloadMultiplayer : MonoBehaviourPun
 		}
 		if (BaseManager<AudioManager>.HasInstance())
 		{
-			BaseManager<AudioManager>.Instance.PlaySE("PistolDetachMag", 0f);
-		}
+			//BaseManager<AudioManager>.Instance.PlaySE("PistolDetachMag", 0f);
+            animationEvent.playerAudio.PlayOneShot(AudioManager.Instance.GetAudioClip("PistolDetachMag"));
+        }
 		WeaponRaycastMulti weaponRaycast = this.activeWeapon.GetActiveWeapon();
 		Transform component;
 		if (!weaponRaycast.weaponName.Equals("pistol"))
@@ -125,7 +126,8 @@ public class WeaponReloadMultiplayer : MonoBehaviourPun
 	{
 		if (BaseManager<AudioManager>.HasInstance())
 		{
-			BaseManager<AudioManager>.Instance.PlaySE("PistolAttachMag", 0f);
+			//BaseManager<AudioManager>.Instance.PlaySE("PistolAttachMag", 0f);
+			animationEvent.playerAudio.PlayOneShot(AudioManager.Instance.GetAudioClip("PistolAttachMag"));
 		}
 		this.activeWeapon.GetActiveWeapon().magazine.SetActive(true);
 		Object.Destroy(this.magazineHand);

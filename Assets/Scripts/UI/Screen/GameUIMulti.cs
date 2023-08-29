@@ -181,7 +181,12 @@ public class GameUIMulti : BaseScreen
     // Token: 0x060001DA RID: 474 RVA: 0x0000A924 File Offset: 0x00008B24
     public void UpdateHealth(object value)
     {
-        PlayerHealth playerHealth = value as PlayerHealth;
+        PlayerHealthMultiplayer playerHealth = value as PlayerHealthMultiplayer;
+        if (!playerHealth.activeWeapon.photonView.IsMine) { return; }
+        if (playerHealth.activeWeapon.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
         if (playerHealth != null)
         {
             this.healthBar.value = playerHealth.currentHealth * 1f / 100f;
@@ -238,10 +243,10 @@ public class GameUIMulti : BaseScreen
     // Token: 0x060001DD RID: 477 RVA: 0x0000AA00 File Offset: 0x00008C00
     public void UpdateActiveWeapon(object? value)
     {
-        if (value is WeaponRaycastMulti weaponRaycast)
+        if (value is ActiveWeaponMultiplayer active)
         {
-            if (!weaponRaycast.photonView.IsMine) { return; }
-            if (weaponRaycast.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+            if (!active.photonView.IsMine) { return; }
+            if (active.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
             {
                 return;
             }
@@ -250,20 +255,16 @@ public class GameUIMulti : BaseScreen
             {
                 activeWeaponOverlay[i].SetActive(false);
             }
-            if (weaponRaycast != null)
+            if (active != null && !active.isHolstered)
             {
-                this.ActiveWeaponOverlay[(int)weaponRaycast.weaponSlot].SetActive(true);
-                this.weaponName.text = weaponRaycast.weaponName.ToString().ToUpper();
+                this.ActiveWeaponOverlay[(int)active.GetActiveWeapon().weaponSlot].SetActive(true);
+                this.weaponName.text = active.GetActiveWeapon().weaponName.ToString().ToUpper();
                 return;
             }
-        }
-        if (value is ActiveWeaponMultiplayer activeWeaponMultiplayer)
-        {
-            if (!activeWeaponMultiplayer.photonView.IsMine) return;
-            if (activeWeaponMultiplayer.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber) return;
-
-            this.weaponName.text = "FIST";
-
+            else
+            {
+                this.weaponName.text = "FIST";
+            }
         }
         
     }

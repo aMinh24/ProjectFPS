@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class MultiplayerManager : BaseManager<MultiplayerManager>
 {
@@ -72,6 +73,21 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
     }
     public void JoinTeam(PlayerHealthMultiplayer player)
     {
+        if (player.team == MultiplayerManager.Instance.curTeam)
+        {
+            if (player.activeWeapon.photonView.IsMine && player.activeWeapon.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
+            {
+                player.mark[(int)MARK.PLAYER].SetActive(true);
+            }
+            else
+            {
+                player.mark[(int)MARK.TEAMATE].SetActive(true);
+            }
+        }
+        else
+        {
+            player.mark[(int)MARK.ENEMY].SetActive(true);
+        }
         if (player.team)
         {
             if (teamA.ContainsKey(player.gameObject.name)) return;
@@ -86,7 +102,8 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
             teamB.Add(player.gameObject.name, zero);
             Debug.Log(teamB.Last());
         }
-
+        
+        
 
     }
 }

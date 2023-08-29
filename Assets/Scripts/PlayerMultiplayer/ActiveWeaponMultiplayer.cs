@@ -63,7 +63,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
         {
             return;
         }
-        WeaponRaycastMulti weapon = this.GetWeapon(this.activeWeaponIndex);
+        WeaponRaycastMulti weapon = GetActiveWeapon(); /*this.GetWeapon(this.activeWeaponIndex);*/
         bool flag = false;
         if (BaseManager<CameraManager>.HasInstance())
         {
@@ -107,7 +107,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
                     //photonView.RPC("PlayerStartFiring", RpcTarget.All);
                 }
             }
-            else if (Input.GetButtonDown("Fire1") && weapon.mode.Contains(ShootingMode.Single) && this.curShootingMode == ShootingMode.Single)
+            else if (Input.GetButtonDown("Fire1") && weapon.mode.Contains(ShootingMode.Single) && this.curShootingMode == ShootingMode.Single && flag2)
             {
                 weapon.SingleShot(this.crossHairTarget.position);
                 //photonView.RPC("PlayerSingleShot", RpcTarget.All);
@@ -214,7 +214,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
         if (BaseManager<ListenerManager>.HasInstance())
         {
             BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, newWeapon);
-            BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_WEAPONUI, newWeapon);
+            BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_WEAPONUI, this);
             this.curShootingMode = newWeapon.mode[0];
             BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_SHOOTING_MODE, this.curShootingMode);
             BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_TOTAL_AMMO, newWeapon);
@@ -289,7 +289,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
         if (BaseManager<ListenerManager>.HasInstance())
         {
             BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, this);
-            BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_WEAPONUI, null);
+            BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_WEAPONUI, this);
         }
         yield break;
     }
@@ -314,7 +314,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
             if (BaseManager<ListenerManager>.HasInstance())
             {
                 BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, weapon);
-                BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_WEAPONUI, weapon);
+                BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_WEAPONUI, this);
                 this.curShootingMode = weapon.mode[0];
                 BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_SHOOTING_MODE, this.curShootingMode);
                 BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_TOTAL_AMMO, weapon);

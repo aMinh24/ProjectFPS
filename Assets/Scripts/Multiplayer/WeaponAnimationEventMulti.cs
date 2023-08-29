@@ -4,6 +4,7 @@ using Photon.Pun;
 // Token: 0x02000049 RID: 73
 public class WeaponAnimationEventMulti : MonoBehaviourPun
 {
+	public AudioSource playerAudio;
 	// Token: 0x060000F2 RID: 242 RVA: 0x000066AB File Offset: 0x000048AB
 	public void OnAnimationEvent(string eventName)
 	{
@@ -21,10 +22,9 @@ public class WeaponAnimationEventMulti : MonoBehaviourPun
 	// Token: 0x060000F4 RID: 244 RVA: 0x000066C7 File Offset: 0x000048C7
 	public void OnAudioEvent(string audioName)
 	{
-        if (!photonView.IsMine || photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber) { return; }
         if (BaseManager<AudioManager>.HasInstance())
 		{
-			BaseManager<AudioManager>.Instance.PlaySE(audioName, 0f);
+			playerAudio.PlayOneShot(BaseManager<AudioManager>.Instance.GetAudioClip(audioName));
 		}
 	}
 

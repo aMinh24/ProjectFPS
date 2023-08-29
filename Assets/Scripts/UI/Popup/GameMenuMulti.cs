@@ -8,8 +8,13 @@ public class GameMenuMulti : BasePopup
 	// Token: 0x060001BD RID: 445 RVA: 0x00009F79 File Offset: 0x00008179
 	public override void Hide()
 	{
-		base.Hide();
-	}
+        //if (ListenerManager.HasInstance())
+        //{
+        //    ListenerManager.Instance.Unregister(ListenType.ON_PLAYER_DEATH,ResumeGame);
+        //}
+        base.Hide();
+        
+    }
 
 	// Token: 0x060001BE RID: 446 RVA: 0x00009F81 File Offset: 0x00008181
 	public override void Init()
@@ -35,6 +40,10 @@ public class GameMenuMulti : BasePopup
 
 
         }
+		//if (ListenerManager.HasInstance())
+		//{
+		//	ListenerManager.Instance.Register(ListenType.ON_PLAYER_DEATH, ResumeGame);
+		//}
     }
 
 	// Token: 0x060001C0 RID: 448 RVA: 0x00009FA4 File Offset: 0x000081A4
@@ -70,9 +79,18 @@ public class GameMenuMulti : BasePopup
 	}
 
 	// Token: 0x060001C1 RID: 449 RVA: 0x0000A004 File Offset: 0x00008204
+	public void ResumeGame(object? data)
+	{
+		OnResumeButton();
+	}
 	public void OnResumeButton()
 	{
-		Cursor.visible = true;
+        if (!photon.IsMine) { return; }
+        if (photon.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+        Cursor.visible = true;
 		Cursor.lockState = CursorLockMode.Locked;
 		if (characterAimingMultiplayer != null)
 		{
@@ -84,7 +102,12 @@ public class GameMenuMulti : BasePopup
 	// Token: 0x060001C2 RID: 450 RVA: 0x0000A032 File Offset: 0x00008232
 	public void OnExitButton()
 	{
-		if (BaseManager<UIManager>.HasInstance())
+        if (!photon.IsMine) { return; }
+        if (photon.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+        if (BaseManager<UIManager>.HasInstance())
 		{
 			BaseManager<UIManager>.Instance.ShowOverlap<ConfirmBox>(null, true);
 		}
