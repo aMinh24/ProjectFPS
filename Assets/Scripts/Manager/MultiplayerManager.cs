@@ -28,7 +28,7 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
         {
             UIManager.Instance.ShowOverlap<ChooseTeamBox>(null, true);
         }
-        PlayerHealthMultiplayer[] players=  GameObject.FindObjectsOfType<PlayerHealthMultiplayer>();
+        PlayerHealthMultiplayer[] players = GameObject.FindObjectsOfType<PlayerHealthMultiplayer>();
         foreach (PlayerHealthMultiplayer p in players)
         {
             JoinTeam(p);
@@ -48,15 +48,11 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
             teamA[health.shooter][0]++;
             AScore++;
         }
-        if(health.activeWeapon.photonView.IsMine && health.activeWeapon.photonView.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
+
+        if (ListenerManager.HasInstance())
         {
-            
-            if (ListenerManager.HasInstance())
-            {
-                ListenerManager.Instance.BroadCast(ListenType.ON_UPDATE_KDA, health.team ? teamA[health.gameObject.name]: teamB[health.gameObject.name]);
-            }
+            ListenerManager.Instance.BroadCast(ListenType.ON_UPDATE_KDA, curTeam ? teamA[PhotonNetwork.NickName] : teamB[PhotonNetwork.NickName]);
         }
-        
     }
     public void ChooseTeam(bool team)
     {
@@ -80,7 +76,7 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
         {
             if (teamA.ContainsKey(player.gameObject.name)) return;
             int[] zero = { 0, 0 };
-            teamA.Add(player.gameObject.name,zero);
+            teamA.Add(player.gameObject.name, zero);
             Debug.Log(teamA.Last());
         }
         else
@@ -90,7 +86,7 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
             teamB.Add(player.gameObject.name, zero);
             Debug.Log(teamB.Last());
         }
-        
-        
+
+
     }
 }

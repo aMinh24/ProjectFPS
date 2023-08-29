@@ -58,7 +58,7 @@ public class GameUIMulti : BaseScreen
 		}
 		if (BaseManager<DataManager>.HasInstance())
 		{
-			this.DeathPoint.text = "/" + BaseManager<DataManager>.Instance.GlobalConfig.totalEnemy.ToString();
+			this.DeathPoint.text = "/0";
 			this.timeRemaining = BaseManager<DataManager>.Instance.GlobalConfig.maxTimePlay * 60f;
 		}
 		for (int i = 0; i < this.rowKill.Length; i++)
@@ -85,7 +85,7 @@ public class GameUIMulti : BaseScreen
 		if(data is int[] values)
 		{
             KillPoint.text = values[0].ToString();
-			DeathPoint.text = values[1].ToString();
+			DeathPoint.text = "/"+values[1].ToString();
         }
         
     }
@@ -193,12 +193,12 @@ public class GameUIMulti : BaseScreen
 	public void UpdateAmmo(object value)
 	{
         WeaponRaycastMulti weaponRaycastMulti = value as WeaponRaycastMulti;
-        //if (!weaponRaycastMulti.photonView.IsMine) { return; }
-        //if (weaponRaycastMulti.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
-        //{
-        //    return;
-        //}
-        if (weaponRaycastMulti != null && weaponRaycastMulti.equipBy == EquipBy.Player)
+		if (!weaponRaycastMulti.photonView.IsMine) { return; }
+		if (weaponRaycastMulti.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+		{
+			return;
+		}
+		if (weaponRaycastMulti != null && weaponRaycastMulti.equipBy == EquipBy.Player)
         {
             this.ammoText.text = weaponRaycastMulti.ammoCount.ToString();
         }
@@ -212,12 +212,12 @@ public class GameUIMulti : BaseScreen
 	public void UpdateAmmoTotal(object value)
 	{
         WeaponRaycastMulti weaponRaycastMulti = value as WeaponRaycastMulti;
-        //if (!weaponRaycastMulti.photonView.IsMine) { return; }
-        //if (weaponRaycastMulti.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
-        //{
-        //    return;
-        //}
-        if (weaponRaycastMulti != null && weaponRaycastMulti.equipBy == EquipBy.Player)
+		if (!weaponRaycastMulti.photonView.IsMine) { return; }
+		if (weaponRaycastMulti.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+		{
+			return;
+		}
+		if (weaponRaycastMulti != null && weaponRaycastMulti.equipBy == EquipBy.Player)
         {
             this.ammoTotalText.text = weaponRaycastMulti.totalAmmo.ToString();
         }
@@ -232,12 +232,12 @@ public class GameUIMulti : BaseScreen
 	public void UpdateActiveWeapon(object? value)
 	{
         WeaponRaycastMulti weaponRaycast = value as WeaponRaycastMulti;
-			//if (!weaponRaycast.photonView.IsMine) { return; }
-			//if (weaponRaycast.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
-			//{
-			//    return;
-			//}
-        GameObject[] activeWeaponOverlay = this.ActiveWeaponOverlay;
+		if (!weaponRaycast.photonView.IsMine) { return; }
+		if (weaponRaycast.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+		{
+			return;
+		}
+		GameObject[] activeWeaponOverlay = this.ActiveWeaponOverlay;
 		for (int i = 0; i < activeWeaponOverlay.Length; i++)
 		{
 			activeWeaponOverlay[i].SetActive(false);
