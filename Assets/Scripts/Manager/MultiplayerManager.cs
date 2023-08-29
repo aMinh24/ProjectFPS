@@ -27,6 +27,11 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
         {
             UIManager.Instance.ShowOverlap<ChooseTeamBox>(null, true);
         }
+        PlayerHealthMultiplayer[] players=  GameObject.FindObjectsOfType<PlayerHealthMultiplayer>();
+        foreach (PlayerHealthMultiplayer p in players)
+        {
+            JoinTeam(p);
+        }
     }
     public void updateScore(PlayerHealthMultiplayer health)
     {
@@ -79,11 +84,13 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
     {
         if (player.team)
         {
+            if (teamA.ContainsKey(player.gameObject.name)) return;
             int[] zero = { 0, 0 };
             teamA.Add(player.gameObject.name,zero);
         }
         else
         {
+            if (teamB.ContainsKey(player.gameObject.name)) return;
             int[] zero = { 0, 0 };
             teamB.Add(player.gameObject.name, zero);
         }
