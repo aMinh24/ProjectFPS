@@ -1163,15 +1163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e6ae14891111418bbe4ce62cd2968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toggle: {fileID: 0}
+  isTrueToggle: 0
   img: {fileID: 4246527375708493496}
   text: {fileID: 4246604470385838906}
   border: {fileID: 4287195067671702604}
   board: {fileID: 4314729515200791645}
-  colors:
-  - {r: 0.48235294, g: 0.5137255, b: 0.59607846, a: 1}
-  - {r: 1, g: 0.8980392, b: 0.78039217, a: 1}
-  - {r: 0.15686275, g: 0.17254902, b: 0.19607843, a: 0.5137255}
-  - {r: 0.9843137, g: 0.5764706, b: 0.050980393, a: 0.5137255}
 --- !u!114 &4066449942981200052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1862,7 +1859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4064328335604176526
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2423,15 +2420,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9e6ae14891111418bbe4ce62cd2968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toggle: {fileID: 0}
+  isTrueToggle: 0
   img: {fileID: 4246699336482479880}
   text: {fileID: 4245867018296106694}
   border: {fileID: 4286778669537181934}
   board: {fileID: 4314729514431630956}
-  colors:
-  - {r: 0.48235294, g: 0.5137255, b: 0.59607846, a: 1}
-  - {r: 1, g: 0.8980392, b: 0.78039217, a: 1}
-  - {r: 0.15686275, g: 0.17254902, b: 0.19607843, a: 0.5137255}
-  - {r: 0.9843137, g: 0.5764706, b: 0.050980393, a: 0.5137255}
 --- !u!114 &4065879765856295068
 MonoBehaviour:
   m_ObjectHideFlags: 0

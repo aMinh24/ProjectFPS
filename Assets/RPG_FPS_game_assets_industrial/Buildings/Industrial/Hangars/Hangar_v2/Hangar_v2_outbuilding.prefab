@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4000012191108786}
   - component: {fileID: 33000014181168746}
   - component: {fileID: 23000011352872600}
-  - component: {fileID: 64000013979641002}
+  - component: {fileID: -4552485115880875268}
   m_Layer: 0
   m_Name: Hangar_v2_outbuilding
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64000013979641002
+--- !u!64 &-4552485115880875268
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

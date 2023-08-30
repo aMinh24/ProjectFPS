@@ -84,7 +84,7 @@ public class ListRoomPanel : BaseScreen
         if (PhotonNetwork.CurrentRoom != null) { return; }
         RoomOptions roomOptions = new RoomOptions
         {
-            MaxPlayers = 4
+            MaxPlayers = 8
         };
         string roomName = PhotonNetwork.NickName + "'s room";
         PhotonNetwork.CreateRoom(roomName, roomOptions, null);

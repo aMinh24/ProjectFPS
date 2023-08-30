@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 64000010430190530}
   m_Layer: 0
   m_Name: Support_set_v1_bridge2_S1
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

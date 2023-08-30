@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 65000011283079542}
   m_Layer: 0
   m_Name: Cargo_container_v1_LD1doorR
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
