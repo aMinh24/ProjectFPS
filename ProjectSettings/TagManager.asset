@@ -13,6 +13,7 @@ TagManager:
   - Camera
   - SpawnA
   - SpawnB
+  - Metal
   layers:
   - Default
   - TransparentFX

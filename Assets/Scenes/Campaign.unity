@@ -9385,7 +9385,7 @@ GameObject:
   - component: {fileID: 1273469111}
   m_Layer: 0
   m_Name: Industrial Green010
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -9404,7 +9404,7 @@ GameObject:
   - component: {fileID: 1273469105}
   m_Layer: 0
   m_Name: Industrial Green011
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -9423,7 +9423,7 @@ GameObject:
   - component: {fileID: 1273469115}
   m_Layer: 0
   m_Name: Industrial Green008
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -9442,7 +9442,7 @@ GameObject:
   - component: {fileID: 1273469109}
   m_Layer: 0
   m_Name: Industrial Green009
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -9461,7 +9461,7 @@ GameObject:
   - component: {fileID: 1273469119}
   m_Layer: 0
   m_Name: Industrial Green006
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -9480,7 +9480,7 @@ GameObject:
   - component: {fileID: 1273469113}
   m_Layer: 0
   m_Name: Industrial Green007
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -9518,7 +9518,7 @@ GameObject:
   - component: {fileID: 1273469117}
   m_Layer: 0
   m_Name: Industrial Green005
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -9990,7 +9990,7 @@ GameObject:
   - component: {fileID: 1273469175}
   m_Layer: 0
   m_Name: Industrial Red008
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -10009,7 +10009,7 @@ GameObject:
   - component: {fileID: 1273469169}
   m_Layer: 0
   m_Name: Industrial Red009
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -10047,7 +10047,7 @@ GameObject:
   - component: {fileID: 1273469173}
   m_Layer: 0
   m_Name: Industrial Red007
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -10256,7 +10256,7 @@ GameObject:
   - component: {fileID: 1273469107}
   m_Layer: 0
   m_Name: Industrial Green012
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13828,7 +13828,7 @@ GameObject:
   - component: {fileID: 1273469739}
   m_Layer: 0
   m_Name: man whole004
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13847,7 +13847,7 @@ GameObject:
   - component: {fileID: 1273469733}
   m_Layer: 0
   m_Name: man whole005
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13866,7 +13866,7 @@ GameObject:
   - component: {fileID: 1273469743}
   m_Layer: 0
   m_Name: man whole002
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13885,7 +13885,7 @@ GameObject:
   - component: {fileID: 1273469737}
   m_Layer: 0
   m_Name: man whole003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13904,7 +13904,7 @@ GameObject:
   - component: {fileID: 1273469907}
   m_Layer: 0
   m_Name: man whole
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -13923,7 +13923,7 @@ GameObject:
   - component: {fileID: 1273469741}
   m_Layer: 0
   m_Name: man whole001
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14094,7 +14094,7 @@ GameObject:
   - component: {fileID: 1273469895}
   m_Layer: 0
   m_Name: Indutrsial_lock003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14113,7 +14113,7 @@ GameObject:
   - component: {fileID: 1273469889}
   m_Layer: 0
   m_Name: Indutrsial_lock004
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14132,7 +14132,7 @@ GameObject:
   - component: {fileID: 1273469899}
   m_Layer: 0
   m_Name: Indutrsial_lock001
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14151,7 +14151,7 @@ GameObject:
   - component: {fileID: 1273469893}
   m_Layer: 0
   m_Name: Indutrsial_lock002
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14170,7 +14170,7 @@ GameObject:
   - component: {fileID: 1273469903}
   m_Layer: 0
   m_Name: Industrial_Street_light084
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14189,7 +14189,7 @@ GameObject:
   - component: {fileID: 1273469897}
   m_Layer: 0
   m_Name: Indutrsial_lock
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14208,7 +14208,7 @@ GameObject:
   - component: {fileID: 1273469939}
   m_Layer: 0
   m_Name: Industrial_Street_light082
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14227,7 +14227,7 @@ GameObject:
   - component: {fileID: 1273469901}
   m_Layer: 0
   m_Name: Industrial_Street_light083
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14322,7 +14322,7 @@ GameObject:
   - component: {fileID: 1273469919}
   m_Layer: 0
   m_Name: Indutrsial_lock007
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14360,7 +14360,7 @@ GameObject:
   - component: {fileID: 1273469891}
   m_Layer: 0
   m_Name: Indutrsial_lock005
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14379,7 +14379,7 @@ GameObject:
   - component: {fileID: 1273469917}
   m_Layer: 0
   m_Name: Indutrsial_lock006
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15006,7 +15006,7 @@ GameObject:
   - component: {fileID: 1273469863}
   m_Layer: 0
   m_Name: Industrial_meter002
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15025,7 +15025,7 @@ GameObject:
   - component: {fileID: 1273469857}
   m_Layer: 0
   m_Name: Industrial_meter003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15044,7 +15044,7 @@ GameObject:
   - component: {fileID: 1273469867}
   m_Layer: 0
   m_Name: Industrial_light040
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15063,7 +15063,7 @@ GameObject:
   - component: {fileID: 1273469861}
   m_Layer: 0
   m_Name: Industrial_meter001
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15082,7 +15082,7 @@ GameObject:
   - component: {fileID: 1273469871}
   m_Layer: 0
   m_Name: Industrial_light038
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15101,7 +15101,7 @@ GameObject:
   - component: {fileID: 1273469865}
   m_Layer: 0
   m_Name: Industrial_light039
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15120,7 +15120,7 @@ GameObject:
   - component: {fileID: 1273469011}
   m_Layer: 0
   m_Name: Industrial_light036
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15139,7 +15139,7 @@ GameObject:
   - component: {fileID: 1273469869}
   m_Layer: 0
   m_Name: Industrial_light037
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15234,7 +15234,7 @@ GameObject:
   - component: {fileID: 1273469887}
   m_Layer: 0
   m_Name: Industrial_props_Billboar_S003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15253,7 +15253,7 @@ GameObject:
   - component: {fileID: 1273469881}
   m_Layer: 0
   m_Name: Industrial_props_Billboar_S004
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15272,7 +15272,7 @@ GameObject:
   - component: {fileID: 1273469859}
   m_Layer: 0
   m_Name: Industrial_props_Billboar_S001
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15291,7 +15291,7 @@ GameObject:
   - component: {fileID: 1273469885}
   m_Layer: 0
   m_Name: Industrial_props_Billboar_S002
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15310,7 +15310,7 @@ GameObject:
   - component: {fileID: 1273468999}
   m_Layer: 0
   m_Name: Industrial_light026
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15329,7 +15329,7 @@ GameObject:
   - component: {fileID: 1273468993}
   m_Layer: 0
   m_Name: Industrial_light027
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15348,7 +15348,7 @@ GameObject:
   - component: {fileID: 1273469003}
   m_Layer: 0
   m_Name: Industrial_light023
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15367,7 +15367,7 @@ GameObject:
   - component: {fileID: 1273468997}
   m_Layer: 0
   m_Name: Industrial_light024
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15386,7 +15386,7 @@ GameObject:
   - component: {fileID: 1273469007}
   m_Layer: 0
   m_Name: Industrial_light021
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15405,7 +15405,7 @@ GameObject:
   - component: {fileID: 1273469001}
   m_Layer: 0
   m_Name: Industrial_light022
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15424,7 +15424,7 @@ GameObject:
   - component: {fileID: 1273469043}
   m_Layer: 0
   m_Name: Industrial_light019
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15443,7 +15443,7 @@ GameObject:
   - component: {fileID: 1273469005}
   m_Layer: 0
   m_Name: Industrial_light020
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15462,7 +15462,7 @@ GameObject:
   - component: {fileID: 1273469015}
   m_Layer: 0
   m_Name: Industrial_light034
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15481,7 +15481,7 @@ GameObject:
   - component: {fileID: 1273469009}
   m_Layer: 0
   m_Name: Industrial_light035
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15500,7 +15500,7 @@ GameObject:
   - component: {fileID: 1273469019}
   m_Layer: 0
   m_Name: Industrial_light032
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15519,7 +15519,7 @@ GameObject:
   - component: {fileID: 1273469013}
   m_Layer: 0
   m_Name: Industrial_light033
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15538,7 +15538,7 @@ GameObject:
   - component: {fileID: 1273469023}
   m_Layer: 0
   m_Name: Industrial_light030
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15557,7 +15557,7 @@ GameObject:
   - component: {fileID: 1273469017}
   m_Layer: 0
   m_Name: Industrial_light031
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15576,7 +15576,7 @@ GameObject:
   - component: {fileID: 1273468995}
   m_Layer: 0
   m_Name: Industrial_light028
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15595,7 +15595,7 @@ GameObject:
   - component: {fileID: 1273469021}
   m_Layer: 0
   m_Name: Industrial_light029
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15614,7 +15614,7 @@ GameObject:
   - component: {fileID: 1273469927}
   m_Layer: 0
   m_Name: Industrial_Street_light071
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15633,7 +15633,7 @@ GameObject:
   - component: {fileID: 1273469921}
   m_Layer: 0
   m_Name: Industrial_Street_light072
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15652,7 +15652,7 @@ GameObject:
   - component: {fileID: 1273469931}
   m_Layer: 0
   m_Name: Industrial_Street_light067
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15671,7 +15671,7 @@ GameObject:
   - component: {fileID: 1273469925}
   m_Layer: 0
   m_Name: Industrial_Street_light070
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15690,7 +15690,7 @@ GameObject:
   - component: {fileID: 1273469935}
   m_Layer: 0
   m_Name: Industrial_Street_light065
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15709,7 +15709,7 @@ GameObject:
   - component: {fileID: 1273469929}
   m_Layer: 0
   m_Name: Industrial_Street_light066
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15728,7 +15728,7 @@ GameObject:
   - component: {fileID: 1273469843}
   m_Layer: 0
   m_Name: Industrial_Street_light063
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15747,7 +15747,7 @@ GameObject:
   - component: {fileID: 1273469933}
   m_Layer: 0
   m_Name: Industrial_Street_light064
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15766,7 +15766,7 @@ GameObject:
   - component: {fileID: 1273469943}
   m_Layer: 0
   m_Name: Industrial_Street_light080
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15785,7 +15785,7 @@ GameObject:
   - component: {fileID: 1273469937}
   m_Layer: 0
   m_Name: Industrial_Street_light081
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15804,7 +15804,7 @@ GameObject:
   - component: {fileID: 1273469947}
   m_Layer: 0
   m_Name: Industrial_Street_light078
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15823,7 +15823,7 @@ GameObject:
   - component: {fileID: 1273469941}
   m_Layer: 0
   m_Name: Industrial_Street_light079
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15842,7 +15842,7 @@ GameObject:
   - component: {fileID: 1273469951}
   m_Layer: 0
   m_Name: Industrial_Street_light076
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15861,7 +15861,7 @@ GameObject:
   - component: {fileID: 1273469945}
   m_Layer: 0
   m_Name: Industrial_Street_light077
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15880,7 +15880,7 @@ GameObject:
   - component: {fileID: 1273469923}
   m_Layer: 0
   m_Name: Industrial_Street_light073
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15899,7 +15899,7 @@ GameObject:
   - component: {fileID: 1273469949}
   m_Layer: 0
   m_Name: Industrial_Street_light075
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15918,7 +15918,7 @@ GameObject:
   - component: {fileID: 1273469831}
   m_Layer: 0
   m_Name: Industrial_Street_light052
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15937,7 +15937,7 @@ GameObject:
   - component: {fileID: 1273469825}
   m_Layer: 0
   m_Name: Industrial_Street_light053
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15956,7 +15956,7 @@ GameObject:
   - component: {fileID: 1273469835}
   m_Layer: 0
   m_Name: Industrial_Street_light050
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15975,7 +15975,7 @@ GameObject:
   - component: {fileID: 1273469829}
   m_Layer: 0
   m_Name: Industrial_Street_light051
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -15994,7 +15994,7 @@ GameObject:
   - component: {fileID: 1273469839}
   m_Layer: 0
   m_Name: Industrial_Street_light048
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16013,7 +16013,7 @@ GameObject:
   - component: {fileID: 1273469833}
   m_Layer: 0
   m_Name: Industrial_Street_light049
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16032,7 +16032,7 @@ GameObject:
   - component: {fileID: 1273469875}
   m_Layer: 0
   m_Name: Industrial_Street_light046
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16051,7 +16051,7 @@ GameObject:
   - component: {fileID: 1273469837}
   m_Layer: 0
   m_Name: Industrial_Street_light047
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16070,7 +16070,7 @@ GameObject:
   - component: {fileID: 1273469847}
   m_Layer: 0
   m_Name: Industrial_Street_light061
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16089,7 +16089,7 @@ GameObject:
   - component: {fileID: 1273469841}
   m_Layer: 0
   m_Name: Industrial_Street_light062
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16108,7 +16108,7 @@ GameObject:
   - component: {fileID: 1273469851}
   m_Layer: 0
   m_Name: Industrial_Street_light058
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16127,7 +16127,7 @@ GameObject:
   - component: {fileID: 1273469845}
   m_Layer: 0
   m_Name: Industrial_Street_light059
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16146,7 +16146,7 @@ GameObject:
   - component: {fileID: 1273469855}
   m_Layer: 0
   m_Name: Industrial_Street_light056
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16165,7 +16165,7 @@ GameObject:
   - component: {fileID: 1273469849}
   m_Layer: 0
   m_Name: Industrial_Street_light057
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16184,7 +16184,7 @@ GameObject:
   - component: {fileID: 1273469827}
   m_Layer: 0
   m_Name: Industrial_Street_light054
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16203,7 +16203,7 @@ GameObject:
   - component: {fileID: 1273469853}
   m_Layer: 0
   m_Name: Industrial_Street_light055
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16222,7 +16222,7 @@ GameObject:
   - component: {fileID: 1273468967}
   m_Layer: 0
   m_Name: Industrial White010
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16241,7 +16241,7 @@ GameObject:
   - component: {fileID: 1273468961}
   m_Layer: 0
   m_Name: Industrial White011
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16260,7 +16260,7 @@ GameObject:
   - component: {fileID: 1273468971}
   m_Layer: 0
   m_Name: Industrial White008
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16279,7 +16279,7 @@ GameObject:
   - component: {fileID: 1273468965}
   m_Layer: 0
   m_Name: Industrial White009
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16336,7 +16336,7 @@ GameObject:
   - component: {fileID: 1273469139}
   m_Layer: 0
   m_Name: Industrial V009
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16602,7 +16602,7 @@ GameObject:
   - component: {fileID: 1273469135}
   m_Layer: 0
   m_Name: Industrial Red012
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16621,7 +16621,7 @@ GameObject:
   - component: {fileID: 1273469129}
   m_Layer: 0
   m_Name: Industrial S
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16640,7 +16640,7 @@ GameObject:
   - component: {fileID: 1273469171}
   m_Layer: 0
   m_Name: Industrial Red010
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16659,7 +16659,7 @@ GameObject:
   - component: {fileID: 1273469133}
   m_Layer: 0
   m_Name: Industrial Red011
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16678,7 +16678,7 @@ GameObject:
   - component: {fileID: 1273469143}
   m_Layer: 0
   m_Name: Industrial V007
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16697,7 +16697,7 @@ GameObject:
   - component: {fileID: 1273469137}
   m_Layer: 0
   m_Name: Industrial V008
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16849,7 +16849,7 @@ GameObject:
   - component: {fileID: 1273469025}
   m_Layer: 0
   m_Name: Industrial_Dumpstar002
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -16982,7 +16982,7 @@ GameObject:
   - component: {fileID: 1273469047}
   m_Layer: 0
   m_Name: Industrial_light017
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17001,7 +17001,7 @@ GameObject:
   - component: {fileID: 1273469041}
   m_Layer: 0
   m_Name: Industrial_light018
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17058,7 +17058,7 @@ GameObject:
   - component: {fileID: 1273469055}
   m_Layer: 0
   m_Name: Industrial_electric_box002
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17077,7 +17077,7 @@ GameObject:
   - component: {fileID: 1273469049}
   m_Layer: 0
   m_Name: Industrial_electric_box003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17096,7 +17096,7 @@ GameObject:
   - component: {fileID: 1273469027}
   m_Layer: 0
   m_Name: Industrial_Dumpstar003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17115,7 +17115,7 @@ GameObject:
   - component: {fileID: 1273469053}
   m_Layer: 0
   m_Name: Industrial_electric_box001
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17438,7 +17438,7 @@ GameObject:
   - component: {fileID: 1273470375}
   m_Layer: 0
   m_Name: props_red_train014
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17457,7 +17457,7 @@ GameObject:
   - component: {fileID: 1273470369}
   m_Layer: 0
   m_Name: props_red_train015
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17476,7 +17476,7 @@ GameObject:
   - component: {fileID: 1273470379}
   m_Layer: 0
   m_Name: props_red_train012
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17495,7 +17495,7 @@ GameObject:
   - component: {fileID: 1273470373}
   m_Layer: 0
   m_Name: props_red_train013
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17514,7 +17514,7 @@ GameObject:
   - component: {fileID: 1273470383}
   m_Layer: 0
   m_Name: props_red_train010
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17533,7 +17533,7 @@ GameObject:
   - component: {fileID: 1273470377}
   m_Layer: 0
   m_Name: props_red_train011
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17552,7 +17552,7 @@ GameObject:
   - component: {fileID: 1273469523}
   m_Layer: 0
   m_Name: props_red_train008
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17571,7 +17571,7 @@ GameObject:
   - component: {fileID: 1273470381}
   m_Layer: 0
   m_Name: props_red_train009
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17666,7 +17666,7 @@ GameObject:
   - component: {fileID: 1273470399}
   m_Layer: 0
   m_Name: Props_scafold_B005
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17685,7 +17685,7 @@ GameObject:
   - component: {fileID: 1273470393}
   m_Layer: 0
   m_Name: Props_scafold_B006
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17704,7 +17704,7 @@ GameObject:
   - component: {fileID: 1273470371}
   m_Layer: 0
   m_Name: Props_scafold002
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17723,7 +17723,7 @@ GameObject:
   - component: {fileID: 1273470397}
   m_Layer: 0
   m_Name: Props_scafold003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17894,7 +17894,7 @@ GameObject:
   - component: {fileID: 1273469527}
   m_Layer: 0
   m_Name: props_gray_train011
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17913,7 +17913,7 @@ GameObject:
   - component: {fileID: 1273469521}
   m_Layer: 0
   m_Name: props_red_train007
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17932,7 +17932,7 @@ GameObject:
   - component: {fileID: 1273469531}
   m_Layer: 0
   m_Name: props_gray_train009
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17951,7 +17951,7 @@ GameObject:
   - component: {fileID: 1273469525}
   m_Layer: 0
   m_Name: props_gray_train010
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17970,7 +17970,7 @@ GameObject:
   - component: {fileID: 1273469535}
   m_Layer: 0
   m_Name: props_gray_train007
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -17989,7 +17989,7 @@ GameObject:
   - component: {fileID: 1273469529}
   m_Layer: 0
   m_Name: props_gray_train008
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18008,7 +18008,7 @@ GameObject:
   - component: {fileID: 1273469507}
   m_Layer: 0
   m_Name: props_gray_train005
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18027,7 +18027,7 @@ GameObject:
   - component: {fileID: 1273469533}
   m_Layer: 0
   m_Name: props_gray_train006
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18046,7 +18046,7 @@ GameObject:
   - component: {fileID: 1273470343}
   m_Layer: 0
   m_Name: Van008
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18084,7 +18084,7 @@ GameObject:
   - component: {fileID: 1273470347}
   m_Layer: 0
   m_Name: Van006
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18103,7 +18103,7 @@ GameObject:
   - component: {fileID: 1273470341}
   m_Layer: 0
   m_Name: Van007
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18122,7 +18122,7 @@ GameObject:
   - component: {fileID: 1273470351}
   m_Layer: 0
   m_Name: truck001
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18141,7 +18141,7 @@ GameObject:
   - component: {fileID: 1273470345}
   m_Layer: 0
   m_Name: Van005
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18179,7 +18179,7 @@ GameObject:
   - component: {fileID: 1273470349}
   m_Layer: 0
   m_Name: truck
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18312,7 +18312,7 @@ GameObject:
   - component: {fileID: 1273469479}
   m_Layer: 0
   m_Name: Props_buldozer003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18331,7 +18331,7 @@ GameObject:
   - component: {fileID: 1273469473}
   m_Layer: 0
   m_Name: Props_buldozer004
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18350,7 +18350,7 @@ GameObject:
   - component: {fileID: 1273469483}
   m_Layer: 0
   m_Name: Plane007
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18369,7 +18369,7 @@ GameObject:
   - component: {fileID: 1273469477}
   m_Layer: 0
   m_Name: Plane008
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18388,7 +18388,7 @@ GameObject:
   - component: {fileID: 1273469487}
   m_Layer: 0
   m_Name: Plane005
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18407,7 +18407,7 @@ GameObject:
   - component: {fileID: 1273469481}
   m_Layer: 0
   m_Name: Plane006
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18426,7 +18426,7 @@ GameObject:
   - component: {fileID: 1273469651}
   m_Layer: 0
   m_Name: Plane003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18445,7 +18445,7 @@ GameObject:
   - component: {fileID: 1273469485}
   m_Layer: 0
   m_Name: Plane004
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18578,7 +18578,7 @@ GameObject:
   - component: {fileID: 1273469475}
   m_Layer: 0
   m_Name: Props_buldozer005
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18597,7 +18597,7 @@ GameObject:
   - component: {fileID: 1273469501}
   m_Layer: 0
   m_Name: Props_buldozer006
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18787,7 +18787,7 @@ GameObject:
   - component: {fileID: 1273469649}
   m_Layer: 0
   m_Name: Plane002
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -18996,7 +18996,7 @@ GameObject:
   - component: {fileID: 1273469551}
   m_Layer: 0
   m_Name: Props_container_crate007
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19015,7 +19015,7 @@ GameObject:
   - component: {fileID: 1273469545}
   m_Layer: 0
   m_Name: Props_container_crate008
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19034,7 +19034,7 @@ GameObject:
   - component: {fileID: 1273469459}
   m_Layer: 0
   m_Name: Props_container_crate005
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19053,7 +19053,7 @@ GameObject:
   - component: {fileID: 1273469549}
   m_Layer: 0
   m_Name: Props_container_crate006
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19376,7 +19376,7 @@ GameObject:
   - component: {fileID: 1273469463}
   m_Layer: 0
   m_Name: Props_container_crate003
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19395,7 +19395,7 @@ GameObject:
   - component: {fileID: 1273469457}
   m_Layer: 0
   m_Name: Props_container_crate004
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19414,7 +19414,7 @@ GameObject:
   - component: {fileID: 1273469467}
   m_Layer: 0
   m_Name: Props_container_crate001
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19433,7 +19433,7 @@ GameObject:
   - component: {fileID: 1273469461}
   m_Layer: 0
   m_Name: Props_container_crate002
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -19471,7 +19471,7 @@ GameObject:
   - component: {fileID: 1273469465}
   m_Layer: 0
   m_Name: Props_container_crate
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

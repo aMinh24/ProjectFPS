@@ -7,6 +7,7 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 {
 	//public PhotonView photonView;
 	public CamMultiplayer camManager;
+	public AudioSource playerAudio;
 	// Token: 0x0600015E RID: 350 RVA: 0x00008BC4 File Offset: 0x00006DC4
 	private void Start()
 	{
@@ -74,7 +75,11 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 	// Token: 0x06000161 RID: 353 RVA: 0x00008DB0 File Offset: 0x00006FB0
 	private void Crouch()
 	{
-		this.checkTheChange = this.isCrouching;
+        if (AudioManager.HasInstance())
+        {
+            playerAudio.PlayOneShot(AudioManager.Instance.GetAudioClip("Crouch"));
+        }
+        this.checkTheChange = this.isCrouching;
 		this.animator.SetBool(this.isCrouchingParam, this.isCrouching);
 		if (this.isCrouching)
 		{
@@ -109,6 +114,10 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 		bool flag = this.IsSprinting();
 		if (this.energy <= 0f)
 		{
+			if(AudioManager.HasInstance())
+			{
+				playerAudio.PlayOneShot(AudioManager.Instance.GetAudioClip("Breath"));
+			}
 			this.recover = true;
 		}
 		if (this.energy > 5f)
@@ -194,6 +203,10 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 	{
 		if (!this.isJumping)
 		{
+			if (AudioManager.HasInstance())
+			{
+				playerAudio.PlayOneShot(AudioManager.Instance.GetAudioClip("Jump"));
+			}
 			float inAir = Mathf.Sqrt(2f * this.gravity * this.jumpHeight);
 			this.SetInAir(inAir);
 		}

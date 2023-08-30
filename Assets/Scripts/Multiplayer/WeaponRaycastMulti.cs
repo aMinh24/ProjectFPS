@@ -186,7 +186,20 @@ public class WeaponRaycastMulti : MonoBehaviourPun
         this.ray.direction = direction;
         if (Physics.Raycast(this.ray, out this.hitInfo, magnitude, this.hitLayer))
         {
-            foreach (var effect in hitEffect)
+            
+            if (hitInfo.collider.gameObject.CompareTag("Player"))
+            {
+                CurHitEffect = hitBody;
+            }
+            else if (hitInfo.collider.gameObject.CompareTag("Metal"))
+            {
+                CurHitEffect = hitMetal;
+            }
+            else
+            {
+                CurHitEffect = hitEffectConcrete;
+            }
+            foreach (var effect in CurHitEffect)
             {
                 effect.transform.position = this.hitInfo.point;
                 effect.transform.forward = this.hitInfo.normal;
@@ -209,7 +222,7 @@ public class WeaponRaycastMulti : MonoBehaviourPun
         }
         bullet.transform.position = end;
     }
-
+    public ParticleSystem[] CurHitEffect;
     // Token: 0x040001F4 RID: 500
     public LayerMask hitLayer;
 
@@ -229,7 +242,9 @@ public class WeaponRaycastMulti : MonoBehaviourPun
     public ParticleSystem[] muzzleFlash;
 
     // Token: 0x040001FA RID: 506
-    public ParticleSystem[] hitEffect;
+    public ParticleSystem[] hitEffectConcrete;
+    public ParticleSystem[] hitBody;
+    public ParticleSystem[] hitMetal;
 
     // Token: 0x040001FB RID: 507
     public Transform raycastOrigin;
