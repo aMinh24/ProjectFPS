@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/CampaignOffline.unity
     guid: ca49e4968ce74574d91b7a338386e3ee
   - enabled: 1
-    path: Assets/Scenes/Campaign.unity
+    path: Assets/Scenes/OldCity.unity
     guid: 59c193937a342774e9985cdf3791ab32
+  - enabled: 1
+    path: Assets/Scenes/Industry1.unity
+    guid: b428ca2318a56e641843437f996247bd
+  - enabled: 1
+    path: Assets/Scenes/Industry2.unity
+    guid: 319aa712a3a36904eb452c7f9585e232
   m_configObjects: {}

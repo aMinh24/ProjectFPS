@@ -15,7 +15,8 @@ public class ListRoomPanel : BaseScreen
     public Text curSelectedRoomName;
     public Text curSelectedRoomMode;
     public Text curSelectedRoomMap;
-
+    public GameObject ChooseMapPanel;
+    public GameObject[] mapImage;
     public override void Hide()
     {
         base.Hide();
@@ -71,25 +72,61 @@ public class ListRoomPanel : BaseScreen
             curSelectedRoomName.text = roomRow.nameText.text;
             curSelectedRoomMode.text = roomRow.modeText.text;
             curSelectedRoomMap.text = roomRow.mapText.text;
+            foreach(GameObject img in mapImage)
+            {
+                img.SetActive(false);
+            }
+            switch (roomRow.mapText.text)
+            {
+                case "OldCity":
+                    {
+                        mapImage[0].SetActive(true);
+                        break;
+                    }
+                case "Industry1":
+                    {
+                        mapImage[1].SetActive(true);
+                        break;
+                    }
+                case "Industry2":
+                    {
+                        mapImage[2].SetActive(true);
+                        break;
+                    }
+            }
         }
         
     }
     public void OnJoinRoomButton()
     {
-        PhotonNetwork.JoinRoom(curSelectedRoomName.text);
+        PhotonNetwork.JoinRoom($"{curSelectedRoomName.text}_{curSelectedRoomMap.text}");
     }
     public void OnCreateRoomButton()
     {
-        //Debug.Log("create " + PhotonNetwork.CurrentRoom==null?"null":"OK");
+        ChooseMapPanel.SetActive(true);
+        //if (PhotonNetwork.CurrentRoom != null) { return; }
+        //RoomOptions roomOptions = new RoomOptions
+        //{
+        //    MaxPlayers = 8
+        //};
+        //string roomName = PhotonNetwork.NickName + "'s room";
+        //PhotonNetwork.CreateRoom(roomName, roomOptions, null);
+        //Debug.Log(PhotonNetwork.NetworkClientState);
+        
+    }
+    public void CloseChooseMap()
+    {
+        ChooseMapPanel.SetActive(false);
+    }
+    public void ChooseMap(string name)
+    {
         if (PhotonNetwork.CurrentRoom != null) { return; }
         RoomOptions roomOptions = new RoomOptions
         {
             MaxPlayers = 8
         };
-        string roomName = PhotonNetwork.NickName + "'s room";
+        string roomName = $"{PhotonNetwork.NickName} 's room_{name}";
         PhotonNetwork.CreateRoom(roomName, roomOptions, null);
-        Debug.Log(PhotonNetwork.NetworkClientState);
-        //PhotonNetwork.JoinRoom(PhotonNetwork.NickName + "'s room");
     }
     public void OnLeaveRoomButton()
     {

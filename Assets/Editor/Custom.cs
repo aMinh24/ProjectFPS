@@ -12,11 +12,22 @@ public class Custom : EditorWindow
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
         EditorSceneManager.OpenScene("Assets/Scenes/Main.unity");
     }
-    [MenuItem("OpenScene/Campaign", false, 2)]
-    public static void Campaign()
+    [MenuItem("OpenScene/OldCity", false, 2)]
+    public static void OldCity()
     {
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
-        EditorSceneManager.OpenScene("Assets/Scenes/Campaign.unity");
+        EditorSceneManager.OpenScene("Assets/Scenes/OldCity.unity");
     }
-
+    [MenuItem("OpenScene/Indus1", false, 3)]
+    public static void Indus1()
+    {
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+        EditorSceneManager.OpenScene("Assets/Scenes/Industry1.unity");
+    }
+    [MenuItem("OpenScene/Indus2", false, 4)]
+    public static void Indus2()
+    {
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+        EditorSceneManager.OpenScene("Assets/Scenes/Industry2.unity");
+    }
 }

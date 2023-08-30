@@ -23,7 +23,8 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
             GameObject row = Instantiate(listRoomPanel.prefabRoom,listRoomPanel.All.board.transform);
             RoomRow roomRow = row.GetComponent<RoomRow>();
             roomRow.toggle.group = listRoomPanel.All.board.GetComponent<ToggleGroup>();
-            roomRow.InitRow((byte)roomObject.Count, roomInfo.Name, "City", (byte)roomInfo.PlayerCount, (byte)roomInfo.MaxPlayers);
+            string[] info = roomInfo.Name.Split('_');
+            roomRow.InitRow((byte)roomObject.Count, info[0], info[1], (byte)roomInfo.PlayerCount, (byte)roomInfo.MaxPlayers);
             roomObject.Add(row);
         }
     }
@@ -37,7 +38,7 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-        //PhotonNetwork.LoadLevel("Campaign");
+        PhotonNetwork.LoadLevel(PhotonNetwork.CurrentRoom.Name.Split('_')[1]);
         //Debug.Log("joined room "+PhotonNetwork.CurrentRoom);
         
     }
