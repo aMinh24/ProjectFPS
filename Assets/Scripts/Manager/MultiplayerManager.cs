@@ -69,6 +69,10 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
             curPosB = (curPosB + 1) % posB.Length;
         }
         curTeam = team;
+        if (AudioManager.HasInstance())
+        {
+            AudioManager.Instance.PlaySE("TeamDeath"+Random.Range(0, 3));
+        }
         cam.SetActive(false);
     }
     public void JoinTeam(PlayerHealthMultiplayer player)

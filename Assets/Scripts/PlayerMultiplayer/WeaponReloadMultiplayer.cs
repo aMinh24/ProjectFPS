@@ -28,9 +28,13 @@ public class WeaponReloadMultiplayer : MonoBehaviourPun
 			return;
 		}
 		WeaponRaycastMulti weaponRaycast = this.activeWeapon.GetActiveWeapon();
-		if (weaponRaycast && (Input.GetKeyUp(KeyCode.R) || weaponRaycast.ammoCount <= 0) && weaponRaycast.totalAmmo > 0 && weaponRaycast.ammoCount < weaponRaycast.gunInfo[KeyInfo.maxAmmo] - 5)
+		if (weaponRaycast && (Input.GetKeyUp(KeyCode.R) || weaponRaycast.ammoCount <= 0) && weaponRaycast.totalAmmo > 0 && weaponRaycast.ammoCount < weaponRaycast.gunInfo[KeyInfo.maxAmmo] - 5 &&!isReloading)
 		{
 			this.isReloading = true;
+			if (AudioManager.HasInstance())
+			{
+				AudioManager.Instance.PlaySE("WeLoading");
+			}
 			if (rigController != null)
 			{
                 this.rigController.SetTrigger("reload_weapon");

@@ -74,7 +74,6 @@ public class GameUIMulti : BaseScreen
         this.timeRemainingText.text = string.Format("{0}:{1}", math.floor(this.timeRemaining / 60f), math.floor(this.timeRemaining - math.floor(this.timeRemaining / 60f) * 60f));
         this.timeRemaining -= Time.deltaTime;
     }
-
     // Token: 0x060001D3 RID: 467 RVA: 0x0000A65E File Offset: 0x0000885E
     public override void Show(object data)
     {
@@ -87,7 +86,6 @@ public class GameUIMulti : BaseScreen
             KillPoint.text = values[0].ToString();
             DeathPoint.text = "/" + values[1].ToString();
         }
-
     }
     // Token: 0x060001D4 RID: 468 RVA: 0x0000A668 File Offset: 0x00008868
     public void UpdateEnemyKill(object data)

@@ -45,6 +45,10 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
             {
                 characterAiming.camManager.TurnOffScope();
             }
+			if (AudioManager.HasInstance())
+			{
+				AudioManager.Instance.PlaySE("Death");
+			}
 			this.characterAiming.isDeath = true;
 			if (UIManager.HasInstance())
 			{
@@ -80,6 +84,13 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
 	}
 	public IEnumerator OnPlayerDeath()
 	{
+		if (shooter == PhotonNetwork.NickName)
+		{
+			if (AudioManager.HasInstance())
+			{
+				AudioManager.Instance.PlaySE("targetdown");
+			}
+		}
 		if (MultiplayerManager.HasInstance())
 		{
 			MultiplayerManager.Instance.updateScore(this);
