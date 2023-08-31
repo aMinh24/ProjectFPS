@@ -1,11 +1,7 @@
 using Photon.Pun;
-using Photon.Pun.UtilityScripts;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
-using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class MultiplayerManager : BaseManager<MultiplayerManager>
 {
@@ -69,9 +65,9 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
             curPosB = (curPosB + 1) % posB.Length;
         }
         curTeam = team;
-        if (AudioManager.HasInstance())
+        if (AudioManager.HasInstance()&&cam.active)
         {
-            AudioManager.Instance.PlaySE("TeamDeath"+Random.Range(0, 3));
+            AudioManager.Instance.voiceSource.PlayOneShot(AudioManager.Instance.GetAudioClip("TeamDeath" + Random.Range(0, 4)));
         }
         cam.SetActive(false);
     }

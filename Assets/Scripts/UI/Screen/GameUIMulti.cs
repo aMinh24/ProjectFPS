@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using DG.Tweening;
+using Photon.Pun;
 using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
@@ -12,6 +13,7 @@ public class GameUIMulti : BaseScreen
 {
     public TextMeshProUGUI allyScore;
     public TextMeshProUGUI enemyScore;
+    public Image crossHit;
     // Token: 0x060001CF RID: 463 RVA: 0x0000A36B File Offset: 0x0000856B
     public override void Hide()
     {
@@ -180,6 +182,11 @@ public class GameUIMulti : BaseScreen
     public void UpdateHealth(object value)
     {
         PlayerHealthMultiplayer playerHealth = value as PlayerHealthMultiplayer;
+        if (playerHealth.shooter.Equals(PhotonNetwork.NickName))
+        {
+            crossHit.DOFade(1, 0);
+            crossHit.DOFade(0, 2);
+        }
         if (!playerHealth.activeWeapon.photonView.IsMine) { return; }
         if (playerHealth.activeWeapon.photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
         {

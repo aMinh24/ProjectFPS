@@ -66,7 +66,15 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
         }
         if (this.isJumping)
 		{
+			bool changing = isJumping;
 			this.UpdateInAir();
+			if (isJumping!= changing && isJumping == false)
+			{
+                if (AudioManager.HasInstance())
+                {
+                    playerAudio.PlayOneShot(AudioManager.Instance.GetAudioClip("Land"));
+                }
+            }
 			return;
 		}
 		this.UpdateOnGround();

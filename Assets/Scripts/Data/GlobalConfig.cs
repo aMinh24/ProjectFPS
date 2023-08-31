@@ -41,7 +41,7 @@ public class GlobalConfig : ScriptableObject
 	public float gravity = 20f;
 
 	// Token: 0x040000D9 RID: 217
-	public float stepDown = 0.1f;
+	public float stepDown = 0.4f;
 
 	// Token: 0x040000DA RID: 218
 	public float airControl = 2.5f;

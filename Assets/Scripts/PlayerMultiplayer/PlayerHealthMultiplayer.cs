@@ -20,7 +20,6 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
     // Token: 0x06000179 RID: 377 RVA: 0x00009582 File Offset: 0x00007782
     protected override void OnDamage(Vector3 direction, int idRb)
 	{
-		
 		if (BaseManager<ListenerManager>.HasInstance())
 		{
 			BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_HEALTH, this);
@@ -47,6 +46,11 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
             }
 			if (AudioManager.HasInstance())
 			{
+				if (m_Rigidbodies[idRb].gameObject.CompareTag("Head"))
+				{
+                    AudioManager.Instance.PlaySE("HeadshotHit");
+                }
+				else
 				AudioManager.Instance.PlaySE("Death");
 			}
 			this.characterAiming.isDeath = true;

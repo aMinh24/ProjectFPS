@@ -23,7 +23,7 @@ MonoBehaviour:
   shootingRange: 30
   jumpHeight: 1.2
   gravity: 20
-  stepDown: 0.1
+  stepDown: 0.4
   airControl: 2.5
   jumpDamp: 0.5
   groundSpeed: 1.2

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ScarInfo
   m_EditorClassIdentifier: 
   totalAmmo: 100
-  damage: 50
+  damage: 1
   fireRate: 10
   bulletSpeed: 100

@@ -5,6 +5,7 @@ using UnityEngine;
 // Token: 0x0200004A RID: 74
 public class AudioManager : BaseManager<AudioManager>
 {
+	public AudioSource voiceSource;
 	// Token: 0x060000F6 RID: 246 RVA: 0x000066F4 File Offset: 0x000048F4
 	protected override void Awake()
 	{

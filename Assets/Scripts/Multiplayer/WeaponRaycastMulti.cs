@@ -187,7 +187,7 @@ public class WeaponRaycastMulti : MonoBehaviourPun
         if (Physics.Raycast(this.ray, out this.hitInfo, magnitude, this.hitLayer))
         {
             
-            if (hitInfo.collider.gameObject.CompareTag("Player"))
+            if (hitInfo.collider.gameObject.CompareTag("Player")|| hitInfo.collider.gameObject.CompareTag("Head"))
             {
                 CurHitEffect = hitBody;
             }
