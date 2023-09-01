@@ -29,10 +29,10 @@ public class ChooseTeamBox : BaseOverlap
         {
             MultiplayerManager.Instance.ChooseTeam(team);
         }
-        if (UIManager.HasInstance())
-        {
-            UIManager.Instance.ShowScreen<GameUIMulti>(null,true);
-        }
+        //if (UIManager.HasInstance())
+        //{
+        //    UIManager.Instance.ShowScreen<GameUIMulti>(null,true);
+        //}
         Hide();
     }
 }

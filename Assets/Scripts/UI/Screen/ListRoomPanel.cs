@@ -17,6 +17,9 @@ public class ListRoomPanel : BaseScreen
     public Text curSelectedRoomMap;
     public GameObject ChooseMapPanel;
     public GameObject[] mapImage;
+    public Transform[] playersTable;
+    public PlayerRow playerRowPf;
+    public List <PlayerRow> curPlayers;
     public override void Hide()
     {
         base.Hide();
@@ -104,6 +107,7 @@ public class ListRoomPanel : BaseScreen
     public void OnCreateRoomButton()
     {
         ChooseMapPanel.SetActive(true);
+        
         //if (PhotonNetwork.CurrentRoom != null) { return; }
         //RoomOptions roomOptions = new RoomOptions
         //{
@@ -127,10 +131,15 @@ public class ListRoomPanel : BaseScreen
         };
         string roomName = $"{PhotonNetwork.NickName} 's room_{name}";
         PhotonNetwork.CreateRoom(roomName, roomOptions, null);
+        ChooseMapPanel.SetActive(false);
     }
     public void OnLeaveRoomButton()
     {
         if (PhotonNetwork.CurrentRoom == null) { return; }
+        if (MultiplayerManager.HasInstance())
+        {
+            Destroy(MultiplayerManager.Instance.gameObject);
+        }
         PhotonNetwork.LeaveRoom();
     }
     public void OnBackButton()
@@ -140,5 +149,20 @@ public class ListRoomPanel : BaseScreen
             UIManager.Instance.ShowScreen<MainMenu>(null,true);
         }
         PhotonNetwork.LeaveLobby();
+    }
+
+    public void playerListUpdate()
+    {
+        foreach(PlayerRow row in curPlayers)
+        {
+            Destroy(row.gameObject);
+        }
+        curPlayers.Clear();
+        foreach(Player player in PhotonNetwork.PlayerList)
+        {
+            PlayerRow row = Instantiate(playerRowPf, playersTable[(bool)player.CustomProperties["team"] ? 0 : 1]);
+            row.Init(player.NickName, (bool)player.CustomProperties["ready"]);
+            curPlayers.Add(row);
+        }
     }
 }
