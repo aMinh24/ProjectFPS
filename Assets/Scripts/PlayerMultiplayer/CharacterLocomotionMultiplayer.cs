@@ -32,6 +32,10 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 	// Token: 0x0600015F RID: 351 RVA: 0x00008CD0 File Offset: 0x00006ED0
 	private void Update()
 	{
+		if (MultiplayerManager.HasInstance())
+		{
+			if (!MultiplayerManager.Instance.startTiming) { return; }
+		}
         if (!photonView.IsMine) { return; }
         if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
         {

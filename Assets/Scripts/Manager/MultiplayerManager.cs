@@ -81,6 +81,30 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
         }
         cam.SetActive(false);
     }
+    public void EndGame()
+    {
+        if (curTeam && AScore > BScore)
+        {
+            int[] ins = { AScore, BScore };
+            UIManager.Instance.ShowScreen<VictoryPanelMulti>(ins, true);
+        }
+        else if (curTeam)
+        {
+            int[] ins = { AScore, BScore };
+            UIManager.Instance.ShowScreen<DefeatPanelMulti>(ins, true);
+        }
+        if (!curTeam&& AScore < BScore)
+        {
+            int[] ins = { BScore, AScore };
+            UIManager.Instance.ShowScreen<VictoryPanelMulti>(ins, true);
+        }
+        else if (!curTeam)
+        {
+            int[] ins = { BScore, AScore };
+            UIManager.Instance.ShowScreen<DefeatPanelMulti>(ins, true);
+        }
+    }
+
     public void ChooseTeam(bool team)
     { 
         curTeam = team;
@@ -92,7 +116,7 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
         Hashtable initProp = new Hashtable() { { "team", team } ,{"ready",ready } };
         PhotonNetwork.LocalPlayer.SetCustomProperties(initProp);
     }
-    private void SpawnPlayer(bool team)
+    public void SpawnPlayer(bool team)
     {
         if (team) //true = team A
         {

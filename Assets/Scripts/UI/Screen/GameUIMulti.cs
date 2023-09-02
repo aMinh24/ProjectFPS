@@ -83,6 +83,7 @@ public class GameUIMulti : BaseScreen
             countdownText.SetText($"{math.floor(countdownTime)}");
             countdownTime -= Time.deltaTime;
         }
+
         else if (countdownText.gameObject.active)
         {
             countdownText.gameObject.SetActive(false);
@@ -91,6 +92,14 @@ public class GameUIMulti : BaseScreen
         this.timeRemainingText.text = string.Format("{0}:{1}", math.floor(this.timeRemaining / 60f), math.floor(this.timeRemaining - math.floor(this.timeRemaining / 60f) * 60f));
         if (MultiplayerManager.Instance.startTiming)
         this.timeRemaining -= Time.deltaTime;
+        if (int.Parse(allyScore.text)== int.Parse(enemyScore.text)&& timeRemaining<=0)
+        {
+            timeRemaining += 60;
+        }
+        if (timeRemaining<=0)
+        {
+            MultiplayerManager.Instance.EndGame();
+        }
     }
     // Token: 0x060001D3 RID: 467 RVA: 0x0000A65E File Offset: 0x0000885E
     public override void Show(object data)

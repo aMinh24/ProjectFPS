@@ -105,7 +105,7 @@ public class PlayerHealthMultiplayer : HealthMultiplayer
 		{
             if (MultiplayerManager.HasInstance())
             {
-                MultiplayerManager.Instance.ChooseTeam(team);
+				MultiplayerManager.Instance.SpawnPlayer(team);
             }
         }
 		Destroy(characterAiming.mainCamera.gameObject);
