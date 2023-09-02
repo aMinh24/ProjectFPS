@@ -25,7 +25,6 @@ public class LoginPanel : BaseScreen
         {
             PhotonNetwork.LocalPlayer.NickName = playerName;
             PhotonNetwork.ConnectUsingSettings();
-            Debug.Log(playerName + " connect");
         }
         else
         {

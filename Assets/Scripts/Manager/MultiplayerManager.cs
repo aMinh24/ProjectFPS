@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using ExitGames.Client.Photon;
+using Photon.Realtime;
+
 public class MultiplayerManager : BaseManager<MultiplayerManager>
 {
+    public bool isStarted = false;
+    public bool startTiming = false;
     public GameObject cam;
     public bool curTeam;
     public int AScore = 0;
@@ -26,6 +30,17 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
             UIManager.Instance.ShowOverlap<ChooseTeamBox>(null, true);
         }
         
+    }
+    private void Update()
+    {
+
+        if (isStarted)
+        {
+            curPosA = PhotonNetwork.LocalPlayer.ActorNumber;
+            curPosB = PhotonNetwork.LocalPlayer.ActorNumber;
+            StartGame();
+            isStarted = false;
+        }
     }
     public void updateScore(PlayerHealthMultiplayer health)
     {
@@ -50,6 +65,11 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
     public void StartGame()
     {
         SpawnPlayer(curTeam);
+        if(UIManager.HasInstance())
+        {
+            UIManager.Instance.HideAllPopups();
+            UIManager.Instance.ShowScreen<GameUIMulti>(null, true);
+        }
         if (AudioManager.HasInstance() && cam.active)
         {
             AudioManager.Instance.voiceSource.PlayOneShot(AudioManager.Instance.GetAudioClip("TeamDeath" + Random.Range(0, 4)));
@@ -64,13 +84,19 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
     public void ChooseTeam(bool team)
     { 
         curTeam = team;
-        Hashtable initProp = new Hashtable() { { "team", team } ,{"ready",false } };
+        bool ready = false;
+        if (PhotonNetwork.IsMasterClient)
+        {
+            ready = true;
+        }
+        Hashtable initProp = new Hashtable() { { "team", team } ,{"ready",ready } };
         PhotonNetwork.LocalPlayer.SetCustomProperties(initProp);
     }
     private void SpawnPlayer(bool team)
     {
         if (team) //true = team A
         {
+           
             GameObject player = PhotonNetwork.Instantiate("PlayerA", posA[curPosA].transform.position, Quaternion.identity);
             curPosA = (curPosA + 1) % posA.Length;
         }
@@ -102,17 +128,15 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
             if (teamA.ContainsKey(player.gameObject.name)) return;
             int[] zero = { 0, 0 };
             teamA.Add(player.gameObject.name, zero);
-            Debug.Log(teamA.Last());
         }
         else
         {
             if (teamB.ContainsKey(player.gameObject.name)) return;
             int[] zero = { 0, 0 };
             teamB.Add(player.gameObject.name, zero);
-            Debug.Log(teamB.Last());
         }
-        
-        
-
     }
+
+    
 }
+

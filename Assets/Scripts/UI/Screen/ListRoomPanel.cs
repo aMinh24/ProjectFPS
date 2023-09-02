@@ -1,12 +1,9 @@
 using Photon.Pun;
 using Photon.Realtime;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.ConstrainedExecution;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-
+using ExitGames.Client.Photon;
 public class ListRoomPanel : BaseScreen
 {
     public TabMission All;
@@ -28,7 +25,6 @@ public class ListRoomPanel : BaseScreen
     public override void Init()
     {
         base.Init();
-        
     }
     private void Update()
     {
@@ -160,9 +156,42 @@ public class ListRoomPanel : BaseScreen
         curPlayers.Clear();
         foreach(Player player in PhotonNetwork.PlayerList)
         {
-            PlayerRow row = Instantiate(playerRowPf, playersTable[(bool)player.CustomProperties["team"] ? 0 : 1]);
-            row.Init(player.NickName, (bool)player.CustomProperties["ready"]);
-            curPlayers.Add(row);
+            if (player.CustomProperties.ContainsKey("team"))
+            {
+                PlayerRow row = Instantiate(playerRowPf, playersTable[(bool)player.CustomProperties["team"] ? 0 : 1]);
+                row.Init(player.NickName, (bool)player.CustomProperties["ready"]);
+                curPlayers.Add(row);
+            }
+            
         }
+    }
+    public void OnStartButton()
+    {
+        if (CheckPlayerReady())
+        {
+            PhotonNetwork.RaiseEvent((byte)EVENT_CODE.START_GAME,null,new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
+            Debug.Log("raise event");
+        }
+    }
+    private bool CheckPlayerReady()
+    {
+        foreach(Player player in PhotonNetwork.PlayerList)
+        {
+            if ((bool)player.CustomProperties["ready"]== false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public void OnReadyButton()
+    {
+        Hashtable prop = new Hashtable() { { "ready", true } };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(prop);
+    }
+    public void OncancelButton()
+    {
+        Hashtable prop = new Hashtable() { { "ready", false } };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(prop);
     }
 }

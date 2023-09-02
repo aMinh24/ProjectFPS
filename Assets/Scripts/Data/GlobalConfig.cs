@@ -78,6 +78,8 @@ public class GlobalConfig : ScriptableObject
 
 	// Token: 0x040000E5 RID: 229
 	public float maxTimePlay = 15f;
+	public float maxTimeDeathMath = 3f;
+	public float countdown = 0.3f;
 
 	// Token: 0x040000E6 RID: 230
 	[Header("UI")]

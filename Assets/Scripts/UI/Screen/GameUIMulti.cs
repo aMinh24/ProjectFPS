@@ -1,5 +1,7 @@
 ﻿using DG.Tweening;
+using ExitGames.Client.Photon;
 using Photon.Pun;
+using Photon.Realtime;
 using System;
 using System.Collections;
 using System.Runtime.CompilerServices;
@@ -14,6 +16,8 @@ public class GameUIMulti : BaseScreen
     public TextMeshProUGUI allyScore;
     public TextMeshProUGUI enemyScore;
     public Image crossHit;
+    public float countdownTime;
+    public TextMeshProUGUI countdownText;
     // Token: 0x060001CF RID: 463 RVA: 0x0000A36B File Offset: 0x0000856B
     public override void Hide()
     {
@@ -61,7 +65,8 @@ public class GameUIMulti : BaseScreen
         if (BaseManager<DataManager>.HasInstance())
         {
             this.DeathPoint.text = "/0";
-            this.timeRemaining = BaseManager<DataManager>.Instance.GlobalConfig.maxTimePlay * 60f;
+            this.timeRemaining = BaseManager<DataManager>.Instance.GlobalConfig.maxTimeDeathMath * 60f;
+            countdownTime = DataManager.Instance.GlobalConfig.countdown * 60f;
         }
         for (int i = 0; i < this.rowKill.Length; i++)
         {
@@ -73,7 +78,18 @@ public class GameUIMulti : BaseScreen
     // Token: 0x060001D2 RID: 466 RVA: 0x0000A5EC File Offset: 0x000087EC
     private void Update()
     {
+        if (countdownTime > 0)
+        {
+            countdownText.SetText($"{math.floor(countdownTime)}");
+            countdownTime -= Time.deltaTime;
+        }
+        else if (countdownText.gameObject.active)
+        {
+            countdownText.gameObject.SetActive(false);
+            PhotonNetwork.RaiseEvent((byte)EVENT_CODE.START_FIRE, null, new RaiseEventOptions { Receivers = ReceiverGroup.All}, SendOptions.SendReliable);
+        }
         this.timeRemainingText.text = string.Format("{0}:{1}", math.floor(this.timeRemaining / 60f), math.floor(this.timeRemaining - math.floor(this.timeRemaining / 60f) * 60f));
+        if (MultiplayerManager.Instance.startTiming)
         this.timeRemaining -= Time.deltaTime;
     }
     // Token: 0x060001D3 RID: 467 RVA: 0x0000A65E File Offset: 0x0000885E

@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class LoginCallbaks : MonoBehaviourPunCallbacks
 {
-    private void Start()
-    {
-        Debug.Log("ok");
-    }
     public void OnConnectedToServer()
     {
         Debug.Log("connectServer");

@@ -1,3 +1,4 @@
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using System.Collections;
@@ -14,7 +15,12 @@ public enum BUTTON
     START,
     READY
 }
-public class RoomListCallback : MonoBehaviourPunCallbacks
+public enum EVENT_CODE
+{
+    START_GAME,
+    START_FIRE
+}
+public class RoomListCallback : MonoBehaviourPunCallbacks, IOnEventCallback
 {
     public ListRoomPanel listRoomPanel;
     public List <GameObject> roomObject;
@@ -43,6 +49,7 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         base.OnLeftRoom();
+        PhotonNetwork.LocalPlayer.CustomProperties.Clear();
         PhotonNetwork.LoadLevel("Main");
         room.SetActive(false);
         roomList.SetActive(true);
@@ -52,6 +59,7 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
         }
         buttons[(int)BUTTON.CREATE].SetActive(true);
         buttons[(int)BUTTON.JOIN].SetActive(true);
+        PhotonNetwork.RemoveCallbackTarget(this);
     }
     
     public override void OnJoinedRoom()
@@ -75,7 +83,7 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel(PhotonNetwork.CurrentRoom.Name.Split('_')[1]);
         listRoomPanel.playerListUpdate();
         //Debug.Log("joined room "+PhotonNetwork.CurrentRoom);
-        
+        PhotonNetwork.AddCallbackTarget(this);
     }
     
     private void ClearRoom()
@@ -119,6 +127,30 @@ public class RoomListCallback : MonoBehaviourPunCallbacks
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     {
         base.OnPlayerPropertiesUpdate(targetPlayer, changedProps);
+        if (targetPlayer.Equals(PhotonNetwork.LocalPlayer))
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                buttons[(int)BUTTON.START].SetActive(true);
+            }
+            else
+            {
+                buttons[(int)BUTTON.READY].SetActive(!(bool)changedProps["ready"]);
+                buttons[(int)BUTTON.CANCEL].SetActive((bool)changedProps["ready"]);
+            }
+            
+        }
         listRoomPanel.playerListUpdate();
+    }
+
+    public void OnEvent(EventData photonEvent)
+    {
+        if (photonEvent.Code == (int)EVENT_CODE.START_GAME)
+        {
+            if (MultiplayerManager.HasInstance())
+            {
+                MultiplayerManager.Instance.isStarted = true;
+            }
+        }
     }
 }
