@@ -30,4 +30,10 @@ public class Custom : EditorWindow
         EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
         EditorSceneManager.OpenScene("Assets/Scenes/Industry2.unity");
     }
+    [MenuItem("OpenScene/Offline", false, 5)]
+    public static void Offline()
+    {
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+        EditorSceneManager.OpenScene("Assets/Scenes/CampaignOffline.unity");
+    }
 }

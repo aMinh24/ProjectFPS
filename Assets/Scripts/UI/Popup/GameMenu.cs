@@ -15,16 +15,16 @@ public class GameMenu : BasePopup
 	public override void Init()
 	{
 		base.Init();
-		
-		
-		//this.Hide();
-	}
+        this.aiming = UnityEngine.Object.FindObjectOfType<CharacterAiming>();
+
+        //this.Hide();
+    }
 
 	// Token: 0x060001BF RID: 447 RVA: 0x00009F9A File Offset: 0x0000819A
 	public override void Show(object data)
 	{
 		base.Show(data);
-        this.aiming = UnityEngine.Object.FindObjectOfType<CharacterAiming>();
+        
     }
 
 	// Token: 0x060001C0 RID: 448 RVA: 0x00009FA4 File Offset: 0x000081A4
@@ -68,7 +68,7 @@ public class GameMenu : BasePopup
 	}
 
 	// Token: 0x040001C1 RID: 449
-	private CharacterAiming aiming;
+	public CharacterAiming aiming;
 
 
 }

@@ -56,7 +56,6 @@ public class LoadingGame : BaseNotify
 				}
 				
 				yield return new WaitForSeconds(1f);
-                Debug.Log("fadeoff");
                 asyncOperation.allowSceneActivation = true;
 				this.Hide();
 			}

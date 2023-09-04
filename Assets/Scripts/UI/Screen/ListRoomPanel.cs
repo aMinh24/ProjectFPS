@@ -16,7 +16,7 @@ public class ListRoomPanel : BaseScreen
     public GameObject[] mapImage;
     public Transform[] playersTable;
     public PlayerRow playerRowPf;
-    public List <PlayerRow> curPlayers;
+    public List<PlayerRow> curPlayers;
     public override void Hide()
     {
         base.Hide();
@@ -61,7 +61,7 @@ public class ListRoomPanel : BaseScreen
                 curSelectedRoomObject.SetActive(false);
             }
         }
-        
+
     }
     public void OnSelectRoom(object data)
     {
@@ -71,7 +71,7 @@ public class ListRoomPanel : BaseScreen
             curSelectedRoomName.text = roomRow.nameText.text;
             curSelectedRoomMode.text = roomRow.modeText.text;
             curSelectedRoomMap.text = roomRow.mapText.text;
-            foreach(GameObject img in mapImage)
+            foreach (GameObject img in mapImage)
             {
                 img.SetActive(false);
             }
@@ -94,7 +94,7 @@ public class ListRoomPanel : BaseScreen
                     }
             }
         }
-        
+
     }
     public void OnJoinRoomButton()
     {
@@ -103,7 +103,7 @@ public class ListRoomPanel : BaseScreen
     public void OnCreateRoomButton()
     {
         ChooseMapPanel.SetActive(true);
-        
+
         //if (PhotonNetwork.CurrentRoom != null) { return; }
         //RoomOptions roomOptions = new RoomOptions
         //{
@@ -112,7 +112,7 @@ public class ListRoomPanel : BaseScreen
         //string roomName = PhotonNetwork.NickName + "'s room";
         //PhotonNetwork.CreateRoom(roomName, roomOptions, null);
         //Debug.Log(PhotonNetwork.NetworkClientState);
-        
+
     }
     public void CloseChooseMap()
     {
@@ -120,12 +120,13 @@ public class ListRoomPanel : BaseScreen
     }
     public void ChooseMap(string name)
     {
-        if (PhotonNetwork.CurrentRoom != null) { return; }
+        if (PhotonNetwork.CurrentRoom != null ) { PhotonNetwork.RejoinRoom(PhotonNetwork.CurrentRoom.Name); return; }
         RoomOptions roomOptions = new RoomOptions
         {
             MaxPlayers = 8
         };
-        string roomName = $"{PhotonNetwork.NickName} 's room_{name}";
+        string roomName = $"{PhotonNetwork.NickName}'s room_{name}";
+        
         PhotonNetwork.CreateRoom(roomName, roomOptions, null);
         ChooseMapPanel.SetActive(false);
     }
@@ -136,25 +137,40 @@ public class ListRoomPanel : BaseScreen
         {
             Destroy(MultiplayerManager.Instance.gameObject);
         }
+        PhotonNetwork.LocalPlayer.CustomProperties.Clear();
         PhotonNetwork.LeaveRoom();
     }
     public void OnBackButton()
     {
         if (UIManager.HasInstance())
         {
-            UIManager.Instance.ShowScreen<MainMenu>(null,true);
+            UIManager.Instance.ShowScreen<MainMenu>(null, true);
         }
-        PhotonNetwork.LeaveLobby();
+        if (MultiplayerManager.HasInstance())
+        {
+            Destroy(MultiplayerManager.Instance.gameObject);
+        }
+        PhotonNetwork.LoadLevel("Main");
+        PhotonNetwork.LocalPlayer.CustomProperties.Clear();
+        if (PhotonNetwork.CurrentRoom != null)
+        {
+            PhotonNetwork.LeaveRoom();
+        }
+        else
+        {
+            PhotonNetwork.LeaveLobby();
+        }
+        
     }
 
     public void playerListUpdate()
     {
-        foreach(PlayerRow row in curPlayers)
+        foreach (PlayerRow row in curPlayers)
         {
             Destroy(row.gameObject);
         }
         curPlayers.Clear();
-        foreach(Player player in PhotonNetwork.PlayerList)
+        foreach (Player player in PhotonNetwork.PlayerList)
         {
             if (player.CustomProperties.ContainsKey("team"))
             {
@@ -162,22 +178,22 @@ public class ListRoomPanel : BaseScreen
                 row.Init(player.NickName, (bool)player.CustomProperties["ready"]);
                 curPlayers.Add(row);
             }
-            
+
         }
     }
     public void OnStartButton()
     {
         if (CheckPlayerReady())
         {
-            PhotonNetwork.RaiseEvent((byte)EVENT_CODE.START_GAME,null,new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
+            PhotonNetwork.RaiseEvent((byte)EVENT_CODE.START_GAME, null, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
             Debug.Log("raise event");
         }
     }
     private bool CheckPlayerReady()
     {
-        foreach(Player player in PhotonNetwork.PlayerList)
+        foreach (Player player in PhotonNetwork.PlayerList)
         {
-            if ((bool)player.CustomProperties["ready"]== false)
+            if ((bool)player.CustomProperties["ready"] == false)
             {
                 return false;
             }

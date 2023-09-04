@@ -32,7 +32,7 @@ public class RoomRow : MonoBehaviour
         ID.text = id.ToString();
         nameText.text = name;
         mapText.text = map;
-        modeText.text = "Campaign";
+        modeText.text = "Team Deathmatch";
         playerText.text = player + "/" + maxPlayer;
         toggle.isOn = false;
         InactiveRow();

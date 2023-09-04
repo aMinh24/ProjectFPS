@@ -1282,7 +1282,7 @@ GameObject:
   - component: {fileID: 455435254865102530}
   - component: {fileID: 3423578316110025051}
   - component: {fileID: 4774560654622096452}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1341,7 +1341,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.8
-  m_Radius: 0.01
+  m_Radius: 0.35
   m_SlopeLimit: 45
   m_StepOffset: 0.4
   m_SkinWidth: 0.09
@@ -40986,13 +40986,13 @@ MonoBehaviour:
   characterAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
-  duration: 0.5
+  duration: 0.1
   time: 0
   recoilPattern:
   - {x: 0, y: 15}
-  - {x: 20, y: 0}
-  - {x: 20, y: 0}
-  - {x: 20, y: 35}
+  - {x: 10, y: 0}
+  - {x: 10, y: 0}
+  - {x: 5, y: 5}
   - {x: 5, y: 10}
   - {x: 5, y: 15}
   - {x: 35, y: 15}

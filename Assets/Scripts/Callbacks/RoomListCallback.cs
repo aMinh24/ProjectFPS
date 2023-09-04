@@ -27,9 +27,23 @@ public class RoomListCallback : MonoBehaviourPunCallbacks, IOnEventCallback
     public GameObject room;
     public GameObject roomList;
     public GameObject[] buttons;
-
+    public Text roomName;
+    public Text mapName;
+    public GameObject[] map;
+    private void Update()
+    {
+        if(PhotonNetwork.NetworkClientState== ClientState.ConnectedToMasterServer)
+        {
+            PhotonNetwork.JoinLobby();
+        }
+    }
+    private void OnDestroy()
+    {
+        PhotonNetwork.RemoveCallbackTarget(this);
+    }
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        Debug.Log("roomlistupdate");
         ClearRoom();
         foreach (RoomInfo roomInfo in roomList)
         {
@@ -59,14 +73,36 @@ public class RoomListCallback : MonoBehaviourPunCallbacks, IOnEventCallback
         }
         buttons[(int)BUTTON.CREATE].SetActive(true);
         buttons[(int)BUTTON.JOIN].SetActive(true);
-        PhotonNetwork.RemoveCallbackTarget(this);
+        
     }
     
     public override void OnJoinedRoom()
     {
+        Debug.Log("Joinroom");
         base.OnJoinedRoom();
         room.SetActive(true);
         roomList.SetActive(false );
+        roomName.text = PhotonNetwork.CurrentRoom.Name.Split('_')[0];
+        string mapString = PhotonNetwork.CurrentRoom.Name.Split('_')[1];
+        mapName.text = mapString;
+        switch (mapString)
+        {
+            case "OldCity":
+                {
+                    map[0].SetActive(true);
+                    break;
+                }
+            case "Industry1":
+                {
+                    map[1].SetActive(true);
+                    break;
+                }
+            case "Industry2":
+                {
+                    map[2].SetActive(true);
+                    break;
+                }
+        }
         foreach (GameObject button in buttons)
         {
             button.SetActive(false);
@@ -80,10 +116,11 @@ public class RoomListCallback : MonoBehaviourPunCallbacks, IOnEventCallback
             buttons[(int)BUTTON.READY].SetActive(true);
         }
         buttons[(int)BUTTON.LEAVE].SetActive(true);
-        PhotonNetwork.LoadLevel(PhotonNetwork.CurrentRoom.Name.Split('_')[1]);
         listRoomPanel.playerListUpdate();
         //Debug.Log("joined room "+PhotonNetwork.CurrentRoom);
         PhotonNetwork.AddCallbackTarget(this);
+        PhotonNetwork.LoadLevel(mapString);
+        
     }
     
     private void ClearRoom()
@@ -105,14 +142,11 @@ public class RoomListCallback : MonoBehaviourPunCallbacks, IOnEventCallback
     //}
     
 
-    public override void OnConnectedToMaster()
-    {
-        base.OnConnectedToMaster();
-        PhotonNetwork.JoinLobby();
-    }
+    
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
+        Debug.Log("playerenter");   
         base.OnPlayerEnteredRoom(newPlayer);
         listRoomPanel.playerListUpdate();
     }
@@ -152,5 +186,11 @@ public class RoomListCallback : MonoBehaviourPunCallbacks, IOnEventCallback
                 MultiplayerManager.Instance.isStarted = true;
             }
         }
+    }
+    public override void OnConnectedToMaster()
+    {
+        base.OnConnectedToMaster();
+        Debug.Log("connecttomaster");
+        PhotonNetwork.JoinLobby();
     }
 }

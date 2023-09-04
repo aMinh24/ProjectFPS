@@ -11,7 +11,6 @@ public class LoginCallbaks : MonoBehaviourPunCallbacks
     }
     public override void OnConnectedToMaster()
     {
-        Debug.Log("connect Master");
         if (UIManager.HasInstance())
         {
             UIManager.Instance.ShowScreen<MainMenu>(null, true);

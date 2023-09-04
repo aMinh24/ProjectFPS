@@ -40975,13 +40975,13 @@ MonoBehaviour:
   characterAiming: {fileID: 0}
   cameraShake: {fileID: 0}
   rigController: {fileID: 0}
-  duration: 0.5
+  duration: 0.1
   time: 0
   recoilPattern:
   - {x: 0, y: 15}
-  - {x: 20, y: 0}
-  - {x: 20, y: 0}
-  - {x: 20, y: 35}
+  - {x: 10, y: 0}
+  - {x: 10, y: 0}
+  - {x: 5, y: 5}
   - {x: 5, y: 10}
   - {x: 5, y: 15}
   - {x: 35, y: 15}

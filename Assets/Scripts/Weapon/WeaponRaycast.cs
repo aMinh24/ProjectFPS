@@ -5,8 +5,11 @@ using UnityEngine;
 // Token: 0x02000070 RID: 112
 public class WeaponRaycast : MonoBehaviour
 {
-	// Token: 0x06000201 RID: 513 RVA: 0x0000B084 File Offset: 0x00009284
-	private void Start()
+	public ParticleSystem[] bodyHit;
+	public ParticleSystem[] metalHit;
+    ParticleSystem[] hitEffect;
+    // Token: 0x06000201 RID: 513 RVA: 0x0000B084 File Offset: 0x00009284
+    private void Start()
 	{
 		if (BaseManager<DataManager>.HasInstance())
 		{
@@ -186,7 +189,17 @@ public class WeaponRaycast : MonoBehaviour
 		this.ray.direction = direction;
 		if (Physics.Raycast(this.ray, out this.hitInfo, magnitude, this.hitLayer))
 		{
-			foreach (var effect in hitEffect)
+
+			if (hitInfo.collider.gameObject.CompareTag("AI") || hitInfo.collider.gameObject.CompareTag("Head"))
+			{
+				hitEffect = bodyHit;
+			}
+			else if (hitInfo.collider.gameObject.CompareTag("Metal"))
+			{
+				hitEffect = metalHit;
+			}
+			else hitEffect = hitCon;
+ 			foreach (var effect in hitEffect)
 			{
                 effect.transform.position = this.hitInfo.point;
                 effect.transform.forward = this.hitInfo.normal;
@@ -229,7 +242,7 @@ public class WeaponRaycast : MonoBehaviour
 	public ParticleSystem[] muzzleFlash;
 
 	// Token: 0x040001FA RID: 506
-	public ParticleSystem[] hitEffect;
+	public ParticleSystem[] hitCon;
 
 	// Token: 0x040001FB RID: 507
 	public Transform raycastOrigin;

@@ -18,6 +18,7 @@ public class GameUIMulti : BaseScreen
     public Image crossHit;
     public float countdownTime;
     public TextMeshProUGUI countdownText;
+    public Image[] effectScore;
     // Token: 0x060001CF RID: 463 RVA: 0x0000A36B File Offset: 0x0000856B
     public override void Hide()
     {
@@ -88,6 +89,10 @@ public class GameUIMulti : BaseScreen
         {
             countdownText.gameObject.SetActive(false);
             PhotonNetwork.RaiseEvent((byte)EVENT_CODE.START_FIRE, null, new RaiseEventOptions { Receivers = ReceiverGroup.All}, SendOptions.SendReliable);
+            if(AudioManager.HasInstance())
+            {
+                AudioManager.Instance.PlaySE("GO");
+            }
         }
         this.timeRemainingText.text = string.Format("{0}:{1}", math.floor(this.timeRemaining / 60f), math.floor(this.timeRemaining - math.floor(this.timeRemaining / 60f) * 60f));
         if (MultiplayerManager.Instance.startTiming)
@@ -130,6 +135,8 @@ public class GameUIMulti : BaseScreen
             this.curRow = (this.curRow + 1) % this.rowKill.Length;
         }
         enemyScore.SetText((int.Parse(this.enemyScore.text) + 1).ToString());
+        effectScore[1].DOFade(1, 0);
+        effectScore[1].DOFade(0, 2);
     }
 
     // Token: 0x060001D5 RID: 469 RVA: 0x0000A714 File Offset: 0x00008914
@@ -148,6 +155,8 @@ public class GameUIMulti : BaseScreen
             this.curRow = (this.curRow + 1) % this.rowKill.Length;
         }
         allyScore.SetText((int.Parse(this.allyScore.text) + 1).ToString());
+        effectScore[0].DOFade(1, 0);
+        effectScore[0].DOFade(0, 2);
     }
 
     // Token: 0x060001D6 RID: 470 RVA: 0x0000A80F File Offset: 0x00008A0F
@@ -209,6 +218,14 @@ public class GameUIMulti : BaseScreen
         PlayerHealthMultiplayer playerHealth = value as PlayerHealthMultiplayer;
         if (playerHealth.shooter.Equals(PhotonNetwork.NickName))
         {
+            if(playerHealth.currentHealth <= 0)
+            {
+                crossHit.color = Color.red;
+            }
+            else
+            {
+                crossHit.color = Color.white;
+            }
             crossHit.DOFade(1, 0);
             crossHit.DOFade(0, 2);
         }

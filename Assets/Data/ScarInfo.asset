@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7492db383d67e954fb496f52370fe214, type: 3}
   m_Name: ScarInfo
   m_EditorClassIdentifier: 
-  totalAmmo: 100
+  totalAmmo: 30
   damage: 30
   fireRate: 10
-  bulletSpeed: 100
+  bulletSpeed: 500

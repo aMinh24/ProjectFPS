@@ -12,6 +12,7 @@ public class GameManager : BaseManager<GameManager>
 	// Token: 0x06000119 RID: 281 RVA: 0x000070A6 File Offset: 0x000052A6
 	private void Start()
 	{
+		Debug.Log("start");
         Application.targetFrameRate = 80;
         Debug.Log("StartGame");
 		if (BaseManager<UIManager>.HasInstance())
