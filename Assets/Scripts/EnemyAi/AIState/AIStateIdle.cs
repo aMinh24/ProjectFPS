@@ -56,7 +56,6 @@ public class AIStateIdle : AIState
         {
 			if (magnitude > BaseManager<DataManager>.Instance.GlobalConfig.shootingRange) return;
             agent.stateMachine.ChangeState(AIStateID.AttackPlayer);
-			Debug.Log("ChangeToAttack");
 		}	
     }
 

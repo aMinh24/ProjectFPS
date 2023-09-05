@@ -17,7 +17,7 @@ public class WeaponRecoil : MonoBehaviour
 		this.time = this.duration;
 		if (this.cam.enabled)
 		{
-			this.cameraShake.GenerateImpulse(characterAiming.mainCamera.transform.forward);
+			this.cameraShake?.GenerateImpulse(characterAiming.mainCamera.transform.forward);
 			this.rigController.Play("weapon_recoil_" + weaponName, 1, 0f);
 			this.duration = 0.5f;
 		}
