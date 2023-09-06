@@ -6,7 +6,7 @@ using UnityEngine.Animations.Rigging;
 using UnityEngine.Networking.Types;
 
 // Token: 0x02000052 RID: 82
-public class ActiveWeaponMultiplayer : MonoBehaviourPun
+public class ActiveWeaponMultiplayer : MonoBehaviourPun, IPunObservable
 {
     public CamMultiplayer camManager;
     public ObjectPoolMulti pool;
@@ -351,6 +351,18 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
         if (BaseManager<ListenerManager>.HasInstance())
         {
             BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, this);
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting && photonView.IsMine)
+        {
+            stream.SendNext(activeWeaponIndex);
+        }
+        else
+        {
+            activeWeaponIndex = (int)stream.ReceiveNext();
         }
     }
 
