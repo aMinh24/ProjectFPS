@@ -39105,6 +39105,7 @@ MonoBehaviour:
   - {fileID: 2499900086009298110}
   - {fileID: 455435254865102530}
   - {fileID: 5360853967016980331}
+  - {fileID: 2022663810532743443}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -65980,8 +65981,14 @@ MonoBehaviour:
     SynchronizeType: 1
     Name: IsJumping
   - Type: 9
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: recoil_scar
+  - Type: 9
+    SynchronizeType: 1
+    Name: recoil_pistol
+  - Type: 3
+    SynchronizeType: 1
+    Name: weapon_index
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
