@@ -7378,6 +7378,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  activeWeaponIndex: 0
   rigController: {fileID: 5360853967016980330}
   weaponSlots:
   - {fileID: 5360853966703804981}

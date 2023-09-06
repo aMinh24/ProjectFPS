@@ -241,7 +241,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
     // Token: 0x0600014F RID: 335 RVA: 0x000087AA File Offset: 0x000069AA
     public WeaponRaycastMulti GetActiveWeapon()
     {
-        activeWeaponIndex = rigController.GetInteger("weapon_index");
+        //activeWeaponIndex = rigController.GetInteger("weapon_index");
         return this.GetWeapon(this.activeWeaponIndex);
     }
 
@@ -358,7 +358,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
     public WeaponRaycastMulti[] equippedWeapons = new WeaponRaycastMulti[4];
 
     // Token: 0x04000170 RID: 368
-    private int activeWeaponIndex;
+    public int activeWeaponIndex;
 
     // Token: 0x04000171 RID: 369
     public Animator rigController;
