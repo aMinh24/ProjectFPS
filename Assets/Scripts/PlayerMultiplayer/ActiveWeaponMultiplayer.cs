@@ -356,13 +356,15 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting && photonView.IsMine)
+        if (stream.IsWriting)
         {
             stream.SendNext(activeWeaponIndex);
+            Debug.Log("send ind");
         }
         else
         {
             activeWeaponIndex = (int)stream.ReceiveNext();
+            Debug.Log("read indx" + activeWeaponIndex);
         }
     }
 
