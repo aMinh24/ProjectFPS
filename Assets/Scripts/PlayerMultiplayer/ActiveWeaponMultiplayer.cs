@@ -137,6 +137,11 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
     public void RecoilWeapon(string name)
     {
         rigController.SetTrigger("recoil_" + name);
+        if(GetActiveWeapon().weaponAnimator != null)
+        {
+            GetActiveWeapon().weaponAnimator.SetTrigger("Fire");
+
+        }
     }
     [PunRPC]
     public void EmitMuzzle()

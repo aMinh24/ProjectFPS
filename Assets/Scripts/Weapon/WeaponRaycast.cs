@@ -7,6 +7,7 @@ public class WeaponRaycast : MonoBehaviour
 {
 	public ParticleSystem[] bodyHit;
 	public ParticleSystem[] metalHit;
+	public ParticleSystem shell;
     ParticleSystem[] hitEffect;
     // Token: 0x06000201 RID: 513 RVA: 0x0000B084 File Offset: 0x00009284
     private void Start()
@@ -143,6 +144,7 @@ public class WeaponRaycast : MonoBehaviour
 		{
 			BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, this);
 		}
+		shell.Emit(1);
 		foreach (ParticleSystem particleSystem in this.muzzleFlash)
 		{
 			particleSystem.Emit(particleSystem.maxParticles);

@@ -11,6 +11,7 @@ public class WeaponRaycastMulti : MonoBehaviourPun
 {
     public ObjectPoolMulti pool;
     public BulletMulti curBullet;
+    public Animator weaponAnimator;
     // Token: 0x06000201 RID: 513 RVA: 0x0000B084 File Offset: 0x00009284
     private void Start()
     {

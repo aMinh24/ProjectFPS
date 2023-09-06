@@ -5,6 +5,7 @@ using UnityEngine;
 // Token: 0x02000071 RID: 113
 public class WeaponRecoil : MonoBehaviour
 {
+	public Animator weaponAnimator;
 	// Token: 0x0600020D RID: 525 RVA: 0x0000B5C6 File Offset: 0x000097C6
 	private void Awake()
 	{
@@ -19,7 +20,12 @@ public class WeaponRecoil : MonoBehaviour
 		{
 			this.cameraShake?.GenerateImpulse(characterAiming.mainCamera.transform.forward);
 			this.rigController.Play("weapon_recoil_" + weaponName, 1, 0f);
-			this.duration = 0.5f;
+			if (weaponAnimator!=null)
+			{
+                weaponAnimator?.SetTrigger("Fire");
+
+            }
+            this.duration = 0.5f;
 		}
 		else
 		{
