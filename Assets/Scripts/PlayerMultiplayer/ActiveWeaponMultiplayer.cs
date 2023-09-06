@@ -241,6 +241,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
     // Token: 0x0600014F RID: 335 RVA: 0x000087AA File Offset: 0x000069AA
     public WeaponRaycastMulti GetActiveWeapon()
     {
+        activeWeaponIndex = rigController.GetInteger("weapon_index");
         return this.GetWeapon(this.activeWeaponIndex);
     }
 
