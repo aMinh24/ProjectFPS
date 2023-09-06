@@ -146,6 +146,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
     [PunRPC]
     public void EmitMuzzle()
     {
+        GetActiveWeapon().shell.Emit(1);
         foreach (ParticleSystem particleSystem in this.GetWeapon(this.activeWeaponIndex).muzzleFlash)
         {
             particleSystem.Emit(particleSystem.maxParticles);
