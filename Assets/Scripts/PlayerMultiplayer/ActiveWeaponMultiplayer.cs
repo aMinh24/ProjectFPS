@@ -6,7 +6,7 @@ using UnityEngine.Animations.Rigging;
 using UnityEngine.Networking.Types;
 
 // Token: 0x02000052 RID: 82
-public class ActiveWeaponMultiplayer : MonoBehaviourPun, IPunObservable
+public class ActiveWeaponMultiplayer : MonoBehaviourPun
 {
     public CamMultiplayer camManager;
     public ObjectPoolMulti pool;
@@ -262,7 +262,7 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun, IPunObservable
         this.rigController.SetInteger("weapon_index", activeIndex);
         yield return base.StartCoroutine(this.HolsterWeapon(holsterIndex));
         yield return base.StartCoroutine(this.ActivateWeapon(activeIndex));
-        this.activeWeaponIndex = activeIndex;
+        photonView.RPC("ChangeIndex",RpcTarget.All, activeIndex);
         yield break;
     }
 
@@ -308,7 +308,8 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun, IPunObservable
         WeaponRaycastMulti weapon = this.GetWeapon(index);
         if (weapon)
         {
-            this.activeWeaponIndex = index;
+            //this.activeWeaponIndex = index;
+            photonView.RPC("ChangeIndex", RpcTarget.All, index);
             this.rigController.SetBool("holster_weapon", false);
             this.rigController.Play("equip_" + weapon.weaponName);
             yield return new WaitForSeconds(0.1f);
@@ -353,21 +354,11 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun, IPunObservable
             BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, this);
         }
     }
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    [PunRPC]
+    public void ChangeIndex(int ind)
     {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(activeWeaponIndex);
-            Debug.Log("send ind");
-        }
-        else
-        {
-            activeWeaponIndex = (int)stream.ReceiveNext();
-            Debug.Log("read indx" + activeWeaponIndex);
-        }
+        activeWeaponIndex = ind;
     }
-
     // Token: 0x0400016F RID: 367
     public WeaponRaycastMulti[] equippedWeapons = new WeaponRaycastMulti[4];
 
