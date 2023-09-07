@@ -4,6 +4,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.Mathematics;
@@ -19,6 +20,11 @@ public class GameUIMulti : BaseScreen
     public float countdownTime;
     public TextMeshProUGUI countdownText;
     public Image[] effectScore;
+    public Text roomName;
+    public GameObject ScoreBoard;
+    public Transform[] scoreBoard;
+    public List<GameObject> ScoreRows = new List<GameObject>();
+    public GameObject scoreRowPf;
     // Token: 0x060001CF RID: 463 RVA: 0x0000A36B File Offset: 0x0000856B
     public override void Hide()
     {
@@ -74,11 +80,22 @@ public class GameUIMulti : BaseScreen
             this.rowKill[i].orderNum = i;
             this.rowKill[i].gameObject.SetActive(false);
         }
+        string[] str = PhotonNetwork.CurrentRoom.Name.Split('_');
+        roomName.text = $"{str[0]} : {str[1]}";
     }
 
     // Token: 0x060001D2 RID: 466 RVA: 0x0000A5EC File Offset: 0x000087EC
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            ScoreBoard.SetActive(true);
+            ShowScoreBoard();
+        }
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            ScoreBoard.SetActive(false);
+        }
         if (countdownTime > 0)
         {
             countdownText.SetText($"{math.floor(countdownTime)}");
@@ -110,6 +127,29 @@ public class GameUIMulti : BaseScreen
     public override void Show(object data)
     {
         base.Show(data);
+    }
+    public void ShowScoreBoard()
+    {
+        foreach(GameObject r in ScoreRows)
+        {
+            Destroy(r);
+        }
+        ScoreRows.Clear();
+        if (MultiplayerManager.HasInstance())
+        {
+            foreach(var row in MultiplayerManager.Instance.teamA)
+            {
+                GameObject r = Instantiate(scoreRowPf, scoreBoard[MultiplayerManager.Instance.curTeam ? 0 : 1]);
+                r.GetComponent<ScoreBoardRow>().InitRow(row.Key, row.Value);
+                ScoreRows.Add(r);
+            }
+            foreach (var row in MultiplayerManager.Instance.teamB)
+            {
+                GameObject r = Instantiate(scoreRowPf, scoreBoard[MultiplayerManager.Instance.curTeam ? 1 : 0]);
+                r.GetComponent<ScoreBoardRow>().InitRow(row.Key, row.Value);
+                ScoreRows.Add(r);
+            }
+        }
     }
     public void UpdateKDA(object data)
     {

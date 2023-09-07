@@ -28,7 +28,6 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
         //crossHairTarget = FindObjectOfType<CrossHairTarget>().transform;
         
     }
-
     // Token: 0x0600014A RID: 330 RVA: 0x00008350 File Offset: 0x00006550
     private void Start()
     {
@@ -63,6 +62,8 @@ public class ActiveWeaponMultiplayer : MonoBehaviourPun
         {
             return;
         }
+
+
         WeaponRaycastMulti weapon = GetActiveWeapon(); /*this.GetWeapon(this.activeWeaponIndex);*/
         bool flag = false;
         if (BaseManager<CameraManager>.HasInstance())
