@@ -95,10 +95,14 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 		this.animator.SetBool(this.isCrouchingParam, this.isCrouching);
 		if (this.isCrouching)
 		{
+			characterController.height = 1.2f;
+			characterController.center = new Vector3(0, 0.7f, 0);
 			this.activeWeapon.GetActiveWeapon().weaponRecoil.recoilModifier = 0.5f;
 			return;
 		}
-		this.activeWeapon.GetActiveWeapon().weaponRecoil.recoilModifier = 1f;
+        characterController.height = 1.8f;
+        characterController.center = new Vector3(0, 1f, 0);
+        this.activeWeapon.GetActiveWeapon().weaponRecoil.recoilModifier = 1f;
 	}
 
 	// Token: 0x06000162 RID: 354 RVA: 0x00008E20 File Offset: 0x00007020
