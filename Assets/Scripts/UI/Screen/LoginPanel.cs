@@ -40,6 +40,7 @@ public class LoginPanel : BaseScreen
     public override void Init()
     {
         base.Init();
+        name.Select();
     }
 
     public override void Show(object data)
