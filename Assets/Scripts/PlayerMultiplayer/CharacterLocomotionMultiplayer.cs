@@ -8,6 +8,7 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 	//public PhotonView photonView;
 	public CamMultiplayer camManager;
 	public AudioSource playerAudio;
+	public bool isChatting = false;
 	// Token: 0x0600015E RID: 350 RVA: 0x00008BC4 File Offset: 0x00006DC4
 	private void Start()
 	{
@@ -27,7 +28,16 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
 		this.energy = this.maxEnergy;
 		this.isCrouching = false;
 		this.checkTheChange = false;
-	}
+        if (!photonView.IsMine) { return; }
+        if (photonView.CreatorActorNr != PhotonNetwork.LocalPlayer.ActorNumber)
+        {
+            return;
+        }
+		if (MultiplayerManager.HasInstance())
+		{
+			MultiplayerManager.Instance.curCharacterLocomotion = this;
+		}
+    }
 
 	// Token: 0x0600015F RID: 351 RVA: 0x00008CD0 File Offset: 0x00006ED0
 	private void Update()
@@ -41,6 +51,7 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
         {
             return;
         }
+		if(isChatting) { return; }
         this.userInput.x = Input.GetAxis("Horizontal");
 		this.userInput.y = Input.GetAxis("Vertical");
 		this.animator.SetFloat("InputX", this.userInput.x);
@@ -68,6 +79,8 @@ public class CharacterLocomotionMultiplayer : MonoBehaviourPun
         {
             return;
         }
+        if (isChatting) { return; }
+
         if (this.isJumping)
 		{
 			bool changing = isJumping;

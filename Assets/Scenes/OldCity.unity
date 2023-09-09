@@ -353,6 +353,7 @@ MonoBehaviour:
   posB: []
   curPosA: 0
   curPosB: 0
+  curCharacterLocomotion: {fileID: 0}
 --- !u!4 &261536474
 Transform:
   m_ObjectHideFlags: 0

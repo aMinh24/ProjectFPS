@@ -19,16 +19,16 @@ public class ChatMulti : MonoBehaviour, IChatClientListener
     public ChatAppSettings chatAppSettings;
     public Text chatText;
     public InputField chatField;
-    public string currentChannel;
+    public string currentChannel = "Global";
     public float time;
     public GameObject chatBox;
+    public string[] defaultChannels;
     private void Start()
     {
         chatAppSettings = PhotonNetwork.PhotonServerSettings.AppSettings.GetChatSettings();
         this.chatClient = new ChatClient(this);
         this.chatClient.AuthValues = new AuthenticationValues(PhotonNetwork.LocalPlayer.NickName);
         this.chatClient.ConnectUsingSettings(this.chatAppSettings);
-        currentChannel = "Global";
         
     }
     private void Update()
@@ -36,6 +36,22 @@ public class ChatMulti : MonoBehaviour, IChatClientListener
         if (this.chatClient != null)
         {
             this.chatClient.Service(); // make sure to call this regularly! it limits effort internally, so calling often is ok!
+        }
+        if (chatField.isFocused)
+        {
+            if (MultiplayerManager.HasInstance())
+            {
+                if (MultiplayerManager.Instance.curCharacterLocomotion!= null)
+                MultiplayerManager.Instance.curCharacterLocomotion.isChatting = true;
+            }
+        }
+        else
+        {
+            if (MultiplayerManager.HasInstance())
+            {
+                if (MultiplayerManager.Instance.curCharacterLocomotion != null)
+                    MultiplayerManager.Instance.curCharacterLocomotion.isChatting = false;
+            }
         }
         if (!string.IsNullOrEmpty(chatField.text))
         {
@@ -72,8 +88,37 @@ public class ChatMulti : MonoBehaviour, IChatClientListener
     private void SendMsg(string msg)
     {
         if (string.IsNullOrEmpty(msg)) { return; }
-        chatClient.PublishMessage(currentChannel, msg);
-        Debug.Log("msg");
+        string[] tokens = msg.Split(" ");
+        Debug.Log(tokens[0]);
+        bool changeChannel = false;
+        if (tokens[0].StartsWith('/'))
+        {
+            Debug.Log("token: "+tokens[0]);
+            if (tokens[0].Equals("/team")&&PhotonNetwork.CurrentRoom!= null)
+            {
+                if (!string.IsNullOrEmpty(defaultChannels[1]))
+                {
+                    currentChannel = defaultChannels[1];
+                    changeChannel = true;
+
+                }
+            }
+            if (tokens[0].Equals("/all") && PhotonNetwork.CurrentRoom != null)
+            {
+                if (!string.IsNullOrEmpty(defaultChannels[0]))
+                {
+                    currentChannel = defaultChannels[0];
+                    changeChannel= true;
+                }
+            }
+        }
+        Debug.Log("changeChannel " + changeChannel);
+        string posfix = "";
+        if (PhotonNetwork.CurrentRoom != null)
+        {
+            posfix = PhotonNetwork.CurrentRoom.Name;
+        }
+        chatClient.PublishMessage(currentChannel + posfix, changeChannel ? msg.Substring(tokens[0].Length+1): msg);
     }
     public void DebugReturn(DebugLevel level, string message)
     {
@@ -88,19 +133,39 @@ public class ChatMulti : MonoBehaviour, IChatClientListener
     public void OnConnected()
     {
         chatClient.SetOnlineStatus(ChatUserStatus.Online);
-        chatClient.Subscribe(currentChannel);
+        
+        foreach(string c in defaultChannels)
+        {
+            if (string.IsNullOrEmpty (c)) { continue; }
+            string posfix = "";
+            if(PhotonNetwork.CurrentRoom != null)
+            {
+                posfix = PhotonNetwork.CurrentRoom.Name;
+            }
+            chatClient.Subscribe(c+posfix,0,0);
+        }
+        currentChannel = defaultChannels[0];
         Debug.Log("Onconnected");
     }
 
     public void OnDisconnected()
     {
         chatClient.SetOnlineStatus(ChatUserStatus.Offline);
+        chatClient.Unsubscribe(defaultChannels);
         Debug.Log("OnDisconectChat");
     }
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
-        ShowChannel(channelName);
+        string posfix = "";
+        if (PhotonNetwork.CurrentRoom != null)
+        {
+            posfix = PhotonNetwork.CurrentRoom.Name;
+        }
+        if (channelName == currentChannel+posfix)
+        {
+            ShowChannel(channelName);
+        }
     }
 
     public void OnPrivateMessage(string sender, object message, string channelName)
@@ -115,16 +180,12 @@ public class ChatMulti : MonoBehaviour, IChatClientListener
 
     public void OnSubscribed(string[] channels, bool[] results)
     {
-        foreach (var channel in channels)
-        {
-            chatClient.PublishMessage(channel, PhotonNetwork.LocalPlayer.NickName + " join chat");
-        }
         ShowChannel(channels[0]);
     }
 
     public void OnUnsubscribed(string[] channels)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void OnUserSubscribed(string channel, string user)
@@ -156,7 +217,6 @@ public class ChatMulti : MonoBehaviour, IChatClientListener
         string chat = "";
         foreach (string s in txt)
         {
-            Debug.Log(s);
             if (string.IsNullOrEmpty(s)) continue;
             string[] strings = s.Split(':');
             chat += $"<color=#{ColorTextChat.all}>[{currentChannel}] {strings[0]}:</color>{strings[1]}\n";

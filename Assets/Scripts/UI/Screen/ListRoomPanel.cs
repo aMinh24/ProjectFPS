@@ -185,6 +185,7 @@ public class ListRoomPanel : BaseScreen
     {
         if (CheckPlayerReady())
         {
+            PhotonNetwork.CurrentRoom.IsVisible = false;
             PhotonNetwork.RaiseEvent((byte)EVENT_CODE.START_GAME, null, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
             Debug.Log("raise event");
         }

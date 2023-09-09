@@ -12,17 +12,6 @@ public class RagdollMulti : MonoBehaviour
 		this.rigidbodies = base.GetComponentsInChildren<Rigidbody>();
 		this.DeactiveRagdoll();
 	}
-    private void Update()
-    {
-        PhotonView view = this.gameObject.GetComponent<PhotonView>();
-		if (view.IsMine&& view.CreatorActorNr == PhotonNetwork.LocalPlayer.ActorNumber)
-		{
-			if (Input.GetKeyDown(KeyCode.K))
-			{
-				ActiveRagdoll();
-			}
-		}
-    }
     // Token: 0x060000E5 RID: 229 RVA: 0x000064DC File Offset: 0x000046DC
     public void ActiveRagdoll()
 	{

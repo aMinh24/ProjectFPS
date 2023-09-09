@@ -25,6 +25,7 @@ public class GameUIMulti : BaseScreen
     public Transform[] scoreBoard;
     public List<GameObject> ScoreRows = new List<GameObject>();
     public GameObject scoreRowPf;
+    public ChatMulti chatMulti;
     // Token: 0x060001CF RID: 463 RVA: 0x0000A36B File Offset: 0x0000856B
     public override void Hide()
     {
@@ -74,6 +75,17 @@ public class GameUIMulti : BaseScreen
             this.DeathPoint.text = "/0";
             this.timeRemaining = BaseManager<DataManager>.Instance.GlobalConfig.maxTimeDeathMath * 60f;
             countdownTime = DataManager.Instance.GlobalConfig.countdown * 60f;
+        }
+        if (MultiplayerManager.HasInstance())
+        {
+            if (MultiplayerManager.Instance.curTeam)
+            {
+                chatMulti.defaultChannels[1] = "TeamA";
+            }
+            else
+            {
+                chatMulti.defaultChannels[1] = "TeamB";
+            }
         }
         for (int i = 0; i < this.rowKill.Length; i++)
         {

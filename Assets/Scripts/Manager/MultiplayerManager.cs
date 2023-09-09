@@ -21,6 +21,7 @@ public class MultiplayerManager : BaseManager<MultiplayerManager>
     public GameObject[] posB;
     public int curPosA;
     public int curPosB;
+    public CharacterLocomotionMultiplayer curCharacterLocomotion;
     private void Start()
     {
         posA = GameObject.FindGameObjectsWithTag("SpawnA");

@@ -7355,6 +7355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camManager: {fileID: 1007177125994719320}
   playerAudio: {fileID: 4774560654622096452}
+  isChatting: 0
   rigController: {fileID: 5360853967016980330}
   checkTheChange: 0
   maxEnergy: 10

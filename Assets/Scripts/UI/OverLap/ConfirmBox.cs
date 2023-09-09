@@ -31,6 +31,9 @@ public class ConfirmBox : BaseOverlap
 	// Token: 0x060001B1 RID: 433 RVA: 0x00009D5D File Offset: 0x00007F5D
 	public void OnConfirmButton()
 	{
+#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+#endif
 		Application.Quit();
 	}
 }
