@@ -99,8 +99,9 @@ public class OverlapFade : BaseOverlap
 	// Token: 0x060001B9 RID: 441 RVA: 0x00009F59 File Offset: 0x00008159
 	private void OnFinish()
 	{
+
 		this.Hide();
-	}
+    }
 
 	// Token: 0x040001C0 RID: 448
 	[SerializeField]

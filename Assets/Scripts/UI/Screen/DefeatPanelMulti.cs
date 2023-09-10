@@ -19,7 +19,11 @@ public class DefeatPanelMulti : BaseScreen
 	public override void Init()
 	{
 		base.Init();
-		base.StartCoroutine(this.ReturnMenu());
+        if (AudioManager.HasInstance())
+        {
+            AudioManager.Instance.PlaySE("Defeat" + Random.Range(0, 3));
+        }
+        base.StartCoroutine(this.ReturnMenu());
 	}
 
 	// Token: 0x060001CC RID: 460 RVA: 0x0000A352 File Offset: 0x00008552

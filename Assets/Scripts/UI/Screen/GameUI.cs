@@ -67,8 +67,16 @@ public class GameUI : BaseScreen
             this.rowKill[i].orderNum = i;
             this.rowKill[i].gameObject.SetActive(false);
         }
+        StartCoroutine(SetUp());
     }
-
+    public IEnumerator SetUp()
+    {
+        yield return new WaitForSeconds(1f);
+        if (AudioManager.HasInstance())
+        {
+            AudioManager.Instance.PlaySE("Victory" + UnityEngine.Random.Range(0, 4));
+        }
+    }
     // Token: 0x060001D2 RID: 466 RVA: 0x0000A5EC File Offset: 0x000087EC
     private void Update()
     {

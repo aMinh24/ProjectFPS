@@ -6,12 +6,10 @@ using UnityEngine.UI;
 
 public class LoginPanel : BaseScreen
 {
-    public TextMeshProUGUI textMeshProUGUI;
     public InputField name;
     #region panel
     private void Update()
     {
-        textMeshProUGUI.SetText("network: "+ PhotonNetwork.NetworkClientState.ToString());
         if (Input.GetKeyDown(KeyCode.Return))
         {
             OnLoginButton();

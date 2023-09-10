@@ -144,7 +144,11 @@ public class WeaponRaycast : MonoBehaviour
 		{
 			BaseManager<ListenerManager>.Instance.BroadCast(ListenType.UPDATE_AMMO, this);
 		}
-		shell.Emit(1);
+		if (shell != null)
+		{
+            shell.Emit(1);
+        }
+
 		foreach (ParticleSystem particleSystem in this.muzzleFlash)
 		{
 			particleSystem.Emit(particleSystem.maxParticles);

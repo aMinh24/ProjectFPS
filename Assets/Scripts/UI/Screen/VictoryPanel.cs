@@ -17,7 +17,8 @@ public class VictoryPanel : BaseScreen
 	public override void Init()
 	{
 		base.Init();
-		base.StartCoroutine(this.ReturnMenu());
+        
+        base.StartCoroutine(this.ReturnMenu());
 	}
 
 	// Token: 0x060001EB RID: 491 RVA: 0x0000ABD2 File Offset: 0x00008DD2

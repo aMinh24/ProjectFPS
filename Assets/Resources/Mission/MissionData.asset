@@ -16,14 +16,14 @@ MonoBehaviour:
   - id: 1
     isClaimed: 0
     missionName: Mission1
-    isFinished: 0
+    isFinished: 1
     timeTarget: 3
     killTarget: 5
     headshotTarget: 0
   - id: 2
     isClaimed: 0
     missionName: Mission2
-    isFinished: 0
+    isFinished: 1
     timeTarget: 5
     killTarget: 10
     headshotTarget: 0

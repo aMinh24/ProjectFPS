@@ -19,6 +19,10 @@ public class VictoryPanelMulti : BaseScreen
 	public override void Init()
 	{
 		base.Init();
+		if (AudioManager.HasInstance())
+		{
+			AudioManager.Instance.PlaySE("Victory" + Random.Range(0, 4));
+		}
 		base.StartCoroutine(this.ReturnMenu());
 	}
 
