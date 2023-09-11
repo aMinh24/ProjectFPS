@@ -1,10 +1,13 @@
 ﻿using Photon.Pun;
+using UnityEngine;
 using UnityEngine.UI;
 
 // Token: 0x02000069 RID: 105
 public class MainMenu : BaseScreen
 {
 	public Text name;
+	public GameObject content;
+	public GameObject tutorial;
 	// Token: 0x060001E2 RID: 482 RVA: 0x0000AB23 File Offset: 0x00008D23
 	public override void Hide()
 	{
@@ -23,7 +26,11 @@ public class MainMenu : BaseScreen
 		base.Show(data);
 		name.text = PhotonNetwork.NickName;
 	}
-
+	public void OnTutorialButton(bool check)
+	{
+		tutorial.SetActive(check);
+		content.SetActive(!check);
+	}
 	// Token: 0x060001E5 RID: 485 RVA: 0x0000AB3C File Offset: 0x00008D3C
 	public void OnCampaignButton()
 	{
