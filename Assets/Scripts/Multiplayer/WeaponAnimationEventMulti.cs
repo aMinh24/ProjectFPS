@@ -22,6 +22,10 @@ public class WeaponAnimationEventMulti : MonoBehaviourPun
 	// Token: 0x060000F4 RID: 244 RVA: 0x000066C7 File Offset: 0x000048C7
 	public void OnAudioEvent(string audioName)
 	{
+		if (audioName.Equals("walk"))
+		{
+			audioName += Random.Range(0, 5);
+		}
         if (BaseManager<AudioManager>.HasInstance())
 		{
 			playerAudio.PlayOneShot(BaseManager<AudioManager>.Instance.GetAudioClip(audioName));

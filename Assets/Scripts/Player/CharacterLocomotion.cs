@@ -63,7 +63,11 @@ public class CharacterLocomotion : MonoBehaviour
 	{
 		this.checkTheChange = this.isCrouching;
 		this.animator.SetBool(this.isCrouchingParam, this.isCrouching);
-		if (this.isCrouching)
+        if (AudioManager.HasInstance())
+        {
+            AudioManager.Instance.PlaySE("Crouch");
+        }
+        if (this.isCrouching)
 		{
 			this.activeWeapon.GetActiveWeapon().weaponRecoil.recoilModifier = 0.5f;
 			return;
@@ -156,6 +160,13 @@ public class CharacterLocomotion : MonoBehaviour
 		Vector3 vector = this.velocity * Time.fixedDeltaTime;
 		vector += this.CalculateAircontrol();
 		this.characterController.Move(vector);
+		if (this.characterController.isGrounded)
+		{
+			if (AudioManager.HasInstance())
+			{
+				AudioManager.Instance.PlaySE("Land");
+			}
+		}
 		this.isJumping = !this.characterController.isGrounded;
 		this.rootMotion = Vector3.zero;
 		this.animator.SetBool("IsJumping", this.isJumping);
@@ -172,6 +183,10 @@ public class CharacterLocomotion : MonoBehaviour
 	{
 		if (!this.isJumping)
 		{
+			if (AudioManager.HasInstance())
+			{
+				AudioManager.Instance.PlaySE("Jump");
+			}
 			float inAir = Mathf.Sqrt(2f * this.gravity * this.jumpHeight);
 			this.SetInAir(inAir);
 		}

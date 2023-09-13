@@ -21,6 +21,10 @@ public class WeaponAnimationEvent : MonoBehaviour
 	{
 		if (BaseManager<AudioManager>.HasInstance())
 		{
+			if (audioName.Equals("walk"))
+			{
+				audioName += Random.Range(0, 5);
+			}
 			BaseManager<AudioManager>.Instance.PlaySE(audioName, 0f);
 		}
 	}

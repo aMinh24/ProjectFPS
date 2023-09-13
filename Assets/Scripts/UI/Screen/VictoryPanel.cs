@@ -31,7 +31,11 @@ public class VictoryPanel : BaseScreen
 	// Token: 0x060001EC RID: 492 RVA: 0x0000ABDB File Offset: 0x00008DDB
 	public IEnumerator ReturnMenu()
 	{
-		yield return new WaitForSeconds(5f);
+        if (AudioManager.HasInstance())
+        {
+            AudioManager.Instance.PlaySE("Victory"+Random.Range(0,	3));
+        }
+        yield return new WaitForSeconds(5f);
 		if (BaseManager<UIManager>.HasInstance())
 		{
 			BaseManager<UIManager>.Instance.ShowNotify<LoadingGame>("Main", true);

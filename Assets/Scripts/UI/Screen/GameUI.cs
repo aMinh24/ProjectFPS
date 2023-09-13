@@ -74,7 +74,7 @@ public class GameUI : BaseScreen
         yield return new WaitForSeconds(1f);
         if (AudioManager.HasInstance())
         {
-            AudioManager.Instance.PlaySE("Victory" + UnityEngine.Random.Range(0, 4));
+            AudioManager.Instance.PlaySE("GO");
         }
     }
     // Token: 0x060001D2 RID: 466 RVA: 0x0000A5EC File Offset: 0x000087EC

@@ -21,7 +21,7 @@ public class DefeatPanelMulti : BaseScreen
 		base.Init();
         if (AudioManager.HasInstance())
         {
-            AudioManager.Instance.PlaySE("Defeat" + Random.Range(0, 3));
+            AudioManager.Instance.PlaySE("Defeat" + Random.Range(0, 2));
         }
         base.StartCoroutine(this.ReturnMenu());
 	}
