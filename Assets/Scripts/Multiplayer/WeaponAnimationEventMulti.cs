@@ -5,6 +5,7 @@ using Photon.Pun;
 public class WeaponAnimationEventMulti : MonoBehaviourPun
 {
 	public AudioSource playerAudio;
+	public AudioSource weaponAudio;
 	// Token: 0x060000F2 RID: 242 RVA: 0x000066AB File Offset: 0x000048AB
 	public void OnAnimationEvent(string eventName)
 	{
@@ -25,11 +26,15 @@ public class WeaponAnimationEventMulti : MonoBehaviourPun
 		if (audioName.Equals("walk"))
 		{
 			audioName += Random.Range(0, 5);
-		}
-        if (BaseManager<AudioManager>.HasInstance())
+            if (BaseManager<AudioManager>.HasInstance())
+            {
+                playerAudio.PlayOneShot(BaseManager<AudioManager>.Instance.GetAudioClip(audioName));
+            }
+        }
+		else
 		{
-			playerAudio.PlayOneShot(BaseManager<AudioManager>.Instance.GetAudioClip(audioName));
-		}
+            weaponAudio.PlayOneShot(BaseManager<AudioManager>.Instance.GetAudioClip(audioName));
+        }
 	}
 
 	// Token: 0x04000134 RID: 308
